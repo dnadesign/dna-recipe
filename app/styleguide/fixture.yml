@@ -1,0 +1,14 @@
+Site:
+  link1:
+    Link: '#link1'
+    MenuTitle: Home
+  link2:
+    Link: '#link2'
+    MenuTitle: About
+  link3:
+    Link: '#link3'
+    MenuTitle: Contact
+
+Template:
+  Menu:
+    Menu: =>Site.link1, =>Site.link2, =>Site.link3

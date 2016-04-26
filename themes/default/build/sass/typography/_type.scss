@@ -1,0 +1,53 @@
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+	font-family: $font;
+	-moz-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+#Text elements
+
+Template: SGCMSText
+
+Generic text elements such as paragraphs, strong, em, sup, sub, hr and links
+
+Styleguide 3.2
+*/
+
+.typography {
+	p {
+		font-weight: 400;
+		font-family: $font;
+		font-size: $base-font-size;
+		line-height: 1.5em;
+		color: $font-color;
+
+		b, strong {
+			font-weight: 700;
+		}
+	}
+
+	blockquote {
+		border-left: 5px solid $primary-color;
+		padding-left: 20px;
+		margin-left: 0;
+	}
+
+	//font tests for styleguide
+	.test--default h1,
+	.test--default p {
+		font-family: $font;
+	}
+
+	.test--sans h1,
+	.test--sans p {
+		font-family: $font-heading--sans;
+	}
+
+	.test--serif h1,
+	.test--serif p {
+		font-family: $font-heading--serif;
+	}
+
+}

@@ -1,0 +1,39 @@
+/*
+ * A file for Custom mixins and placeholders
+ */
+
+// Responsive Mixins
+
+@mixin respond($media) {
+	@if $media == sm {
+		@media screen and (max-width: $tablet-device-width) {
+			@content;
+		}
+	}
+	@else if $media == md {
+		@media screen and (min-width: $small-tablet) {
+			@content;
+		}
+	}
+	@else if $media == lg {
+		@media screen and (min-width: $tablet-device-width) {
+			 @content;
+		}
+	}
+	@else if $media == xl {
+		@media screen and (min-width: $document-width) {
+			@content;
+		}
+	}
+	@else if $media == xxl {
+		@media screen and (min-width: $king-size) {
+			@content;
+		}
+	}
+	@else if $media == print {
+		@media print { @content; }
+	}
+	@else {
+		@media only screen and ('#{$media}') { @content; }
+	}
+}

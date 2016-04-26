@@ -1,0 +1,92 @@
+
+%decorated-link {
+	left: 0;
+	margin: 0 5px 0 0px;
+
+	&:before {
+		color: $font-color;
+		font-size: 1.4em;
+		line-height: 1.2em;
+		position: relative;
+		top: 2px;
+		text-decoration: none;
+		zoom: 1;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		margin-right:3px;
+	}
+}
+
+.typography {
+	a {
+		color: $link-color;
+		text-decoration:none;
+
+		h3 & {
+			color: $font-color;
+			i {
+				color: $link-color;
+			}
+		}
+
+		&:visited {
+			color:$link-visited-color;
+
+			h3 & {
+				color: $font-color;
+			}
+		}
+
+		&:hover, &:focus {
+			color:$link-hover-color;
+
+			h3 & {
+				color:$link-color;
+			}
+		}
+	}
+}
+
+a[href$=".png"],
+a[href$=".PNG"],
+a[href$=".gif"],
+a[href$=".GIF"],
+a[href$=".jpg"],
+a[href$=".JPG"],
+a[href$=".jpeg"],
+a[href$=".JPEG"] {
+	@extend %decorated-link;
+	&:before {
+
+	}
+}
+
+a[href$=".doc"],
+a[href$=".DOC"],
+a[href$=".docx"],
+a[href$=".DOCX"],
+.doc,
+a[href$=".xls"],
+a[href$=".XLS"],
+a[href$=".xlsx"],
+a[href$=".XLSX"],
+.xls,
+a[href$=".pdf"],
+a[href$=".PDF"],
+.pdf {
+	@extend %decorated-link;
+
+	&:before {
+
+	}
+}
+
+.external {
+	@extend %decorated-link;
+
+	&:before {
+
+	}
+}

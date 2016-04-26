@@ -1,0 +1,127 @@
+
+// Import brand variables (colours, fonts, et al)
+@import "var-brand";
+
+// This file is for the global variables used across your site
+
+
+// Environment variables. Note some projects put all css into assets,
+// so the path needs to be able to find the css from there
+$theme-name: 'default';
+$file-path: "../../../themes/"+$theme-name;
+
+$base-font-size: 16px;
+
+$font: 'helvetica neue', helvetica, arial, sans-serif;
+$font-heading--sans: helvetica, arial, sans-serif;
+$font-heading--serif: times, serif;
+
+
+// Theme colors
+$primary-brand-color: $brand-blue;
+
+$default-color: #EFEFEF;
+$primary-color: #E9004C;
+$secondary-color: #354A5E;
+$success-color: #94B541;
+$error-color: #FC5F5E;
+$warning-color: #EECA44;
+
+$font-color: $brand-blue-dark;
+
+$link-color: darken($secondary-color, 20%);
+$link-hover-color: lighten($link-color, 10%);
+$link-visited-color: darken($link-color, 10%);
+
+// Radius
+$button-radius: 3px;
+
+// Menu bar
+$menu-color: $primary-brand-color;
+$menu-link-color: #fff;
+$menu-link-hover-color: #fff;
+$menu-link-hover-background-color: darken($primary-brand-color, 15%);
+
+// Footer
+$footer-color: $menu-color;
+$footer-link-color: $menu-link-color;
+$footer-link-hover-color: $menu-link-hover-color;
+$footer-link-hover-background-color: $menu-link-hover-background-color;
+
+
+// Tables
+$table-header-font-family: $font;
+$table-bgcolor:  #fff;
+$table-thead-color:  $font-color;
+$table-thead-bgcolor:  $default-color;
+$table-border-size:  1px;
+$table-border-style:  solid;
+$table-border-color:  #e5e5e5;
+$table-cell-border-size:  1px;
+$table-cell-border-color:  #e5e5e5;
+$table-cell-border-style:  solid;
+
+// Max page width (applied to container elements)
+$container-width: 1275px;
+
+// Responsiveness Settings
+$min-device-width: 320px;
+$small-tablet: 480px;
+$tablet-device-width: 750px;
+$document-width:  1160px;
+$king-size: 1880px;
+$max-device-width:  2880px;
+
+$gutter: 30px;
+
+
+/*
+# Colours - assigned palette
+
+SectionTemplate: SGColorPalette
+
+$primary-brand-color - #212E3A;
+$default-color - #EFEFEF;
+$primary-color - #E9004C;
+$secondary-color - #354A5E;
+$success-color - #94B541;
+$error-color - #FC5F5E;
+$warning-color - #EECA44;
+
+
+Styleguide 1.1.2
+*/
+
+
+/*
+## Font Test
+
+<div class="test test--default">
+	<h3>Default</h3>
+
+	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+</div>
+<div class="test test--serif">
+	<h3>Serif</h3>
+
+	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+</div>
+<div class="test test--sans">
+	<h3>Sans</h3>
+	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+</div>
+
+Styleguide 1.2.4
+*/

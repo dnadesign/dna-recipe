@@ -1,0 +1,157 @@
+/*
+#Images
+
+Template: SGCMSImages
+
+Styling for CMS images inserted via tinymce. Options are: <br /><br />
+&bull; Left, text wrapping<br />
+&bull; Right, text wrapping<br />
+&bull; Left alone (no text wrapping)<br />
+&bull; Centered alone (no text wrapping)<br /><br />
+... with optional captions
+
+
+Styleguide 3.3.1
+*/
+
+
+.captionImage, .media {
+	.caption {
+		font-style:italic;
+	}
+}
+
+iframe {
+	border: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+
+	&.right {
+		float:right;
+		clear:right;
+		margin: 18px 0 18px 80px;
+	}
+	&.left {
+		float:left;
+		clear:left;
+		margin: 18px 80px 18px 0px;
+	}
+	&.leftAlone {
+		margin: 18px 80px 18px 0;
+		float: none;
+		display: block;
+		clear: both;
+	}
+	&.center {
+		display:block;
+		margin: 18px auto 18px auto;
+		clear: both;
+	}
+}
+
+/*
+#Media (youtube, etc)
+
+CMS Styling for youtube, vimeo etc media included via oembed. These work much the same as images. Options are: <br /><br />
+&bull; Left, text wrapping<br />
+&bull; Right, text wrapping<br />
+&bull; Left alone (no text wrapping)<br />
+&bull; Centered alone (no text wrapping)
+
+Template: SGCMSMedia
+
+Styleguide 3.3.2
+*/
+
+
+/* Media insert formatting  (Youtube embed) */
+.media {
+	&.center {
+		margin:0 auto;
+		text-align:center;
+	}
+	&.left {
+		float:left;
+		clear:left;
+		margin: 0 18px 18px 0px;
+	}
+	&.leftAlone {
+		margin: 0 18px 18px 0;
+		float: none;
+		display: block;
+		clear: both;
+	}
+	&.right {
+		float:right;
+		clear:right;
+		margin: 0 0 18px 18px;
+	}
+}
+
+figure.featured-image {
+
+	img {
+		margin-bottom:0;
+	}
+}
+
+.captionImage, figure.featured-image {
+	max-width: 100%;
+
+	&.left {
+		float: left;
+		margin: 0 80px 40px 20px;
+	}
+	&.right {
+		float:right;
+		margin: 0 0 40px 80px;
+	}
+	&.leftAlone {
+		float:none;
+		margin: 0 80px 40px 0px;
+	}
+
+	&.center {
+		margin: 0 auto 40px;
+		p {
+			margin: 0px 20px 40px 20px;
+		}
+	}
+
+	&.left,
+	&.right,
+	&.leftAlone,
+	&.center {
+		@include respond(sm) {
+			margin-bottom:40px;
+			margin-top:10px;
+			p {
+				text-align: center;
+				margin: 0px 0 40px 20px;
+			}
+		}
+	}
+
+	p {
+		clear: both;
+		margin: 0px;
+		text-align: center;
+		color: #ccc;
+		padding-top: 15px;
+		font-weight: normal;
+		font-family: $font;
+		font-size: 16px;
+		line-height: 22px;
+		padding-bottom: 2px;
+
+	}
+
+	img {
+		margin: 0 0 5px 0;
+		border: 0;
+	}
+}

@@ -1,0 +1,41 @@
+
+/*
+#Tables
+
+Template: SGCMSTables
+
+Styleguide 3.4
+*/
+
+.typography {
+
+	table {
+		@extend .pure-table;
+		background: $table-bgcolor;
+		border: $table-border-size $table-border-style $table-border-color;
+		font-size: $base-font-size;
+		width: 100%;
+
+		thead {
+			background: $table-thead-bgcolor;
+			color: $table-thead-color;
+
+			th {
+				padding: 0.7em 1.2em;
+			}
+		}
+
+		th {
+			font-family: $table-header-font-family;
+			font-size: 1em;
+			font-weight: 700;
+		}
+
+		td, th {
+			border-left: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+			&:first-child {
+				border: 0;
+			}
+		}
+	}
+}

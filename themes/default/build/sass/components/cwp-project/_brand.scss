@@ -1,0 +1,33 @@
+/*
+ * Styles for header brand element
+ */
+.brand {
+	margin: 0;
+	padding-top: 13px;
+	padding-bottom: 20px;
+
+	a {
+		@extend h1;
+		display: block;
+		float: left;
+		font-size: 72px;
+		margin: 0;
+		overflow:visible;
+		position: relative;
+
+		img {
+			position: absolute;
+			top: -20px;
+			left: 0px;
+		}
+
+		span {
+			float: left;
+			margin-left: 20px;
+		}
+
+		&:visited {
+			color: $font-color;
+		}
+	}
+}

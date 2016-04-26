@@ -1,0 +1,61 @@
+/* Customise search field */
+.search-group {
+	clear: fix;
+
+	.search-query {
+		box-sizing: border-box;
+		float: left;
+		vertical-align: top;
+		display: inline-block;
+		padding: 0.6em 1em;
+		width: 70%;
+		color: $font-color;
+		-webkit-appearance: textfield;
+
+		@include respond(md) {
+			float: none;
+			width: 200px;
+		}
+	}
+
+	.pure-button {
+		float: left;
+		max-width: 30%;
+		border-radius: 0 3px 3px 0;
+		display: inline-block;
+		height: 40px;
+		line-height: normal;
+		margin-left: -7px;
+
+		@include respond(md) {
+			float: none;
+			max-width: none;
+		}
+
+		input {
+			display: block;
+			width: 100%;
+			height: 100%;
+			vertical-align: baseline;
+		}
+	}
+
+	form {
+		float: left;
+		padding: 0px 20px 0;
+		width: 80%;
+
+		@include respond(lg) {
+			float: none;
+			padding: 30px 0px 0;
+			width: auto;
+		}
+	}
+
+	fieldset {
+		text-align: right;
+		padding-left: 0;
+		padding-right: 0;
+		border: 0;
+	}
+}

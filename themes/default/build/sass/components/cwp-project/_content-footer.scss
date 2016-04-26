@@ -1,0 +1,28 @@
+// General styling for the footer at the bottom of content
+.content-footer {
+	margin-top:50px;
+	float:right;
+
+	i {
+		font-size: 1.2em;
+		margin-right: 5px;
+	}
+
+	.pull-left {
+		a {
+			padding-right:20px;
+		}
+	}
+
+	.print-share {
+		text-align:right;
+
+		a {
+			padding-left:20px;
+		}
+	}
+
+	.last-edited {
+		text-align:right;
+	}
+}

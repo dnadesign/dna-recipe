@@ -1,0 +1,15 @@
+
+.hero-unit .content {
+	border-radius: $button-radius;
+	background: $default-color;
+	margin-bottom:30px;
+	width:100%;
+
+	.layout & {
+		padding: 10px 30px;
+	}
+
+	p {
+		font-size: $base-font-size + 3;
+	}
+}

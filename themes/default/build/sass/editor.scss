@@ -1,0 +1,18 @@
+/**
+ * This support file is used to style the WYSIWYG editor in the CMS
+ */
+
+@charset "UTF-8";
+
+.typography {
+	padding:20px;
+}
+
+
+@charset "UTF-8";
+
+@import "utilities/var-globals";
+@import "utilities/mixins";
+@import "utilities/classes";
+
+@import "typography/*";
