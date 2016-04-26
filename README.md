@@ -21,6 +21,9 @@ The default theme uses:
 * Gulp: http://gulpjs.com/
 * Postcss + autoprefixer: This means we don't need to worry about browser prefixes in our own css. Autoprefixer will add these for us. http://postcss.org/
 * Rucksack: "PostCSS CSS super powers library":  http://simplaio.github.io/rucksack/ This lets us do things like clear: fix;
+* The PureCSS micro framework: http://purecss.io/ This is included via npm and a gulp task. If your project requires a more fully featured framework, just remove the references to pure.
+
+Basic templates are provided, based on CWP templates using pure as a framework. Delete what you don't need.
 
 
 ## Styleguide
