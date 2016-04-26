@@ -15,6 +15,14 @@ Using terminal:
 
 Composer dependencies are intentionally not tied to versions, but you should update these to use specific releases before the site you are working on goes live.
 
+## Theme
+The default theme uses:
+* Sass: http://sass-lang.com/
+* Gulp: http://gulpjs.com/
+* Postcss + autoprefixer: This means we don't need to worry about browser prefixes in our own css. Autoprefixer will add these for us. http://postcss.org/
+* Rucksack: "PostCSS CSS super powers library":  http://simplaio.github.io/rucksack/ This lets us do things like clear: fix;
+
+
 ## Styleguide
 
 Once you have your silverstripe project setup, the styleguide should be available at:
