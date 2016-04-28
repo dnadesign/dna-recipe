@@ -4,32 +4,48 @@
 
 // Responsive Mixins
 
+// NOTE: the first two media queries are to limit styles to mobile sizes
+// xs doesn't need a media query to apply styles - they will usually
+// be the default
 @mixin respond($media) {
-	@if $media == sm {
-		@media screen and (max-width: $tablet-device-width) {
+
+	@if $media == xs__max {
+		@media screen and (max-width: $respond-xs - 1) {
 			@content;
 		}
 	}
+
+	// everything up to regular tablet size
+	@if $media == md__max {
+		@media screen and (max-width: $respond-md - 1) {
+			@content;
+		}
+	}
+
+	// at least small tablet size
+	@else if $media == sm {
+		@media screen and (min-width: $respond-sm) {
+			@content;
+		}
+	}
+	// at least regular tablet size
 	@else if $media == md {
-		@media screen and (min-width: $small-tablet) {
+		@media screen and (min-width: $respond-md) {
 			@content;
 		}
 	}
+	// at least desktop
 	@else if $media == lg {
-		@media screen and (min-width: $tablet-device-width) {
-			 @content;
+		@media screen and (min-width: $respond-lg) {
+			@content;
 		}
 	}
 	@else if $media == xl {
-		@media screen and (min-width: $document-width) {
+		@media screen and (min-width: $respond-xl) {
 			@content;
 		}
 	}
-	@else if $media == xxl {
-		@media screen and (min-width: $king-size) {
-			@content;
-		}
-	}
+
 	@else if $media == print {
 		@media print { @content; }
 	}

@@ -1,6 +1,8 @@
 
 // Import brand variables (colours, fonts, et al)
 @import "var-brand";
+@import "var-breakpoints";
+
 
 // This file is for the global variables used across your site
 
@@ -63,15 +65,7 @@ $table-cell-border-style:  solid;
 
 // Max page width (applied to container elements)
 $container-width: 1275px;
-
-// Responsiveness Settings
-$min-device-width: 320px;
-$small-tablet: 480px;
-$tablet-device-width: 750px;
-$document-width:  1160px;
-$king-size: 1880px;
 $max-device-width:  2880px;
-
 $gutter: 30px;
 
 

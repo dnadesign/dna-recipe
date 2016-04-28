@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "805c4ed1802788419dedf3392d3120d1",
-    "content-hash": "e1753724097e57f8fc9ba33f9966c72e",
+    "hash": "5107285107ab1a22f5e040b931b18af0",
+    "content-hash": "b28174f2e513007da4553deb8d70caeb",
     "packages": [
         {
             "name": "assertchris/hash-compat",
@@ -654,31 +654,6 @@
                 "workflow"
             ],
             "time": "2016-04-17 23:34:18"
-        },
-        {
-            "name": "silverstripe/documentconverter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.cwp.govt.nz/silverstripe/documentconverter.git",
-                "reference": "28d7b58f1edbe790643b3ff02a8cbea10f96e3bc"
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "description": "Imports OpenOffice-compatible files (doc, docx, etc) into SilverStripe pages and content.",
-            "keywords": [
-                "cwp",
-                "silverstripe"
-            ],
-            "time": "2016-02-04 00:49:17"
         },
         {
             "name": "silverstripe/environmentcheck",
@@ -1663,12 +1638,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "33ea89fc0c2d6f4be343ddc71a9cefe8dec99dae"
+                "reference": "3a1c221c8fb4fd0ef94e81a33fcba3514f056a4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/33ea89fc0c2d6f4be343ddc71a9cefe8dec99dae",
-                "reference": "33ea89fc0c2d6f4be343ddc71a9cefe8dec99dae",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/3a1c221c8fb4fd0ef94e81a33fcba3514f056a4f",
+                "reference": "3a1c221c8fb4fd0ef94e81a33fcba3514f056a4f",
                 "shasum": ""
             },
             "require": {
@@ -1691,7 +1666,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2016-02-23 11:24:12"
+            "time": "2016-04-27 18:17:47"
         },
         {
             "name": "unclecheese/display-logic",

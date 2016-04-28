@@ -15,7 +15,6 @@
 		"silverstripe/siteconfig": "3.3.1",
 		"silverstripe/reports": "*",
 		"silverstripe/contentreview": "*",
-		"silverstripe/documentconverter": "*",
 		"silverstripe-australia/gridfieldextensions": "*",
 		"silverstripe/html5": "*",
 		"silverstripe/iframe": "*",
