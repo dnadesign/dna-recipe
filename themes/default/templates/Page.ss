@@ -52,6 +52,6 @@
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=$SiteConfig.AddThisProfileID"></script>
 	<% end_if %>
 
-	<!-- <script type="text/javascript" src="{$BaseHref}{$ThemeDir}/js/libs/modernizr.min.js"></script> -->
+	<script type="text/javascript" src="{$BaseHref}{$ThemeDir}/js/script.min.js"></script>
 </body>
 </html>

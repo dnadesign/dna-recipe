@@ -60,8 +60,7 @@ gulp.task('pure', function() {
  */
 gulp.task('make-css', function() {
 	return gulp.src([
-		'css/pure.src.css',
-		'build/sass/style.scss',
+
 		])
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
