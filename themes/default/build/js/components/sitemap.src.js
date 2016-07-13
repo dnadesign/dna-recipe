@@ -1,6 +1,27 @@
 // SITEMAP
-jQuery(function($) {
+DO.Subscribe('app:ready', function(e, $) {
 	"use strict";
+
+
+	function init() {
+		attachEvents();
+	}
+
+	function attachEvents() {
+		$('.sitemap').on('click', '.button', function() {
+			var self = $(this),
+				target = $(self.attr('data-target'));
+
+			// only do an ajax request if the content isn't loaded
+			if(target.html().length === 0) {
+				requestAjax(target, self);
+			}
+
+			toggleChildren(target, self);
+
+			return false;
+		});
+	}
 
 	function requestAjax(target, self) {
 		self.addClass('loading');
@@ -27,28 +48,6 @@ jQuery(function($) {
 			self.attr('aria-expanded', 'false');
 			self.children('.linkText').replaceWith('<span class="linkText">Expand section</span>');
 		}
-	}
-
-
-	function attachEvents() {
-		$('.sitemap').on('click', '.button', function() {
-			var self = $(this),
-				target = $(self.attr('data-target'));
-
-			// only do an ajax request if the content isn't loaded
-			if(target.html().length === 0) {
-				requestAjax(target, self);
-			}
-
-			toggleChildren(target, self);
-
-			return false;
-		});
-	}
-
-
-	function init() {
-		attachEvents();
 	}
 
 	init();

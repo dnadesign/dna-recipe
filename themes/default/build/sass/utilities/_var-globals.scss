@@ -11,24 +11,30 @@
 // so the path needs to be able to find the css from there
 $theme-name: 'default';
 $file-path: "../../../themes/"+$theme-name;
+$image-path: $file-path + "/images/";
+$svg-path: $file-path + "/images/svg/";
 
 $base-font-size: 16px;
 
 $font: 'helvetica neue', helvetica, arial, sans-serif;
+$font-medium: 'helvetica neue', helvetica, arial, sans-serif;
+$font-bold: 'helvetica neue', helvetica, arial, sans-serif;
+$font-italic: 'helvetica neue', helvetica, arial, sans-serif;
+
 $font-heading--sans: helvetica, arial, sans-serif;
 $font-heading--serif: times, serif;
+$font-heading-weight: 700;
 
 
 // Theme colors
-$primary-brand-color: $brand-blue;
-
-$default-color: #EFEFEF;
+$default-color: $brand-default;
 $primary-color: #E9004C;
 $secondary-color: #354A5E;
 $success-color: #94B541;
 $error-color: #FC5F5E;
 $warning-color: #EECA44;
 
+$body-bg: $default-color;
 $font-color: $brand-blue-dark;
 
 $link-color: darken($secondary-color, 20%);
@@ -39,10 +45,10 @@ $link-visited-color: darken($link-color, 10%);
 $button-radius: 3px;
 
 // Menu bar
-$menu-color: $primary-brand-color;
+$menu-color: $primary-color;
 $menu-link-color: #fff;
 $menu-link-hover-color: #fff;
-$menu-link-hover-background-color: darken($primary-brand-color, 15%);
+$menu-link-hover-background-color: darken($primary-color, 15%);
 
 // Footer
 $footer-color: $menu-color;
@@ -64,7 +70,7 @@ $table-cell-border-color:  #e5e5e5;
 $table-cell-border-style:  solid;
 
 // Max page width (applied to container elements)
-$container-width: 1275px;
+$container-width: 1200px;
 $max-device-width:  2880px;
 $gutter: 30px;
 
@@ -74,7 +80,6 @@ $gutter: 30px;
 
 SectionTemplate: SGColorPalette
 
-$primary-brand-color - #212E3A;
 $default-color - #EFEFEF;
 $primary-color - #E9004C;
 $secondary-color - #354A5E;
@@ -90,26 +95,9 @@ Styleguide 1.1.2
 /*
 ## Font Test
 
-<div class="test test--default">
+<div class="test">
 	<h3>Default</h3>
 
-	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-</div>
-<div class="test test--serif">
-	<h3>Serif</h3>
-
-	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-</div>
-<div class="test test--sans">
-	<h3>Sans</h3>
 	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
 	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
 	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>

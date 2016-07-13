@@ -21,10 +21,7 @@
 	<div class="sg-container-fluid">
 		$Layout
 	</div>
-
-
-	<script src="https://use.typekit.net/pwi0cvy.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	
 	<script type="text/javascript" src="{$BaseHref}{$ThemeDir}/js/script.min.js"></script>
 </body>
 </html>

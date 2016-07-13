@@ -10,11 +10,43 @@ Styleguide 3.4
 .typography {
 
 	table {
-		@extend .pure-table;
+		@extend .pure-table !optional;
 		background: $table-bgcolor;
 		border: $table-border-size $table-border-style $table-border-color;
-		font-size: $base-font-size;
+		border-top: 5px solid $primary-color;
+		border-bottom: 5px solid $primary-color;
 		width: 100%;
+		margin-bottom: 40px;
+		table-layout: fixed;
+
+		&.table--data {
+			table-layout: auto;
+		}
+
+		@include respond(lg__max) {
+			display: block;
+			thead, tbody, th, td, tr {
+				display: block;
+			}
+		}
+
+		@include respond(print) {
+			display: table;
+			margin-top: 30px;
+
+			thead {
+				display: table-header-group;
+			}
+			tbody {
+				display: table-row-group;
+			}
+			td, th {
+				display: table-cell;
+			}
+			tr {
+				display: table-row;
+			}
+		}
 
 		thead {
 			background: $table-thead-bgcolor;
@@ -22,19 +54,115 @@ Styleguide 3.4
 
 			th {
 				padding: 0.7em 1.2em;
+				font-family: $font-bold;
+				font-size: 20px;
+				line-height: 25px;
+				border-bottom: 2px solid $table-cell-border-color;
+
+			}
+
+			tr {
+				@include respond(lg__max) {
+					position: absolute;
+					top: -9999px;
+					left: -9999px;
+				}
+			}
+		}
+
+		td, th {
+			vertical-align: top;
+			border-left: 0;
+
+			@include respond(lg__max) {
+				padding: 0;
+			}
+
+			@include respond(lg) {
+				border-right: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+			}
+
+			&:last-child {
+				border-right: 0;
+			}
+			@include respond(lg) {
+				&:first-child {
+					padding-left: 0;
+				}
 			}
 		}
 
 		th {
 			font-family: $table-header-font-family;
-			font-size: 1em;
-			font-weight: 700;
+			font-weight: normal;
+			text-align: left;
+			border-right: 0;
 		}
 
-		td, th {
-			border-left: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
-			&:first-child {
-				border: 0;
+		td {
+			@include respond(lg) {
+				width: 40%;
+			}
+		}
+
+		tbody {
+			th {
+				margin-bottom: 23px;
+				font-size: 18px;
+				font-family: $font-bold;
+				line-height: 20px;
+
+				a,
+				a:visited {
+					color: $primary-color;
+
+					@include respond(print) {
+
+						display: block;
+						min-width: 100px;
+						&:after {
+							display: none;
+						}
+					}
+				}
+
+				@include respond(lg) {
+					width: 20%;
+					max-width: 150px;
+					font-size: 20px;
+					line-height: 25px;
+				}
+			}
+
+			th,
+			td {
+				@include respond(lg__max) {
+					position: relative;
+				}
+
+				@include respond(lg) {
+					padding: 30px 20px;
+				}
+			}
+
+			tr {
+
+				th {
+					border-top: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+				}
+
+				td {
+					@include respond(lg) {
+						border-top: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+					}
+				}
+
+				&:first-child {
+					th,
+					td {
+						border-top: 0;
+					}
+				}
 			}
 		}
 	}

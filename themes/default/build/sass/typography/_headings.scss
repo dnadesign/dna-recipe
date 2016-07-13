@@ -3,7 +3,7 @@
 
 Template: SGCMSHeadings
 
-Headings come in two fonts: serifed, and sans serif. The serifed font is out fefault. To use the sans-serif font, add
+Headings come in two fonts: serifed, and sans serif. The serifed font is our default. To use the sans-serif font, add
 ``class="sans"`` to your heading
 
 Styleguide 3.1
@@ -12,6 +12,7 @@ Styleguide 3.1
 .typography {
 	h1, h2, h3, h4, h5, h6 {
 		font-family: $font-heading--serif;
+		line-height: 1.3em;
 		&.sans {
 			font-family: $font-heading--sans;
 		}
@@ -19,6 +20,7 @@ Styleguide 3.1
 
 	h1 {
 		font-size: 50px;
+
 		font-weight: 700;
 
 		&.sans {

@@ -1,15 +1,6 @@
-@import '../../css/pure.src';  // import pure as sass for extending
-
 /**
  * This support file is used to style the WYSIWYG editor in the CMS
  */
-
-@charset "UTF-8";
-
-.typography {
-	padding:20px;
-}
-
 
 @charset "UTF-8";
 
@@ -18,3 +9,7 @@
 @import "utilities/classes";
 
 @import "typography/*";
+
+.typography {
+	padding: 20px;
+}

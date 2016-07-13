@@ -1,6 +1,12 @@
 /* Fonts */
 
-// Import Google Web Fonts
+// Note: rucksake font helper process doesn't yet work with sass variables
+// the font-url: '../../../themes/default/fonts/fontname/';
 
-@import url(http://fonts.googleapis.com/css?family=Lobster+Two:400,700,400italic,700italic&subset=latin,latin-ext);
-@import url(http://fonts.googleapis.com/css?family=Nobile:400,400italic,700,700italic);
+// Uses the rucksake font helper
+@font-face {
+	font-family: 'MyCustomFont';
+	font-path: '../../../themes/default/fonts/fontname/NationalWeb-Bold'; // auto generates the file urls needed
+	font-weight: normal;
+	font-style: normal;
+}

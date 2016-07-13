@@ -15,14 +15,23 @@ Styleguide 3.3.1
 */
 
 
-.captionImage, .media {
-	.caption {
-		font-style:italic;
-	}
+svg {
+	max-width: 100%;
 }
 
 iframe {
 	border: 0;
+	max-width: 100%;
+	max-height: 230px;
+	@include respond(sm) {
+		max-height: 300px;
+	}
+	@include respond(md) {
+		max-height: 350px;
+	}
+	@include respond(lg) {
+		max-height: 415px;
+	}
 }
 
 img {
@@ -33,22 +42,22 @@ img {
 	&.right {
 		float:right;
 		clear:right;
-		margin: 18px 0 18px 80px;
+		margin: 30px 0 30px 50px;
 	}
 	&.left {
 		float:left;
 		clear:left;
-		margin: 18px 80px 18px 0px;
+		margin: 30px 50px 30px 0px;
 	}
 	&.leftAlone {
-		margin: 18px 80px 18px 0;
+		margin: 30px 50px 30px 0;
 		float: none;
 		display: block;
 		clear: both;
 	}
 	&.center {
 		display:block;
-		margin: 18px auto 18px auto;
+		margin: 30px auto 30px auto;
 		clear: both;
 	}
 }
@@ -77,10 +86,10 @@ Styleguide 3.3.2
 	&.left {
 		float:left;
 		clear:left;
-		margin: 0 18px 18px 0px;
+		margin: 0 50px 30px 0px;
 	}
 	&.leftAlone {
-		margin: 0 18px 18px 0;
+		margin: 0 50px 30px 0;
 		float: none;
 		display: block;
 		clear: both;
@@ -88,7 +97,7 @@ Styleguide 3.3.2
 	&.right {
 		float:right;
 		clear:right;
-		margin: 0 0 18px 18px;
+		margin: 0 0 30px 50px;
 	}
 }
 
@@ -104,22 +113,19 @@ figure.featured-image {
 
 	&.left {
 		float: left;
-		margin: 0 80px 40px 20px;
+		margin: 5px 50px 30px 20px;
 	}
 	&.right {
 		float:right;
-		margin: 0 0 40px 80px;
+		margin: 5px 0 30px 50px;
 	}
 	&.leftAlone {
 		float:none;
-		margin: 0 80px 40px 0px;
+		margin: 5px 50px 30px 0px;
 	}
 
 	&.center {
-		margin: 0 auto 40px;
-		p {
-			margin: 0px 20px 40px 20px;
-		}
+		margin: 5px auto 30px;
 	}
 
 	&.left,
@@ -127,11 +133,11 @@ figure.featured-image {
 	&.leftAlone,
 	&.center {
 		@include respond(sm) {
-			margin-bottom:40px;
+			margin-bottom:30px;
 			margin-top:10px;
 			p {
 				text-align: center;
-				margin: 0px 0 40px 20px;
+				margin: 0px 0 0 20px;
 			}
 		}
 	}
@@ -140,13 +146,15 @@ figure.featured-image {
 		clear: both;
 		margin: 0px;
 		text-align: center;
-		color: #ccc;
-		padding-top: 15px;
+		padding-top: 1px;
 		font-weight: normal;
 		font-family: $font;
-		font-size: 16px;
-		line-height: 22px;
 		padding-bottom: 2px;
+
+		.typography & {
+			font-size: 0.8em;
+			line-height: 1.5em;
+		}
 
 	}
 

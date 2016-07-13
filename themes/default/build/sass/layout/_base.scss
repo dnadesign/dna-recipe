@@ -1,0 +1,74 @@
+/*
+
+# Responsive Grid Sizes
+
+SectionTemplate: SGGridResponsiveInfo
+
+Styleguide 2.1
+*/
+
+/*
+
+#Responsive Grid Example
+
+Template: SGGridResponsive
+
+The responsive grid uses the fractions from the grid units section, but with modifiers
+to specify which break point they should apply to.
+
+Styleguide 2.1.1
+*/
+
+/*
+
+#Grid Units
+
+Grid styling
+
+Template: SGGrid
+
+Styleguide 2.1.2
+*/
+
+
+* {
+	box-sizing: border-box;
+
+	@include respond(print) {
+		* {
+			background: transparent !important;
+			color: black !important;
+			box-shadow: none !important;
+			text-shadow: none !important;
+			filter: none !important;
+			-ms-filter: none !important;
+			-webkit-text-size-adjust: 100% !important;
+			line-height: 1.5em;
+			-webkit-transition: none !important;
+			transition: none !important;
+		}
+	}
+}
+
+html {
+	position: relative;
+}
+
+body {
+	background-color: $body-bg;
+}
+
+.layout {
+	clear: both;
+}
+
+@include respond(print) {
+	@page {
+		margin: 2cm 2cm 2.5cm 2cm;
+		size: A4;
+	}
+
+	.resourcefooter {
+		display: none;
+	}
+}

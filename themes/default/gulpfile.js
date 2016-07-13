@@ -10,25 +10,27 @@ var gulp = require('gulp'),
 	bulkSass = require('gulp-sass-bulk-import'),
 	postcss      = require('gulp-postcss'),
 	autoprefixer = require('autoprefixer'),
+	rm_hover = require('postcss-hover'), // used to remove pure's default hover states
 	cleanCSS = require('gulp-clean-css'),
 
-	jshint = require('gulp-jslint'),
+	eslint = require('gulp-eslint'),
 	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify');
-
+	uglify = require('gulp-uglify'),
+	plumber = require('gulp-plumber');
 
 
 /**
  * Live browser previews
  */
-gulp.task('browserSync', function() {
+gulp.task('browserSync', ['make-js', 'make-css'], function() {
 	browserSync.init({
 		open: 'external',
-		host: 'localhost',
-		proxy: "localhost/YOURSITENAME",
+		host: 'dna-recipe.dev', // this can be anything at .dev, or localhost, or...
+		proxy: "dna-recipe.dev", // this needs to be your project (localhost, .dev, vagrant domain et al)
 		watchTask: true
 	})
 });
+
 
 
 /**
@@ -40,10 +42,13 @@ gulp.task('pure', function() {
 		'node_modules/purecss/build/pure.css',
 		'node_modules/purecss/build/grids-responsive.css'
 		])
+		.pipe(plumber())
+		.pipe(postcss([ rm_hover() ]))
 		.pipe(concat('pure.css'))
 		.pipe(rename({
 			suffix: '.src'
 		}))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest('css/'))
 });
 
@@ -55,21 +60,21 @@ gulp.task('pure', function() {
  * so that we don't have to manually write browser prefixes
  * Use sourcemaps so that we know where things have come from when using these files
  * Minify CSS using cleanCSS, and output to an style.css file.
- *
- * NOTE: We specify our sources by hand so that they will be in the correct order
  */
 gulp.task('make-css', function() {
-	return gulp.src([
-
-		])
+	return gulp.src('build/sass/style.scss')
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
 		.pipe(sass()) // Using gulp-sass
 		.pipe(cleanCSS({compatibility: 'ie9'}))
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-		.pipe(rucksack())
+		.pipe(rucksack({
+			alias: false
+		}))
 		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write('.'))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest('css/'))
 });
 
@@ -80,33 +85,43 @@ gulp.task('make-css', function() {
  */
 gulp.task('cms-css', function() {
 	return gulp.src('build/sass/editor.scss')
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
 		.pipe(sass()) // Using gulp-sass
 		.pipe(cleanCSS({compatibility: 'ie9'}))
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-		.pipe(rucksack())
+		.pipe(rucksack({
+			alias: false
+		}))
 		.pipe(concat('editor.css'))
 		.pipe(sourcemaps.write('.'))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest('css/'))
 });
 
 
 /**
- * Get all .src.js files in build/js
+ * Get all .js files in build/js/components
  * Run them through jslinting, concat into a single file, uglify,
  * and save as a script.min file
  */
-gulp.task('make-js-src', function() {
-	return gulp.src([
-			'build/js/**/*.src.js'
-		])
-		.pipe(jshint({
-			white: true,
-			global: ['jQuery', 'console'],
-		}))
+gulp.task('make-js-components', function() {
+	return gulp.src('build/js/components/**/*.js')
+		.pipe(plumber())
+		.pipe(eslint({
+			globals: {
+				'jQuery' : true,
+				'console' : true,
+				'document': true
+			},
+			envs: [
+				'browser'
+			]
+		})).pipe(eslint.format())
 		.pipe(sourcemaps.init())
-		.pipe(concat('custom.src.js'))
+		.pipe(concat('components.src.js'))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest('js/src/'))
 		.pipe(sourcemaps.write('.'))
 });
@@ -114,11 +129,11 @@ gulp.task('make-js-src', function() {
 
 /**
  * Include JS dependencies added with npm
- *
  */
 gulp.task('make-js-npm', function() {
 	return gulp.src([
-			'node_modules/jquery/dist/jquery.js'
+			'node_modules/jquery/dist/jquery.js',
+			'node_modules/slick-carousel/slick/slick.js'
 		])
 		.pipe(concat('npm-libs.src.js'))
 		.pipe(gulp.dest('js/src/'))
@@ -126,17 +141,31 @@ gulp.task('make-js-npm', function() {
 
 
 /**
- * Include other js libraries by hand to allow for specific ordering
+ * Include js libraries by hand to allow for specific ordering
  * Skip linting, as these are likely not our own files,
  * Combine with our other dependeniies, uglify, and write to folder
  */
-gulp.task('make-js', ['make-js-src', 'make-js-npm'], function() {
+gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 	return gulp.src([
+			'js/src/npm-libs.src.js',
 			'build/js/lib/html5shiv-printshiv.js',
 			'build/js/lib/modernizr.min.js',
-			'js/src/npm-libs.src.js',
-			'js/src/custom.js'
+			'build/js/lib/classList.js',
+			'build/js/lib/mutation-observers.js',
+			'build/js/lib/pointereventspolyfill.js',
+			'build/js/lib/jquery.placeholder.js',
+			'build/js/lib/toggles-switches.js',
+			'build/js/lib/jquery.whim.src.js',
+			'build/js/lib/response.src.js',
+			'build/js/do.src.js',
+			'build/js/browser_detection.src.js',
+			'build/js/responseTrigger.src.js',
+
+			'js/src/components.js',
+
+			'build/js/start.src.js'
 		])
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/src/'))
@@ -145,15 +174,13 @@ gulp.task('make-js', ['make-js-src', 'make-js-npm'], function() {
 			suffix: '.min'
 		}))
 		.pipe(sourcemaps.write('.'))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest('js'))
 });
-
-
 
 gulp.task('watch', ['pure', 'make-css', 'cms-css', 'make-js', 'browserSync'], function () {
 	gulp.watch('build/sass/**/*.scss', ['make-css', 'cms-css', browserSync.reload]); //watch sass in project sass folder, run tasks
 	gulp.watch('build/js/**/*.js', ['make-js', browserSync.reload]);  //watch js in project js folder, run tasks
-})
-
+});
 
 gulp.task('default', ['watch']);

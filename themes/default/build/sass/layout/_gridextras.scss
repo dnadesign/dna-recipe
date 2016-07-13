@@ -4,9 +4,37 @@ Licesned under the BSD Licesne
 https://github.com/pimbrouwers/Pure-CSS-Push-Pull-Library/blob/master/LICENSE
 */
 
-div[class*="pure-pull"], div[class*="pure-push"]{
+.pure-g--padding > [class*="pure-u"] {
+	box-sizing: border-box;
+	padding: 0 30px;
+	letter-spacing: normal;
+}
+
+.pure-g--centered {
+	text-align: center;
+
+	> [class*="pure-u"]:not(.text--center) {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+
+		@include respond(print) {
+			margin: none;
+		}
+	}
+}
+
+[class*="pure-pull"],
+[class*="pure-push"] {
 	position: relative;
 }
+
+.pure-g {
+	// IE fix
+	display: flexbox;
+	flex-flow: row wrap;
+}
+
 
 @media screen and (min-width: 35.5em) {
 	.pure-push-sm-1-24 {

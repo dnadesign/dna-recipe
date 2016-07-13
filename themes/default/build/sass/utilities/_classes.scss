@@ -31,6 +31,16 @@
 	font-size: $base-font-size - 3;
 }
 
+.text--left {
+	text-align: left;
+}
+.text--center {
+	text-align: center;
+}
+.text--right {
+	text-align: right;
+}
+
 /**
  * Screen reader helper classes
  */
@@ -44,6 +54,7 @@
 	clip: rect(0, 0, 0, 0);
 	border: 0;
 }
+
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
 	position: static;
@@ -52,4 +63,109 @@
 	margin: 0;
 	overflow: visible;
 	clip: auto;
+}
+
+.printonly {
+	display: none;
+
+	@include respond(print) {
+		display: block;
+	}
+}
+
+// responsive visibility classes
+
+html body { // more specifity
+
+	@include respond(xs) {
+		.hidden-xs {
+			display: none;
+		}
+	}
+	@include respond(sm) {
+		.hidden-sm {
+			display: none;
+		}
+	}
+	@include respond(md) {
+		.hidden-md {
+			display: none;
+		}
+	}
+	@include respond(lg) {
+		.hidden-lg {
+			display: none;
+		}
+	}
+	@include respond(xl) {
+		.hidden-xl {
+			display: none;
+		}
+	}
+}
+
+
+// # Links within links and block links
+
+// Apply inner-link to any link you want to embed inside the outer-link
+//
+//  <div class="relativeElement">
+//		<a href="" class="outer-link">
+// 	 	    <span class="sr-only">Click anywhere in the block to go here</span>
+//		</a>
+// 	 	<div class="content">
+//			<a href="" class="inner-link">Click to go somewhere else</a>
+//		</div>
+//	</div>
+//
+
+.inner-link {
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 500;
+	zoom: 1;
+}
+
+// For links that take up the full content space place the outer-link in the
+// html within a relatively positioned block
+// Note: the outer-link should have a sr-only description for accessibility
+
+.outer-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: block;
+
+	&:hover,
+	&:focus,
+	&:active {
+		border: 0;
+	}
+
+	&:focus {
+		outline: 1px dotted #aaa;
+		&:active {
+			outline: none;
+		}
+	}
+
+	// apply innerlink to all sibling links and all children of sibling links
+	~ a,
+	~ * a {
+		@extend .inner-link;
+	}
+
+	~ div {
+		*,
+		& {
+			cursor: pointer;
+			z-index: 0;
+			position: relative;
+		}
+	}
 }
