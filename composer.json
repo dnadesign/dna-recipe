@@ -10,10 +10,10 @@
 		"dnadesign/shipistrano": "dev-master",
 		"jonom/silverstripe-betternavigator": "*",
 		"sheadawson/silverstripe-linkable": "*",
-		"silverstripe/cms": "3.3.1",
-		"silverstripe/framework": "3.3.1",
-		"silverstripe/siteconfig": "3.3.1",
-		"silverstripe/reports": "*",
+		"silverstripe/cms": "3.4.0",
+		"silverstripe/framework": "3.4.0",
+		"silverstripe/siteconfig": "3.4.0",
+		"silverstripe/reports": "3.4.0",
 		"silverstripe/contentreview": "*",
 		"silverstripe-australia/gridfieldextensions": "*",
 		"silverstripe/html5": "*",
@@ -44,6 +44,7 @@
 			"url": "https://github.com/dnadesign/shipistrano.git"
 		}
 	],
+
 	"extra": {
 		"installer-paths": {
 			"cap": ["dnadesign/shipistrano"]
