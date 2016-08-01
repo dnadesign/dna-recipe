@@ -120,7 +120,7 @@ gulp.task('make-js-components', function() {
 			]
 		})).pipe(eslint.format())
 		.pipe(sourcemaps.init())
-		.pipe(concat('components.src.js'))
+		.pipe(concat('components.js'))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest('js/src/'))
 		.pipe(sourcemaps.write('.'))
