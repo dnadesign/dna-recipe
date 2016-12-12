@@ -10,14 +10,33 @@
 @mixin respond($media) {
 
 	@if $media == xs__max {
-		@media screen and (max-width: $respond-xs - 1) {
+		@media screen and (max-width: $respond-xs - 0.01) {
+			@content;
+		}
+	}
+
+	@if $media == sm__max {
+		@media screen and (max-width: $respond-sm - 0.01) {
 			@content;
 		}
 	}
 
 	// everything up to regular tablet size
 	@if $media == md__max {
-		@media screen and (max-width: $respond-md - 1) {
+		@media screen and (max-width: $respond-md - 0.01) {
+			@content;
+		}
+	}
+
+	@if $media == lg__max {
+		@media screen and (max-width: $respond-lg - 0.01) {
+			@content;
+		}
+	}
+
+
+	@if $media == xl__max {
+		@media screen and (max-width: $respond-xl - 0.01) {
 			@content;
 		}
 	}
