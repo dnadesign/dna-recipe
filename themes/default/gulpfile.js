@@ -21,16 +21,43 @@ var gulp = require('gulp'),
 
 /**
  * Live browser previews
+ * NOTE: This will use a json object outside your project root if you provide one. 
  */
 gulp.task('browserSync', ['make-js', 'make-css'], function() {
-	browserSync.init({
-		open: 'external',
-		host: 'dna-recipe.dev', // this can be anything at .dev, or localhost, or...
-		proxy: "dna-recipe.dev", // this needs to be your project (localhost, .dev, vagrant domain et al)
-		watchTask: true
-	})
-});
+	var path = "../../../_npm_environment.json",
+		file,
+		defaultConfig = {
+			open: 'external',
+			host: 'dna-recipe.dev', // this can be anything at .dev, or localhost, or...
+			proxy: "dna-recipe.dev", // this needs to be your project (localhost, .dev, vagrant domain et al)
+			watchTask: true
+		},
+		bsConfig,
+		newConfig;
 
+
+	if (fs.existsSync(path)) {
+	    file = fs.readFile(path, 'utf8', function (err,data) {
+			if (err) {
+				return console.log(err);
+			}
+            data = JSON.parse(data);
+
+            if(bsConfig = data.browserSync) {
+				if(bsConfig.disabled === true) {
+					console.log('browsersync disabled');
+				    return;
+				}
+
+				newConfig = Object.assign({}, defaultConfig, bsConfig);
+
+				browserSync.init(newConfig);
+            }
+	    });
+	} else {
+		browserSync.init(defaultConfig);
+	}
+});
 
 
 /**
