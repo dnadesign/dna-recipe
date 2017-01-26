@@ -330,7 +330,7 @@ This will make it easier to recognise which template files match which scss file
 
     themes/
       theme-name/
-				build/
+        build/
         css/
         fonts/
         images/
@@ -339,9 +339,9 @@ This will make it easier to recognise which template files match which scss file
 
 ### Testing
 
-[http://www.webpagetest.org/](http://www.webpagetest.org/)
-[http://validator.w3.org/](http://validator.w3.org/)
-[http://wave.webaim.org/](http://wave.webaim.org/)
-[https://addons.mozilla.org/en-US/firefox/addon/accessibility-evaluation-toolb/](https://addons.mozilla.org/en-US/firefox/addon/accessibility-evaluation-toolb/)
-[http://www.totalvalidator.com/](http://www.totalvalidator.com/)
+* [http://www.webpagetest.org/](http://www.webpagetest.org/)
+* [http://validator.w3.org/](http://validator.w3.org/)
+* [http://wave.webaim.org/](http://wave.webaim.org/)
+* [https://addons.mozilla.org/en-US/firefox/addon/accessibility-evaluation-toolb/](https://addons.mozilla.org/en-US/firefox/addon/accessibility-evaluation-toolb/)
+* [http://www.totalvalidator.com/](http://www.totalvalidator.com/)
 
