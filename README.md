@@ -260,9 +260,26 @@ Work with your framework, not against it. If you are new to the framework, take 
 
 Deciding upon a framework is up to the scrum team and depends on the best interest of the client and the users. Think about maintainability for the long term. How easy it is for other developers outside of your scrum team to become productive when dealing with the code? Is the framework well documented?
 
-### Grids
+Below are some of the framework and libraries we've used on mutiple projects and found to be robust accesible and easy to use.
 
-Different frameworks do grids differently. Before you start building the scaffolding of a page, make sure that the grid you plan to use matches your design. Never use negative margins to ‘correct’ a grid. If the design doesn’t match a 12 column grid, use another grid.
+#### Grids: PureCSS
+PureCSS grids can be customised to as many columns as required and also handles a different number of columns per breakpoint if this is required, i.e 3 cols at mobile, 7 at tablet, 13 at desktop.
+
+#### Styled selects: Select2
+We've tried a bunch of stlyed selects including our own, bootstrap and a couple of others. Select2 has easily the best accessibility and has a wide range of functionality like typeahead, ajax and MVC JS integration which means that while it's not small we can throw it at many different problems and projects and it handles it easily.
+
+#### Modals: ??
+
+#### Tooltips: Bootstrap Tooltips
+While we don't use much of bootstrap their tooltip functionality is very good, accessible and easy to implement.
+
+#### Carousels: Slick or Photoswipe
+Slick handles mobile and touch events well, is easy to implement and works well with our overall structure.
+
+Photoswipe also integrates easily and has an excelent toolset to easily handle image popups.
+
+#### Date picker: Jquery UI
+It's old school but it works well.
 
 ## HTML and Templates
 
