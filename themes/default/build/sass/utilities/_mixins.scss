@@ -2,73 +2,31 @@
  * A file for Custom mixins and placeholders
  */
 
-// Responsive Mixins
+// Responsive Mixin
 
-// NOTE: the first two media queries are to limit styles to mobile sizes
-// xs doesn't need a media query to apply styles - they will usually
-// be the default
-@mixin respond($media) {
+// NOTE: xs doesn't need a media query - mobile styles are the default
 
-	@if $media == xs__max {
-		@media screen and (max-width: $respond-xs - 0.01) {
+// Usage example: @include respond(xl) {} 
+// Usage example: @include respond(md, max) {}
+// Usage example: @include respond(print) {}
+
+// _mixins.scss
+
+@mixin respond($breakpoint, $maxmin:'min') {
+
+	@if map-has-key($breakpoints, $breakpoint) {
+		@if $maxmin=='max' {
+			$respond-size: map-get($breakpoints, $breakpoint) - 0.01 !global;
+		}
+		@else {
+			$respond-size: map-get($breakpoints, $breakpoint) !global;
+		}
+		@media screen and (#{$maxmin}-width: #{$respond-size}px) {
 			@content;
 		}
-	}
-
-	@if $media == sm__max {
-		@media screen and (max-width: $respond-sm - 0.01) {
-			@content;
-		}
-	}
-
-	// everything up to regular tablet size
-	@if $media == md__max {
-		@media screen and (max-width: $respond-md - 0.01) {
-			@content;
-		}
-	}
-
-	@if $media == lg__max {
-		@media screen and (max-width: $respond-lg - 0.01) {
-			@content;
-		}
-	}
-
-
-	@if $media == xl__max {
-		@media screen and (max-width: $respond-xl - 0.01) {
-			@content;
-		}
-	}
-
-	// at least small tablet size
-	@else if $media == sm {
-		@media screen and (min-width: $respond-sm) {
-			@content;
-		}
-	}
-	// at least regular tablet size
-	@else if $media == md {
-		@media screen and (min-width: $respond-md) {
-			@content;
-		}
-	}
-	// at least desktop
-	@else if $media == lg {
-		@media screen and (min-width: $respond-lg) {
-			@content;
-		}
-	}
-	@else if $media == xl {
-		@media screen and (min-width: $respond-xl) {
-			@content;
-		}
-	}
-
-	@else if $media == print {
-		@media print { @content; }
 	}
 	@else {
-		@media only screen and ('#{$media}') { @content; }
+		@media #{$breakpoint} { @content; }
 	}
+
 }

@@ -17,6 +17,9 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	plumber = require('gulp-plumber');
+	rework = require('gulp-rework'),
+	pureGrids = require('rework-pure-grids'),
+	sassJson = require('gulp-sass-json'),
 
 
 /**
@@ -61,15 +64,43 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 
 
 /**
+ * Create JSON objects from SCSS variables
+ */
+gulp.task('json', function() {
+	return gulp.src('build/sass/utilities/_var-breakpoints.scss')
+		.pipe(sassJson())
+		.pipe(gulp.dest('js/src/'))
+});
+
+
+/**
  * Move pure from node_modules into our distribution folder
  * We don't want to edit this file, as there's no real need with such a small framework
  */
-gulp.task('pure', function() {
+gulp.task('pure', ['json'], function() {
+	var path='js/src/var-breakpoints.json';
+	var mediaQueries = {};
+
+	// Read breakpoints and generate mediaQueries object for rework
+	if (fs.existsSync(path)) {
+	    file = fs.readFile(path, 'utf8', function (err,data) {
+			if (err) {
+				return console.log(err);
+			}
+            data = JSON.parse(data);
+
+			for (var k in data.breakpoints) {
+				mediaQueries[k] = "screen and (min-width:" + data.breakpoints[k] + ")";
+			}
+	    });
+	}
+
 	return gulp.src([
 		'node_modules/purecss/build/pure.css',
 		'node_modules/purecss/build/grids-responsive.css'
 		])
 		.pipe(plumber())
+		.pipe(rework(pureGrids.units({ mediaQueries: mediaQueries })))
 		.pipe(postcss([ rm_hover() ]))
 		.pipe(concat('pure.css'))
 		.pipe(rename({

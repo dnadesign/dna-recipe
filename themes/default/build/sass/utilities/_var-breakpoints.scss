@@ -1,6 +1,12 @@
-// // Responsiveness Settings
-$respond-xs: 20em; // 320
-$respond-sm: 35.5em; // 568px
-$respond-md: 48em; // 768px
-$respond-lg: 64em;// 1024
-$respond-xl: 80em; // 1280
+/*
+ * This file contains all breakpoints used by respond() SCSS function and
+ * is also converted to JSON for use in rework-pure-grids
+ * NOTE: Leave comma after last item for proper JSON conversion
+ */
+$breakpoints: (
+	xs: 320px,
+	sm: 568px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1280px,
+);
