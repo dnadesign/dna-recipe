@@ -11,7 +11,7 @@ Using terminal:
 	npm install
 	gulp
 
-Composer dependencies are intentionally not tied to versions, but you should update these to use specific releases before the site you are working on goes live.
+Composer dependencies are intentionally not tied to versions, but you should update these to use specific releases before the site you are working on goes live
 
 ## Theme
 The default theme uses:
@@ -31,6 +31,12 @@ Once you have your silverstripe project setup, the styleguide should be availabl
 Docs for the styleguide are available here: https://github.com/benmanu/silverstripe-styleguide
 
 When you create a new component, please document it in the scss file, as we have in the examples.
+
+## Custom breakpoints
+
+It is recommended you work with the default grid where possible, but sometimes the 5 and 24 grid may not be enough. In this situation you can add extra grids using the rework plugin. You can find  [instructions here](themes/default/README.md)
+
+
 
 ## Frontend coding guidelines
 
@@ -84,10 +90,10 @@ Remember that you as a developer may not think of every possible future use of t
 
 You should be able to look at a classname and see 2 things: the component it belongs to, and its function:
 
-    <ul class="menu">
-      <li class="menu-item">…</li>
-      <li class="menu-item">…</li>
-    </ul>
+	<ul class="menu">
+	  <li class="menu-item">…</li>
+	  <li class="menu-item">…</li>
+	</ul>
 
 It should be easy to find where styles are coming from. You should then be able to open one main file in order to edit component styles.
 
@@ -95,13 +101,13 @@ It should be easy to find where styles are coming from. You should then be able 
 
 Never write css that looks like this:
 
-    section {
-      section {
-        article {
-          .item { }
-        }
-      }
-    }
+	section {
+	  section {
+		article {
+		  .item { }
+		}
+	  }
+	}
 
 
 The number of surrounding base tags should not matter, and without extensive commenting no one will understand your reasoning for this (including yourself in two years’ time). Any change to the html of a page will break the design.
@@ -122,38 +128,38 @@ Where possible, keep media queries inline with the component code. This acknowle
 
 SASS:
 
-    .feature{
-      	// Regular styles
-      	@media (some-size){
-      		// media specific overrides for .feature
-        }
-    }
+	.feature{
+		  // Regular styles
+		  @media (some-size){
+			  // media specific overrides for .feature
+		}
+	}
 
 **6. Class based browser hacks with original context**
 Use class based IE overrides, and keep the IE overrides inline with the component code. This makes it easier to maintain IE css when a feature is changed.
 
 HTML:
 
-    <!--[if lte IE 6 ]><html class="no-js ie6 oldie" lang="$ContentLocale" id="ie6"><![endif]-->
-    <!--[if IE 7 ]><html class="no-js ie7 oldie" lang="$ContentLocale" id="ie7"><![endif]-->
-    <!--[if IE 8 ]><html class="no-js ie8 oldie" lang="$ContentLocale" id="ie8"><![endif]-->
-    <!--[if IE 9]><html class="no-js ie9" id="ie9" lang="en"><![endif]-->
-    <!--[if gt IE 9]><!--><html class="no-js" lang="$ContentLocale"><!--<![endif]-->
+	<!--[if lte IE 6 ]><html class="no-js ie6 oldie" lang="$ContentLocale" id="ie6"><![endif]-->
+	<!--[if IE 7 ]><html class="no-js ie7 oldie" lang="$ContentLocale" id="ie7"><![endif]-->
+	<!--[if IE 8 ]><html class="no-js ie8 oldie" lang="$ContentLocale" id="ie8"><![endif]-->
+	<!--[if IE 9]><html class="no-js ie9" id="ie9" lang="en"><![endif]-->
+	<!--[if gt IE 9]><!--><html class="no-js" lang="$ContentLocale"><!--<![endif]-->
 
 
 SASS:
 
-    	.feature{
-    		// Regular styles
-    		.ie8 &{
-    			// IE8 specific overrides for .feature
-             }
-    	}
+		.feature{
+			// Regular styles
+			.ie8 &{
+				// IE8 specific overrides for .feature
+			 }
+		}
 
 CSS:
 
-    	.feature {}
-    	.ie8 .feature {}
+		.feature {}
+		.ie8 .feature {}
 
 
 
@@ -183,19 +189,19 @@ Therefore all classnames inside a component must be prefixed by the component's 
 
 **3. Use multiple classes not single class patterns**
 
-    <a class="btn btn-secondary"></a>
+	<a class="btn btn-secondary"></a>
 
 is better than:
 
-    <a class="btn-secondary"></a>
+	<a class="btn-secondary"></a>
 
 While in the latter the HTML is simpler, it reduces flexibility. We want lots of modifiers in a component to create a range of scenarios. The original example assumes there's only one type of modifier. Once this is not the case the single class pattern breaks.
 
-    <a class="btn btn-secondary btn-large"></a>
+	<a class="btn btn-secondary btn-large"></a>
 
 is better than
 
-    <a href="btn-secondary-large"></a>
+	<a href="btn-secondary-large"></a>
 
 **4. Create modifiers rather than context styling**
 
@@ -211,11 +217,11 @@ Context styling is not a good approach. If a component looks different on a cert
 
 Good:
 
-    .component.component-larger
+	.component.component-larger
 
 Bad:
 
-    .home-page .component
+	.home-page .component
 		.footer .component
 
 The .typography class should only be used for typography. If specificity is needed, use a layout based class name (eg .content, .main, or .layout) and leave a comment explaining why the class is there. If possible, only give the specific overrides to the rules that need it (pull them out of any nested sass). This will make it easier to deal with overriding the other styles later, and often prevents an unneeded sass nesting level.
@@ -295,9 +301,9 @@ It's old school but it works well.
 8. Don’t use images for design attributes in your html if it can be done with css.
 9. Avoid inline styles. There are two exceptions:
 
-    1. Javascript: If you write it yourself, try to add and remove classes instead of using inline styles. Sometimes this isn’t an option. Remember to clean-up inline styles once you are done with them.
+	1. Javascript: If you write it yourself, try to add and remove classes instead of using inline styles. Sometimes this isn’t an option. Remember to clean-up inline styles once you are done with them.
 
-    2. CMS editable images or css. Use as little as it takes to produce the result you need. If the CMS is providing a background image, only specify the background-image in the inline style. Leave other background attributes to the css.
+	2. CMS editable images or css. Use as little as it takes to produce the result you need. If the CMS is providing a background image, only specify the background-image in the inline style. Leave other background attributes to the css.
 
 ### Structure
 
@@ -309,20 +315,20 @@ Your html shouldn’t exist just to serve design features. Sometimes this is una
 
 Use a DRY (Don’t repeat yourself) technique. If you have used the same code blocks on more than one page, use an include. If it’s slightly different, think about whether you could pass an extra class to the include:
 
-    <% include Tiles Context=three-by-three %>
-    <% include Tiles Context=two-by-two %>
+	<% include Tiles Context=three-by-three %>
+	<% include Tiles Context=two-by-two %>
 
 then in Tile.ss:
 
-    <div class="tiles $Context”></div>
+	<div class="tiles $Context”></div>
 
 Use component files. If something can be pulled out into a non page specific component, make it an include. Name the file to match the component name, and use css classes to match eg:
 
-    TileNav.ss
-    _tile-nav.scss
-    .tile-nav {
-      //styles for this component
-    }
+	TileNav.ss
+	_tile-nav.scss
+	.tile-nav {
+	  //styles for this component
+	}
 
 This will make it easier to recognise which template files match which scss files.
 
@@ -345,14 +351,14 @@ This will make it easier to recognise which template files match which scss file
 
 ### Folder structure
 
-    themes/
-      theme-name/
-        build/
-        css/
-        fonts/
-        images/
-        js/
-        templates/
+	themes/
+	  theme-name/
+		build/
+		css/
+		fonts/
+		images/
+		js/
+		templates/
 
 ### Testing
 
@@ -361,4 +367,3 @@ This will make it easier to recognise which template files match which scss file
 * [http://wave.webaim.org/](http://wave.webaim.org/)
 * [https://addons.mozilla.org/en-US/firefox/addon/accessibility-evaluation-toolb/](https://addons.mozilla.org/en-US/firefox/addon/accessibility-evaluation-toolb/)
 * [http://www.totalvalidator.com/](http://www.totalvalidator.com/)
-

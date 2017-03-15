@@ -26,10 +26,10 @@
     "gulp-sass-json": "^1.0.1",
     "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-template": "^4.0.0",
     "gulp-uglify": "^1.5.3",
     "jquery": "^2.2.3",
     "postcss-hover": "^0.3.0",
-    "rework-pure-grids": "^1.0.0",
     "slick-carousel": "^1.6.0"
   },
   "scripts": {

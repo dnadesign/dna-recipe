@@ -4,9 +4,20 @@
  * NOTE: Leave comma after last item for proper JSON conversion
  */
 $breakpoints: (
-	xs: 320px,
-	sm: 568px,
-	md: 768px,
-	lg: 1024px,
-	xl: 1280px,
+	base: 0em,
+	xs: 20em,
+	sm: 35.5em,
+	md: 48em,
+	lg: 64em,
+	xl: 80em,
 );
+
+
+/*
+Pixel sizes:
+	xs: 320px
+	sm:  568px
+	md: 768px
+	lg:  1024px
+	xl: 1280px
+ */

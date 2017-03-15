@@ -6,27 +6,33 @@
 
 // NOTE: xs doesn't need a media query - mobile styles are the default
 
-// Usage example: @include respond(xl) {} 
+// Usage example: @include respond(xl) {}
 // Usage example: @include respond(md, max) {}
 // Usage example: @include respond(print) {}
 
 // _mixins.scss
 
-@mixin respond($breakpoint, $maxmin:'min') {
+@mixin respond($media, $maxmin:'min') {
 
-	@if map-has-key($breakpoints, $breakpoint) {
+	// check if this is a standard breakpoint or a custom media query
+	@if map-has-key($breakpoints, $media) {
+
+		// get the current breakpoint size from the breakpoint map.
+		// remove enough from the max breakpoint that it won't clash with the 'min' version
 		@if $maxmin=='max' {
-			$respond-size: map-get($breakpoints, $breakpoint) - 0.01 !global;
+			$respond-size: map-get($breakpoints, $media) - 0.01 !global;
+		} @else {
+			$respond-size: map-get($breakpoints, $media) !global;
 		}
-		@else {
-			$respond-size: map-get($breakpoints, $breakpoint) !global;
-		}
-		@media screen and (#{$maxmin}-width: #{$respond-size}px) {
+
+		// render the breakpoint.
+		@media screen and (#{$maxmin}-width: #{$respond-size}) {
 			@content;
 		}
-	}
-	@else {
-		@media #{$breakpoint} { @content; }
+
+	} @else {
+		// render any custom breakpoints, including print style sheet media queries.
+		@media #{$media} { @content; }
 	}
 
 }

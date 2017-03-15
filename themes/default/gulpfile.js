@@ -16,15 +16,14 @@ var gulp = require('gulp'),
 	eslint = require('gulp-eslint'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	plumber = require('gulp-plumber');
-	rework = require('gulp-rework'),
-	pureGrids = require('rework-pure-grids'),
+	plumber = require('gulp-plumber'),
 	sassJson = require('gulp-sass-json'),
+	template = require('gulp-template');
 
 
 /**
  * Live browser previews
- * NOTE: This will use a json object outside your project root if you provide one. 
+ * NOTE: This will use a json object outside your project root if you provide one.
  */
 gulp.task('browserSync', ['make-js', 'make-css'], function() {
 	var path = "../../../_npm_environment.json",
@@ -40,23 +39,23 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 
 
 	if (fs.existsSync(path)) {
-	    file = fs.readFile(path, 'utf8', function (err,data) {
+		file = fs.readFile(path, 'utf8', function (err,data) {
 			if (err) {
 				return console.log(err);
 			}
-            data = JSON.parse(data);
+			data = JSON.parse(data);
 
-            if(bsConfig = data.browserSync) {
+			if(bsConfig = data.browserSync) {
 				if(bsConfig.disabled === true) {
 					console.log('browsersync disabled');
-				    return;
+					return;
 				}
 
 				newConfig = Object.assign({}, defaultConfig, bsConfig);
 
 				browserSync.init(newConfig);
-            }
-	    });
+			}
+		});
 	} else {
 		browserSync.init(defaultConfig);
 	}
@@ -72,35 +71,16 @@ gulp.task('json', function() {
 		.pipe(gulp.dest('js/src/'))
 });
 
-
 /**
  * Move pure from node_modules into our distribution folder
  * We don't want to edit this file, as there's no real need with such a small framework
  */
 gulp.task('pure', ['json'], function() {
-	var path='js/src/var-breakpoints.json';
-	var mediaQueries = {};
-
-	// Read breakpoints and generate mediaQueries object for rework
-	if (fs.existsSync(path)) {
-	    file = fs.readFile(path, 'utf8', function (err,data) {
-			if (err) {
-				return console.log(err);
-			}
-            data = JSON.parse(data);
-
-			for (var k in data.breakpoints) {
-				mediaQueries[k] = "screen and (min-width:" + data.breakpoints[k] + ")";
-			}
-	    });
-	}
-
 	return gulp.src([
 		'node_modules/purecss/build/pure.css',
 		'node_modules/purecss/build/grids-responsive.css'
 		])
 		.pipe(plumber())
-		.pipe(rework(pureGrids.units({ mediaQueries: mediaQueries })))
 		.pipe(postcss([ rm_hover() ]))
 		.pipe(concat('pure.css'))
 		.pipe(rename({
@@ -165,6 +145,7 @@ gulp.task('cms-css', function() {
  * and save as a script.min file
  */
 gulp.task('make-js-components', function() {
+
 	return gulp.src('build/js/components/**/*.js')
 		.pipe(plumber())
 		.pipe(eslint({
@@ -204,6 +185,10 @@ gulp.task('make-js-npm', function() {
  * Combine with our other dependeniies, uglify, and write to folder
  */
 gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
+
+	var configJSON = fs.readFileSync('js/src/var-breakpoints.json'),
+		config = JSON.parse(configJSON);
+
 	return gulp.src([
 			'js/src/npm-libs.src.js',
 			'build/js/lib/html5shiv-printshiv.js',
@@ -224,6 +209,7 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 			'build/js/start.src.js'
 		])
 		.pipe(plumber())
+		.pipe(template({breakpoints: JSON.stringify(config)}))
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/src/'))
@@ -236,9 +222,9 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 		.pipe(gulp.dest('js'))
 });
 
-gulp.task('watch', ['pure', 'make-css', 'cms-css', 'make-js', 'browserSync'], function () {
-	gulp.watch('build/sass/**/*.scss', ['make-css', 'cms-css', browserSync.reload]); //watch sass in project sass folder, run tasks
-	gulp.watch('build/js/**/*.js', ['make-js', browserSync.reload]);  //watch js in project js folder, run tasks
+gulp.task('watch', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'browserSync'], function () {
+	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css', browserSync.reload]); //watch sass in project sass folder, run tasks
+	gulp.watch('build/js/**/*.js', ['json', 'make-js', browserSync.reload]);  //watch js in project js folder, run tasks
 });
 
 gulp.task('default', ['watch']);
