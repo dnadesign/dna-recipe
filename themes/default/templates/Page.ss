@@ -23,6 +23,7 @@
 </head>
 
 <body data-spy="scroll" class="$ClassName">
+	$BetterNavigator
 	<% include SkipLinks %>
 	<div class="container">
 		<% include Header %>

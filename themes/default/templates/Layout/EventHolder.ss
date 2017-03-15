@@ -5,11 +5,11 @@
 		<% include Filter %>
 	</div>
 	<div class="pure-u-1 pure-u-md-3-4">
-		<div id="main" class="results-list typography" role="main">
+		<main id="main" class="results" role="main">
 			<h1 class="page-header">$Title
 			<% if FilterDescription %>
 				<a class="pure-button pure-button--default pure-button--with-heading" href="$Link" role="button">
-					<i class="icon-close"></i> 
+					<i class="icon-close"></i>
 					Remove filter
 				</a>
 			<% end_if %>
@@ -24,7 +24,7 @@
 
 			<% if FilteredUpdates %>
 				<% loop FilteredUpdates %>
-					<article class="item $EvenOdd $FirstLast <% if $First %>clearfix<% end_if %>">
+					<article class="results-item results-item--{$EvenOdd} results-item--{$FirstLast} <% if $First %>clearfix<% end_if %>">
 						<% include EventItem %>
 					</article>
 				<% end_loop %>
@@ -33,7 +33,7 @@
 					<% include Pagination %>
 				<% end_with %>
 			<% else %>
-				<article class="odd first clearfix">
+				<article class="results-item--odd results-item--first clearfix">
 					<p>No events</p>
 				</article>
 			<% end_if %>
@@ -41,8 +41,8 @@
 			$Form
 			<% include RelatedPages %>
 			$PageComments
-			
+
 			<% include ContentFooter %>
-		</div>
+		</main>
 	</div>
 </div>

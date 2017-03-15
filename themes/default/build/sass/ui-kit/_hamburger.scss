@@ -7,7 +7,7 @@ Template: Hamburger
 
 SectionTemplate: SGSectionDark
 
-Styleguide 4.2
+Styleguide 4.3
 */
 
 .hamburger {
@@ -43,32 +43,6 @@ Styleguide 4.2
 		// Hide from the main menu on desktop
 		.menu & {
 			display: none;
-		}
-	}
-
-	&.active {
-
-		.hamburger-inner {
-			transition-delay: .14s;
-			transition-timing-function: cubic-bezier(.215,.61,.355,1);
-			-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-
-
-			&:before {
-				top: 0;
-				transition: top .1s ease,opacity .1s .14s ease;
-				opacity: 0;
-			}
-
-			&:after {
-				bottom: 0;
-				transition: bottom .1s ease,-webkit-transform .1s .14s cubic-bezier(.215,.61,.355,1);
-				transition: bottom .1s ease,transform .1s .14s cubic-bezier(.215,.61,.355,1);
-				transition: bottom .1s ease,transform .1s .14s cubic-bezier(.215,.61,.355,1),-webkit-transform .1s .14s cubic-bezier(.215,.61,.355,1);
-				-webkit-transform: rotate(-90deg);
-				transform: rotate(-90deg);
-			}
 		}
 	}
 
@@ -116,6 +90,30 @@ Styleguide 4.2
 			transition: bottom .1s .14s ease,-webkit-transform .1s cubic-bezier(.55,.055,.675,.19);
 			transition: bottom .1s .14s ease,transform .1s cubic-bezier(.55,.055,.675,.19);
 			transition: bottom .1s .14s ease,transform .1s cubic-bezier(.55,.055,.675,.19), -webkit-transform .1s cubic-bezier(.55,.055,.675,.19);
+		}
+
+
+		.hamburger-active & {
+			transition-delay: .14s;
+			transition-timing-function: cubic-bezier(.215,.61,.355,1);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+
+
+			&:before {
+				top: 0;
+				transition: top .1s ease,opacity .1s .14s ease;
+				opacity: 0;
+			}
+
+			&:after {
+				bottom: 0;
+				transition: bottom .1s ease,-webkit-transform .1s .14s cubic-bezier(.215,.61,.355,1);
+				transition: bottom .1s ease,transform .1s .14s cubic-bezier(.215,.61,.355,1);
+				transition: bottom .1s ease,transform .1s .14s cubic-bezier(.215,.61,.355,1),-webkit-transform .1s .14s cubic-bezier(.215,.61,.355,1);
+				-webkit-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+			}
 		}
 	}
 }

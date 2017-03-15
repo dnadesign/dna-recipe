@@ -1,6 +1,6 @@
 <nav class="filter" role="navigation" id="page-nav">
 	<h2 class="heading-plain-small">Filter by tag</h2>
-	<ul class="tags">
+	<ul class="filter-tags">
 		<li class="label <% if $Top.CurrentTag.ID==$ID %>active primary<% else %> default<% end_if %>"><a href="$AllTagsLink" title="View all tags">View all tags</a></li>
 		<% loop UpdateTagsWithLinks %>
 			<li class="label <% if $Top.CurrentTag.ID==$ID %>active primary<% else %> default<% end_if %>"><a href="$Link" title="View $Name">$Name</a></li>
@@ -24,11 +24,11 @@
 					Tip: Leave one field blank to search for a single date.
 				</div>
 				<div id="from" class="field date text">
-					<label class="left" for="{$FormName}_from">Filter from date <span class="field-note meta-data">(example: 31/12/13)</span></label>
+					<label class="left" for="{$FormName}_from">Filter from date <span class="field-note metadata">(example: 31/12/13)</span></label>
 					$Fields.dataFieldByName(from)
 				</div>
 				<div id="to" class="field date text">
-					<label class="left" for="{$FormName}_to">Filter to date <span class="field-note meta-data">(example: 31/12/13)</span></label>
+					<label class="left" for="{$FormName}_to">Filter to date <span class="field-note metadata">(example: 31/12/13)</span></label>
 					$Fields.dataFieldByName(to)
 				</div>
 				$Fields.dataFieldByName(tag)

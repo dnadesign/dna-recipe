@@ -3,7 +3,7 @@
 </header>
 
 <% if $Date %>
-	<p class="meta-data">
+	<p class="metadata">
 		<time datetime="$Date">$Date.Format(d/m/Y) <% if $StartTime %>$StartTime.Nice <% if $EndTime %>- $EndTime.Nice <% end_if %><% end_if %></time>
 	</p>
 <% end_if %>

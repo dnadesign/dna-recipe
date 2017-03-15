@@ -29,11 +29,9 @@ input.text {
 		box-shadow: none;
 		box-sizing: border-box;
 		height: 40px;
-		padding: 4px 2em;
 
 		@include respond(md) {
 			height: 60px;
-			padding: 13px 2em;
 		}
 	}
 }

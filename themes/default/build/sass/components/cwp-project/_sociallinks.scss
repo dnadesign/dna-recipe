@@ -1,0 +1,24 @@
+.sociallinks {
+	margin-top: -10px;
+
+	&-item{
+		font-size: 1.8em;
+		float: right;
+		overflow: hidden;
+		margin-left: 5px;
+		width: 1.5em;
+		height: 1.5em;
+	}
+
+	&-icon {
+		display: block;
+		position: relative;
+		height: 100%;
+		
+		&:before {
+			position: absolute;
+			top: 0.3em;
+			left: 0.3em;
+		}
+	}
+}

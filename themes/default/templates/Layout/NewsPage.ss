@@ -8,8 +8,8 @@
 		</div>
 	</div>
 	<div class="pure-u-1 pure-u-md-3-4">
-		<div id="main" class="main" role="main">
-			<h1 class="page-header">$Title</h1>	
+		<main id="main" class="main" role="main">
+			<h1 class="page-header">$Title</h1>
 			<% if FeaturedImage %>
 				<figure class="featured-image right">
 					$FeaturedImage.SetWidth(300)
@@ -17,12 +17,10 @@
 			<% end_if %>
 			$Content.RichLinks
 			$Form
-			
+
 			<% include RelatedPages %>
 			$PageComments
-		</div>
+		</main>
 		<% include ContentFooter %>
 	</div>
 </div>
-
-

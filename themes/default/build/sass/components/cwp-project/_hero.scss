@@ -1,0 +1,12 @@
+.hero {
+	&-content {
+		border-radius: $button-radius;
+		background: $default-color;
+		margin-bottom:30px;
+		width:100%;
+
+		p {
+			font-size: $base-font-size + 3;
+		}
+	}
+}

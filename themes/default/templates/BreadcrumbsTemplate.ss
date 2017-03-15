@@ -1,11 +1,16 @@
 <% if Pages %>
-	<ol class="breadcrumb">
-		<li><a href="$Baseref">Home</a></li>
-		<% loop Pages %>
-			<% if Last %>
-				<li class="active">$Title.XML</li>
+	<ol class="breadcrumbs-list">
+		<li class="breadcrumbs-item">
+			<a class="breadcrumbs-link" href="$Baseref">Home</a>
+		</li>
+
+		<% loop $Pages %>
+			<% if $Last %>
+				<li class="breadcrumbs-item breadcrumbs-item--current">$Title.XML</li>
 			<% else %>
-				<li><a href="$Link">$MenuTitle.XML</a>  <span class="divider">/</span></li>
+				<li class="breadcrumbs-item">
+					<a class="breadcrumbs-link" href="$Link">$MenuTitle.XML</a>
+				</li>
 			<% end_if %>
 		<% end_loop %>
 	</ol>
