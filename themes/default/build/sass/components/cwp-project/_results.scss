@@ -1,59 +1,43 @@
 /*
  * Styling for results
  */
-.results-header {
-	clear: fix;
-	padding: 7px 10px;
-	border-top: 1px solid darken($default-color, 5%);
-	border-bottom: 1px solid darken($default-color, 5%);
-	margin-bottom: 20px;
-	background: $default-color;
 
-	p {
-		margin: 0;
-	}
-}
-
-.results-list {
-
-	.results {
-		list-style: none;
-	}
-
-	.item.even {
+.results {
+	&-header {
 		clear: fix;
-		border-bottom: 1px solid $default-color;
-		border-top: 1px solid $default-color;
-		clear: both;
-		margin-bottom: 10px;
-		padding-top: 10px;
+		padding: 7px 10px;
+		border-top: 1px solid darken($default-color, 5%);
+		border-bottom: 1px solid darken($default-color, 5%);
+		margin-bottom: 20px;
+		background: $default-color;
 	}
 
-	.abstract {
-		float: left;
-		&.has-image {
-			width: 70%;
+	&-item {
+		&--even {
+			clear: fix;
+			border-bottom: 1px solid $default-color;
+			border-top: 1px solid $default-color;
+			clear: both;
+			margin-bottom: 10px;
+			padding-top: 10px;
 		}
 	}
 
-	figure.featured-image {
-		box-sizing: border-box;
-		float: left;
-		padding-left: 10px;
-		width: 30%;
+	&-list {
+		list-style: none;
 	}
 
-	h4 {
-		padding-top: 0;
-		margin-top: 0;
-		margin-bottom: 0;
+	&-actions {
+		clear: both;
 	}
-}
 
-.results-actions {
-	clear: both;
-
-	a {
-		display: inline-block;
+	&abstract {
+		&-image {
+			box-sizing: border-box;
+			float: left;
+			padding-left: 10px;
+			width: 30%;
+		}
 	}
+
 }

@@ -5,7 +5,7 @@ Make menu
 
 Template: Menu
 
-Styleguide 6.1
+Styleguide 6.2
 
 */
 
@@ -14,15 +14,15 @@ Styleguide 6.1
 	padding-top: 33px;
 	height: 77px;
 
-	.menu-brand {
+	&-brand {
 
 	}
 
-	.menu-nav  {
+	&-nav  {
 		text-align: right;
 	}
 
-	.menu-link {
+	&-link {
 
 	}
 }

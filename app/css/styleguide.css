@@ -77,7 +77,7 @@ body .zeroclipboard-is-hover {
 	margin: 0;
 }
 
-.show-grid > [class*="pure-u"] {
+.show-grid > * {
 	background: #f7f7f7;
 	min-height: 20px;
 	border: 1px solid #ddd;
@@ -111,4 +111,8 @@ body .zeroclipboard-is-hover {
 	display: table;
 	clear: both;
 	position: relative;
+}
+
+.hidden-xs {
+	display: block;
 }

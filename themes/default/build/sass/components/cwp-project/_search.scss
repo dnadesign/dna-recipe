@@ -1,8 +1,8 @@
 /* Customise search field */
-.search-group {
+.search {
 	clear: fix;
 
-	.search-query {
+	&-query {
 		box-sizing: border-box;
 		float: left;
 		vertical-align: top;
@@ -18,29 +18,7 @@
 		}
 	}
 
-	.pure-button {
-		float: left;
-		max-width: 30%;
-		border-radius: 0 3px 3px 0;
-		display: inline-block;
-		height: 40px;
-		line-height: normal;
-		margin-left: -7px;
-
-		@include respond(md) {
-			float: none;
-			max-width: none;
-		}
-
-		input {
-			display: block;
-			width: 100%;
-			height: 100%;
-			vertical-align: baseline;
-		}
-	}
-
-	form {
+	&-form {
 		float: left;
 		padding: 0px 20px 0;
 		width: 80%;
@@ -52,7 +30,7 @@
 		}
 	}
 
-	fieldset {
+	&-fieldset {
 		text-align: right;
 		padding-left: 0;
 		padding-right: 0;

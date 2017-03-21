@@ -12,7 +12,7 @@ Template: SGCMSText
 
 Generic text elements such as paragraphs, strong, em, sup, sub, hr and links
 
-Styleguide 3.2
+Styleguide 3.6
 */
 
 %type--defaults {
@@ -38,54 +38,54 @@ Styleguide 3.2
 	}
 }
 
-.typography {
+body {
 	@extend %type--defaults;
+}
 
-	p {
-		@extend %type--defaults;
-		margin-bottom: 20px;
+p {
+	@extend %type--defaults;
+	margin-bottom: 20px;
 
-		@include respond(lg) {
-			margin-bottom: 22px;
-		}
-
-		@include respond(print) {
-			orphans: 3;
-			widows: 3;
-			page-break-after: auto;
-			page-break-inside: avoid;
-		}
+	@include respond(lg) {
+		margin-bottom: 22px;
 	}
 
-	b, strong {
-		font-family: $font-bold;
-		font-weight: normal;
+	@include respond(print) {
+		orphans: 3;
+		widows: 3;
+		page-break-after: auto;
+		page-break-inside: avoid;
 	}
+}
 
-	i, em {
-		font-family: $font-italic;
-		font-style: italic;
+b, strong {
+	font-family: $font-bold;
+	font-weight: normal;
+}
+
+i, em {
+	font-family: $font-italic;
+	font-style: italic;
+}
+
+pre,
+blockquote {
+	border-left: 5px solid $secondary-color;
+	padding-left: 20px;
+	margin-left: 0;
+
+	@include respond(print) {
+		border-left: 5px solid #000;
+		page-break-inside: avoid;
 	}
+}
 
-	pre,
-	blockquote {
-		border-left: 5px solid $secondary-color;
-		padding-left: 20px;
-		margin-left: 0;
+hr {
+	border: 0;
+	border-bottom: 5px solid $primary-color;
+	margin: 20px 0;
 
-		@include respond(print) {
-			border-left: 5px solid #000;
-			page-break-inside: avoid;
-		}
-	}
-
-	hr {
-		border: 0;
-		border-bottom: 5px solid $primary-color;
-		margin: 20px 0;
-
-		@include respond(print) {
-			border-top: 5px solid #000;
-		}
+	@include respond(print) {
+		border-top: 5px solid #000;
 	}
 }

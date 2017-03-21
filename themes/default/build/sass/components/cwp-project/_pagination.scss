@@ -1,0 +1,17 @@
+.pagination {
+	text-align: center;
+	margin-top: 20px;
+
+	&-list {
+		display: inline;
+	}
+
+	&-button {
+		text-shadow: none;
+		color: $font-color;
+
+		&--disabled {
+			color: #C0C1C3;
+		}
+	}
+}

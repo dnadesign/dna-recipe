@@ -23,7 +23,7 @@
 			var breakpoint = null,
 				breakPoints = $(window).data('breakpoints').x,
 				breakPointsLabels = [],
-				labels = ['base', 'small', 'medium', 'large', 'xlarge', 'xxlarge', 'xxxlarge', 'xxxxlarge'],
+				labels = $(window).data('breakpoints').labels,
 				i = 0;
 
 			$(breakPoints).each(function () {
@@ -66,7 +66,7 @@
 	};
 
 	$.fn.whim.settings = {
-		baseFontSize: 10,
+		baseFontSize: 16,
 		body: null
 	};
 

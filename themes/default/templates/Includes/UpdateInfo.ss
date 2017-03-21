@@ -14,7 +14,7 @@
 	<% if Terms %>
 		<dt>Tags</dt>
 		<dd>
-			<ul class="inline-list tags">
+			<ul class="list list--inline">
 				<% loop Terms %>
 					<li class="label default">$Name</li>
 				<% end_loop %>

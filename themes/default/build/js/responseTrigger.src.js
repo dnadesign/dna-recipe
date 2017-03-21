@@ -1,8 +1,7 @@
-$(window).data('breakpoints', {
-	x: [0, 568, 768, 1024, 1280]
-});
+var breakpointsConfig = <%= breakpoints %>;
 
 DO.Subscribe('app:ready', function(e, $) {
+	$(window).data('breakpoints', getBreakpoints(breakpointsConfig));
 
 	var html = $('html'),
 		breakpoint = DO.CurrentBreakpoint();
@@ -20,11 +19,11 @@ DO.Subscribe('app:ready', function(e, $) {
 			var from = breakpoint;
 			breakpoint = DO.CurrentBreakpoint();
 
-			if(!/medium$/.test(from) && /medium$/.test(breakpoint)) {
+			if(!/md$/.test(from) && /md$/.test(breakpoint)) {
 				DO.Fire('app:breakpointchangetodesktop');
 			}
 
-			if(/medium$/.test(from) && !/medium$/.test(breakpoint)) {
+			if(/md$/.test(from) && !/md$/.test(breakpoint)) {
 				DO.Fire('app:breakpointchangetomobile');
 			}
 
@@ -32,12 +31,31 @@ DO.Subscribe('app:ready', function(e, $) {
 				DO.Fire('app:breakpointchangetoextrasmall');
 			}
 
-			if(!/small$/.test(from) && /small$/.test(breakpoint)) {
+			if(!/sm$/.test(from) && /sm$/.test(breakpoint)) {
 				DO.Fire('app:breakpointchangetosmall');
 			}
 		}
 	});
 
+	function getBreakpoints(breakpointsConfig) {
+		var breakpointList = breakpointsConfig.breakpoints,
+			breakpoints = [],
+			labels = [],
+			number,
+			i = 0;
+
+		for(breakpoint in breakpointList) {
+			number = parseInt(breakpointList[breakpoint], 10);
+			breakpoints[i] = breakpointList[breakpoint].indexOf('em') !== -1 ? number * 16 : number; // NOTE: assumes base font size is 16px
+			labels[i] = breakpoint;
+			i = i + 1;
+		}
+
+		return {
+			x: breakpoints,
+			labels: labels
+		};
+	}
 });
 
 DO.Subscribe('ajax:success', function(e, $) {

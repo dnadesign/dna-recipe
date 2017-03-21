@@ -11,7 +11,7 @@ Markup:
 <button class="pure-button pure-button--secondary">secondary button</button>
 <button class="pure-button pure-button--primary">primary button</button>
 
-Styleguide 4.1
+Styleguide 4.2
 */
 
 .pure-button {
@@ -20,23 +20,8 @@ Styleguide 4.1
 	color: $font-color;
 	padding: 0.4em 1em;
 
-	&.pure-button--default {
-		border: 1px solid darken($default-color, 3%);
-		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-		&:hover {
-			color: $font-color;
-		}
-	}
 
-	&.pure-button--success,
-	&.pure-button--error,
-	&.pure-button--warning,
-	&.pure-button--secondary,
-	&.pure-button--primary {
-		color: white;
-		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-	}
-
+	// normalize inner elements
 	button,
 	input[type="button"],
 	input[type="reset"],
@@ -47,47 +32,64 @@ Styleguide 4.1
 		border: none;
 		color: inherit;
 	}
-}
 
-.pure-button--primary {
-	background: $primary-color; // Make this use our primary colour variable
-}
+	&--default {
+		border: 1px solid darken($default-color, 3%);
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+		&:hover {
+			color: $font-color;
+		}
+	}
 
-.pure-button--success {
-	background: $success-color;
-}
+	&--success,
+	&--error,
+	&--warning,
+	&--secondary,
+	&--primary {
+		color: white;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	}
 
-.pure-button--error {
-	background: $error-color;
-}
+	&--primary {
+		background: $primary-color; // Make this use our primary colour variable
+	}
 
-.pure-button--warning {
-	background: $warning-color;
-}
+	&--success {
+		background: $success-color;
+	}
 
-.pure-button--secondary {
-	background: $secondary-color;
-}
+	&--error {
+		background: $error-color;
+	}
 
-.pure-button--xs {
-	font-size: 70%;
-}
+	&--warning {
+		background: $warning-color;
+	}
 
-.pure-button--s {
-	font-size: 85%;
-}
+	&--secondary {
+		background: $secondary-color;
+	}
 
-.pure-button--l {
-	font-size: 110%;
-}
+	&--xs {
+		font-size: 70%;
+	}
 
-.pure-button--xl {
-	font-size: 125%;
-}
+	&--s {
+		font-size: 85%;
+	}
 
-.pure-button--pill {
-	border-radius: 40px;
-	padding: 0.3em 1em;
+	&--l {
+		font-size: 110%;
+	}
+
+	&--xl {
+		font-size: 125%;
+	}
+
+	&--pill {
+		border-radius: 40px;
+		padding: 0.3em 1em;
+	}
 }
 
 h1, h2, h3 {

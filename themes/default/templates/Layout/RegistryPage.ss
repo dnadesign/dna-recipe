@@ -12,14 +12,14 @@
 	</div>
 
 	<div class="pure-u-1 pure-u-md-3-4">
-		<div id="main" class="main" role="main">
+		<main id="main" class="main" role="main">
 			<h1 class="page-header">$Title</h1>
 
 			$Content.RichLinks
 
 			<div id="{$DataClass}_results" class="results-container">
 				<% if RegistryEntries %>
-					<table class="results" summary="Search results for $DataClass">
+					<table summary="Search results for $DataClass">
 						<thead>
 							<tr>
 								<% loop Columns %>
@@ -44,10 +44,9 @@
 				<% else %>
 					<p class="no-results">No results to show.</p>
 				<% end_if %>
-				
+
 			</div>
 			<% include ContentFooter %>
-		</div>
+		</main>
 	</div>
 </div>
-

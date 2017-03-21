@@ -4,18 +4,17 @@
 	margin-top: 30px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid $default-color;
-}
 
-.filter-month {
-	clear: fix;
-	margin-top: 10px;
-	padding-bottom: 30px;
 
-	ol {
-		margin: 0;
+	&--month {
+		margin-top: 10px;
+		padding-bottom: 30px;
+
+		ol {
+			margin: 0;
+		}
 	}
-
-	.year {
+	&-year {
 		clear: both;
 		float: left;
 		padding-right: 10px;

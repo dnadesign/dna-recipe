@@ -1,0 +1,13 @@
+// General styling for the footer at the bottom of content
+.contentfooter {
+	margin-top: 50px;
+	float: right;
+
+	&-printshare {
+		text-align: right;
+	}
+
+	&-lastedited {
+		text-align:right;
+	}
+}

@@ -1,6 +1,4 @@
-<p class="print-share">
-	<span id="print-placeholder"></span>
-
+<p class="contentfooter-printshare">
 	<% if SiteConfig.AddThisProfileID %>
 		<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&pubid=$SiteConfig.AddThisProfileID">Share</a>
 	<% end_if %>

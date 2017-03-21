@@ -28,74 +28,73 @@ Styleguide 3.2
 	}
 }
 
-.typography {
-	a {
-		color: $link-color;
-		text-decoration:none;
+
+a {
+	color: $link-color;
+	text-decoration:none;
+
+	h3 & {
+		color: $font-color;
+		i {
+			color: $link-color;
+		}
+	}
+
+	&:visited {
+		color:$link-visited-color;
 
 		h3 & {
 			color: $font-color;
-			i {
-				color: $link-color;
-			}
-		}
-
-		&:visited {
-			color:$link-visited-color;
-
-			h3 & {
-				color: $font-color;
-			}
-		}
-
-		&:hover, &:focus {
-			color:$link-hover-color;
-
-			h3 & {
-				color:$link-color;
-			}
 		}
 	}
-}
 
-a[href$=".png"],
-a[href$=".PNG"],
-a[href$=".gif"],
-a[href$=".GIF"],
-a[href$=".jpg"],
-a[href$=".JPG"],
-a[href$=".jpeg"],
-a[href$=".JPEG"] {
-	@extend %decorated-link;
-	&:before {
+	&:hover, &:focus {
+		color:$link-hover-color;
 
+		h3 & {
+			color:$link-color;
+		}
 	}
-}
 
-a[href$=".doc"],
-a[href$=".DOC"],
-a[href$=".docx"],
-a[href$=".DOCX"],
-.doc,
-a[href$=".xls"],
-a[href$=".XLS"],
-a[href$=".xlsx"],
-a[href$=".XLSX"],
-.xls,
-a[href$=".pdf"],
-a[href$=".PDF"],
-.pdf {
-	@extend %decorated-link;
+	&.external {
+		@extend %decorated-link;
 
-	&:before {
+		&:before {
 
+		}
 	}
-}
 
-.external {
-	@extend %decorated-link;
+	&[href$=".png"],
+	&[href$=".PNG"],
+	&[href$=".gif"],
+	&[href$=".GIF"],
+	&[href$=".jpg"],
+	&[href$=".JPG"],
+	&[href$=".jpeg"],
+	&[href$=".JPEG"] {
+		@extend %decorated-link;
+		&:before {
 
-	&:before {
+		}
+	}
 
+	&[href$=".doc"],
+	&[href$=".DOC"],
+	&[href$=".docx"],
+	&[href$=".DOCX"],
+	&.doc,
+	&[href$=".xls"],
+	&[href$=".XLS"],
+	&[href$=".xlsx"],
+	&[href$=".XLSX"],
+	&.xls,
+	&[href$=".pdf"],
+	&[href$=".PDF"],
+	&.pdf {
+		@extend %decorated-link;
+
+		&:before {
+
+		}
 	}
 }

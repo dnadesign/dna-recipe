@@ -1,6 +1,6 @@
 <% if $Content %>
-<div class="hero-unit">
-	<div class="content" id="main" role="main">
+<div class="hero">
+	<div class="hero-content">
 	$Content.RichLinks
 	<% if LearnMorePage %>
 		<a class="pure-button pure-button--primary" href="$LearnMorePage.Link">Learn more &raquo;</a>

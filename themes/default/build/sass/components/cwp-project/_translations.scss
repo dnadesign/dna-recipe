@@ -2,13 +2,13 @@
 .translations {
 	float: right;
 
-	li {
+	&-item {
 		margin-top:5px;
 		font-size: 13px;
+	}
 
-		a {
-			color: $font-color;
-			font-weight: bold;
-		}
+	&-link {
+		color: $font-color;
+		font-weight: bold;
 	}
 }
