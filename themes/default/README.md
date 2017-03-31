@@ -36,13 +36,13 @@ and
 		return mediaQueries;
 	}
 
-then you can call this from the pure function in gulp. eg:
+then you can call this from the pure function in gulp. eg (to add a 28 col grid):
 
 	return gulp.src([
 		'node_modules/purecss/build/pure.css',
 		'node_modules/purecss/build/grids-responsive.css'
-		])
-		.pipe(rework(pureGrids.units({ mediaQueries: getMediaQueries() })))
+		]) 
+		.pipe(rework(pureGrids.units([5,24,28],{ mediaQueries: getMediaQueries() })))
 
 
 At this stage you will still need to manually edit the push-pull classes to add your new breakpoints.
