@@ -2,10 +2,12 @@
 <h3>3rds</h3>
 <div class="grids-unit  pure-g">
 	<div class="grids-unit-width pure-u">1-3</div>
-	<div class="pure-g show-grid">
-		<div class="pure-u-1-3"></div>
-		<div class="pure-u-1-3"></div>
-		<div class="pure-u-1-3"></div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g show-grid">
+			<div class="pure-u-1-3"></div>
+			<div class="pure-u-1-3"></div>
+			<div class="pure-u-1-3"></div>
+		</div>
 	</div>
 </div>
 

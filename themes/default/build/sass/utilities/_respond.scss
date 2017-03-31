@@ -25,9 +25,15 @@
 			$respond-size: map-get($breakpoints, $media) !global;
 		}
 
-		// render the breakpoint.
-		@media screen and (#{$maxmin}-width: #{$respond-size}) {
+		// we don't need a media query for the base style,
+		// but catering for it makes other code more straight forward
+		@if $media=='base' {
 			@content;
+		} @else {
+			// render the breakpoint.
+			@media screen and (#{$maxmin}-width: #{$respond-size}) {
+				@content;
+			}
 		}
 
 	} @else {
