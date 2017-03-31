@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "repository": "https://github.com/dnadesign/dna-recipe.git",
   "dependencies": {
-    "purecss": "^0.6.0"
+    "purecss": "^0.6.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
