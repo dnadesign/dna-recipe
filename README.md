@@ -34,8 +34,7 @@ When you create a new component, please document it in the scss file, as we have
 
 ## Custom breakpoints
 
-It is recommended you work with the default grid where possible, but sometimes the 5 and 24 grid may not be enough. In this situation you can add extra grids using the rework plugin. You can find  [instructions here](themes/default/README.md)
-
+It is recommended you work with the default grid where possible, but sometimes the 3, 5 and 24 grid may not be enough. Adding extra breakpoints and altering the grid units can be managed from the [breakpoints file](themes/default/build/sass/utilities/_var-breakpoints.scss). Please be cautious changing these in non-new projects, as some components are likely to have been built with the breakpoints and grid units as they are. 
 
 
 ## Frontend coding guidelines

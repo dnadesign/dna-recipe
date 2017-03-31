@@ -78,7 +78,6 @@ gulp.task('json', function() {
 gulp.task('pure', ['json'], function() {
 	return gulp.src([
 		'node_modules/purecss/build/pure.css',
-		'node_modules/purecss/build/grids-responsive.css'
 		])
 		.pipe(plumber())
 		.pipe(postcss([ rm_hover() ]))
