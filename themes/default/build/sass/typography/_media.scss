@@ -1,7 +1,5 @@
 /*
--------------------------------------------------------------------------
-	Images
-	Template: SGCMSImages
+	#Images
 
 	Styling for CMS images inserted via tinymce. Options are: <br /><br />
 	&bull; Left, text wrapping<br />
@@ -9,7 +7,10 @@
 	&bull; Left alone (no text wrapping)<br />
 	&bull; Centered alone (no text wrapping)<br /><br />
 	... with optional captions
-------------------------------------------------------------------------- 
+
+	Template: SGCMSImages
+
+	Styleguide 3.4
 */
 
 svg {
@@ -60,7 +61,7 @@ img {
 }
 
 /*
--------------------------------------------------------------------------
+
 	Media (youtube, etc)
 	Template: SGCMSMedia
 
@@ -70,7 +71,7 @@ img {
 	&bull; Right, text wrapping<br />
 	&bull; Left alone (no text wrapping)<br />
 	&bull; Centered alone (no text wrapping)
-------------------------------------------------------------------------- 
+ 
 */
 
 .media {

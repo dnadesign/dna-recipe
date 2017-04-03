@@ -1,12 +1,12 @@
 /*
--------------------------------------------------------------------------
-	Responsive Grid Example
+	#Responsive Grid Example
 	Template: SGGridResponsive
 
 	The responsive grid uses the fractions from the grid units section, 
 	but with modifiers to specify which break point they should 
 	apply to.
-------------------------------------------------------------------------- 
+
+	Styleguide 2.1.1
 */
 
 .pure-g--padding > [class*="pure-u"] {
@@ -52,7 +52,7 @@
 }
 
 /*
--------------------------------------------------------------------------
+
 	Grid units, styling and push/pull
 
 	Template: SGGrid
@@ -76,7 +76,7 @@
 	Note: some base styles still come to us through pure, but we don't 
 	include any of the responsive versions 
 	$gridUnits and $breakpoints are defined in _var-breakpoints.scss
-------------------------------------------------------------------------- 
+ 
 */
 
 @each $breakpoint, $value in $breakpoints {
@@ -87,7 +87,7 @@
 
 				$mediaPrefix: '-' + $breakpoint + '-';
 
-				/* remove the prefix for the base size */
+				// remove the prefix for the base size 
 				@if $breakpoint == 'base' {
 					$mediaPrefix: '-';
 				}
@@ -128,7 +128,7 @@
 }
 
 /*
--------------------------------------------------------------------------
+
 	Grid Column reverse
 	As an alternative to push/pull when you only need to perform a simple task
 	e.g if you would would like to have your sidebar on the left at desktop, but
@@ -143,14 +143,14 @@
 		<div class="pure-u-1-5"> Right @ md </div>
 		<div class="pure-u-4-5"> Left @ md </div>
 	</div>
-------------------------------------------------------------------------- 
+ 
 */
 
 @each $breakpoint, $value in $breakpoints {
 	@include respond($breakpoint) {
 		$mediaPrefix: '-' + $breakpoint + '-';
 
-		/* remove the prefix for the base size */
+		// remove the prefix for the base size 
 		@if $breakpoint == 'base' {
 			$mediaPrefix: '-';
 		}

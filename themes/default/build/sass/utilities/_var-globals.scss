@@ -1,34 +1,28 @@
 /*
--------------------------------------------------------------------------
-Global Variables
-Contents: 
--------------------------------------------------------------------------
-1.  Imports
-2.  Colour variables
-3.  Environment variables
-4.  Theme colours
-5.  Radii and other global css3 style properties
-6.  Link colours
-7.  Tables
-8.  Max page widths applied to container elements
-------------------------------------------------------------------------- 
+	Global Variables
+	Contents: 
+
+	1.  Imports
+	2.  Colour variables
+	3.  Environment variables
+	4.  Theme colours
+	5.  Radii and other global css3 style properties
+	6.  Link colours
+	7.  Tables
+	8.  Max page widths applied to container elements
 */
 
 /* 
--------------------------------------------------------------------------
-1.  Imports
-------------------------------------------------------------------------- 
+	1.  Imports
 */
 
 @import "var-breakpoints";
 
 /* 
--------------------------------------------------------------------------
-2.  Colour variables
+	2.  Colour variables
 	Put the colours from the design here. When naming your colours 
 	be sure to use  http://chir.ag/projects/name-that-color to get 
-	a proper colour name
-------------------------------------------------------------------------- 
+	a proper colour name 
 */
 
 $bunker: #131A21;
@@ -45,11 +39,9 @@ $sushi: #94B541;
 $tree-poppy: #FD911E;
 
 /* 
--------------------------------------------------------------------------
-3.  Environment variables
+	3.  Environment variables
 	Environment variables. Note some projects put all css into assets,
-	so the path needs to be able to find the css from there
-------------------------------------------------------------------------- 
+	so the path needs to be able to find the css from there 
 */
 
 $theme-name: 'default';
@@ -69,11 +61,9 @@ $font-heading--alt: helvetica, arial, sans-serif;
 $font-heading-weight: 700;
 
 /* 
--------------------------------------------------------------------------
-4.  Theme colours
+	4.  Theme colours
 	Make sure that the colours assigned here are assigned using the 
-	colour variables above
-------------------------------------------------------------------------- 
+	colour variables above 
 */
 
 $default-color: $gallery;
@@ -91,19 +81,15 @@ $link-hover-color: lighten($link-color, 10%);
 $link-visited-color: darken($link-color, 10%);
 
 /* 
--------------------------------------------------------------------------
-5.  Radii and other global css3 style properties
-------------------------------------------------------------------------- 
+	5.  Radii and other global css3 style properties 
 */
 
 $button-radius: 3px;
 
 /* 
--------------------------------------------------------------------------
-6.  Link colours
+	6.  Link colours
 	Make sure that the colours assigned here are assigned using the 
-	colour variables above
-------------------------------------------------------------------------- 
+	colour variables above 
 */
 
 // Menu bar
@@ -119,9 +105,7 @@ $footer-link-hover-color: $menu-link-hover-color;
 $footer-link-hover-background-color: $menu-link-hover-background-color;
 
 /* 
--------------------------------------------------------------------------
-7.  Tables
-------------------------------------------------------------------------- 
+	7.  Tables 
 */
 
 $table-header-font-family: $font;
@@ -136,9 +120,7 @@ $table-cell-border-color:  $mercury;
 $table-cell-border-style:  solid;
 
 /*  
--------------------------------------------------------------------------
-8.  Max page widths applied to container elements
-------------------------------------------------------------------------- 
+	8.  Max page widths applied to container elements 
 */
 
 $container-width: 1200px;
@@ -146,17 +128,17 @@ $max-device-width:  2880px;
 $gutter: 30px;
 
 /*
-## Font Test
+	## Font Test
 
-<div class="test">
-	<h3>Default</h3>
+	<div class="test">
+		<h3>Default</h3>
 
-	<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-	<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
-</div>
+		<p style="font-size:10px">10px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+		<p style="font-size:15px">15px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+		<p style="font-size:20px">20px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+		<p style="font-size:30px">30px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+		<p style="font-size:40px">40px the quick brown fox jumps over the lazy dog ĀāĒēĪīŌōŪū THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 0123456789 !@#$%^&*()?"':;,.</p>
+	</div>
 
-Styleguide 1.2.4
+	Styleguide 1.2.4
 */

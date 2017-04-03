@@ -1,6 +1,5 @@
 /*
--------------------------------------------------------------------------
-	Vertical align
+	#Vertical align
 	Vertically align an element within another.
 	NOTE: this element requires a height. The style tags are for show only
 
@@ -19,7 +18,8 @@
 			<h3>I am a center aligned col</h3>
 		</div>
 	</div>
-------------------------------------------------------------------------- 
+
+	Styleguide 2.2.0
 */
 
 .align {
@@ -42,11 +42,7 @@
 	}
 }
 
-/*
--------------------------------------------------------------------------
-	Vertical alignment for use with the pure grid
-------------------------------------------------------------------------- 
-*/
+// Vertical alignment for use with the pure grid
 
 .pure-g--middle {
 	> * {
@@ -55,7 +51,7 @@
 }
 
 /*
--------------------------------------------------------------------------
+
 	Pull classes
 	Generic pull directions, and clearfix. `.pull--right`, `.pull--left`, `.clearfix`
 	NOTE: these should be used rarely - its better to build into a componenet if/when possible
@@ -70,7 +66,7 @@
 	<div class="clearfix">
 		cleared fix ;)
 	</div>
-------------------------------------------------------------------------- 
+ 
 */
 
 .pull {
@@ -88,7 +84,7 @@
 }
 
 /*
--------------------------------------------------------------------------
+
 	Text alignment
 	Generic text alignment classes
 
@@ -104,7 +100,7 @@
 	<p class="text--right">
 		text aligned right
 	</p>
-------------------------------------------------------------------------- 
+ 
 */
 
 .text {

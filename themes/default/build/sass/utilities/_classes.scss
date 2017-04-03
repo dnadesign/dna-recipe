@@ -1,16 +1,12 @@
 /*
--------------------------------------------------------------------------
 	Utility classes
 	Short modifiers used across components
 	These should be used sparingly. 
 	In most cases a component is a better choice
-------------------------------------------------------------------------- 
 */
 
 /*
--------------------------------------------------------------------------
 	Generic style for meta data
-------------------------------------------------------------------------- 
 */
 
 .metadata {
@@ -18,9 +14,7 @@
 }
 
 /*
--------------------------------------------------------------------------
 	Screen reader helper classes
-------------------------------------------------------------------------- 
 */
 
 .sr-only {
@@ -45,9 +39,7 @@
 }
 
 /*
--------------------------------------------------------------------------
 	Print only helper classes
-------------------------------------------------------------------------- 
 */
 
 .printonly {
@@ -59,14 +51,12 @@
 }
 
 /*
--------------------------------------------------------------------------
 	Responsive visibility classes
 	Usage example: .hidden-sm (hidden while the screen size is equal to 
 	or larger than sm)
 	Usage example: .hidden-xl
 	Usage example: .hidden-md--max (hidden while the screen size is
 	smaller than md)
-------------------------------------------------------------------------- 
 */
 
 html body { 
