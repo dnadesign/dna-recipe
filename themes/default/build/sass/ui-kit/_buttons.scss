@@ -1,27 +1,24 @@
 /*
-#Buttons
+	#Buttons
+	
+	The default buttons used across the theme
 
-The default buttons used across the theme
-
-Markup:
-<button class="pure-button">button</button>
-<button class="pure-button pure-button--success">success button</button>
-<button class="pure-button pure-button--error">error button</button>
-<button class="pure-button pure-button--warning">warning button</button>
-<button class="pure-button pure-button--secondary">secondary button</button>
-<button class="pure-button pure-button--primary">primary button</button>
-
-Styleguide 4.2
+	Markup:
+	<button class="pure-button">button</button>
+	<button class="pure-button pure-button--success">success button</button>
+	<button class="pure-button pure-button--error">error button</button>
+	<button class="pure-button pure-button--warning">warning button</button>
+	<button class="pure-button pure-button--secondary">secondary button</button>
+	<button class="pure-button pure-button--primary">primary button</button>
 */
 
 .pure-button {
-	background-color: $default-color; //make this use our defualt variable
+	background-color: $default-color;
 	border-radius: 3px;
 	color: $font-color;
 	padding: 0.4em 1em;
 
-
-	// normalize inner elements
+	/* normalize inner elements */
 	button,
 	input[type="button"],
 	input[type="reset"],
@@ -51,7 +48,7 @@ Styleguide 4.2
 	}
 
 	&--primary {
-		background: $primary-color; // Make this use our primary colour variable
+		background: $primary-color;
 	}
 
 	&--success {

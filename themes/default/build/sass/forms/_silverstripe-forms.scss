@@ -1,8 +1,10 @@
-/**
- * For Silverstripe specific styling (to get forms to work as intended)
- * Note: This file should not be used as an example of how to structure css - its
- * just a work around for forms in silverstripe. Remove if/what you can.
- */
+/*
+	Silverstripe specific form styling
+	For Silverstripe specific styling (to get forms to work as intended)
+	Note: This file should not be used as an example of how to 
+	structure css - its just a work around for forms in 
+	Silverstripe. Remove if/what you can.
+*/
 
 form {
 	@extend .pure-form;
@@ -26,11 +28,13 @@ form {
 	margin-right: 20px;
 }
 
-.fieldset { //Silverstripe uses fieldsets wrongly, so don't style with default
+/* Silverstripe uses fieldsets wrongly, so don't style with default */
+.fieldset { 
 	border: none;
 }
 
-#ForgotPassword { //ID only used because silverstripe does not provide a class :(
+/* ID only used because silverstripe does not provide a class :( */
+#ForgotPassword { 
 	clear: fix;
 	float: left;
 	font-size: 0.8em;

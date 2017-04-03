@@ -1,68 +1,78 @@
-@import '../../css/pure.src'; // import pure as sass for extending
+/*
+    Imports
+    Contents: 
+
+    1.  Pure
+    2.  Brand overview
+    3.  Layout
+    4.  Typography
+    5.  UI kit
+    6.  Forms
+    7.  Components
+    8.  Shame
+*/
+
+/* 
+    1.  Pure
+	Import pure as sass for extending
+*/
+
+@import '../../css/pure.src';
 
 /*
-# Brand Overview
-
-Define the colours and fonts used throughout the web app
-
-Styleguide 1.0
+    2.  Brand overview
+	Define the colours and fonts used throughout the web app
 */
+
 @import "utilities/functions";
 @import "utilities/var-globals";
 @import "utilities/respond";
 @import "utilities/classes";
 
 /*
-# Layout
-
-Grid and layout related styling. We are using pure's grid system. More in depth documentation can be found at:
-http://purecss.io/grids/
-
-Styleguide 2.0
+    3.  Layout
+	Grid and layout related styling. We are using pure's grid system. 
+	More in depth documentation can be found at: http://purecss.io/grids
 */
+
 @import "layout/*";
 
 /*
-# Typography
-
-Styles for typographical and related elements editable in Silverstripe's HTML Text editor.
-This includes headings, paragraphs, quotes, links, lists, images, media, and tables.
-
-Styleguide 3.0
+    4.  Typography
+    Styles for typographical and related elements editable in 
+    Silverstripe's HTML Text editor. This includes headings, paragraphs, 
+    quotes, links, lists, images, media, and tables.
 */
+
 @import "typography/*";
 
 /*
-# UI Kit
-
-A place for the small elements, such as buttons, that make up larger components
-
-Styleguide 4.0
+    5.  UI Kit
+    A place for the small elements, such as buttons, that make up larger 
+    components
 */
+
 @import "ui-kit/*";
 
 /*
-# Forms
-
-Form, and form element styles
-
-Styleguide 5.0
+    6.  Forms
+    Form, and form element styles
 */
-
 
 @import "forms/*";
 
 /*
-# Components
-
-Reusable and customizable front-end UI elements
-
-Styleguide 6.0
-
+    7.  Components
+    Reusable and customizable front-end UI elements
 */
+
 @import "components/**/*";
 
+/*
+    8.  Shame
+    Hotfixes, hacks, and anything that you don't have time to test or 
+    implement properly. If you are unsure where to put something, 
+    it is ok to put it here.
+*/
 
-
-// Include shame file
 @import "shame";

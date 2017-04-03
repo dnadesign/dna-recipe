@@ -1,12 +1,13 @@
-/* Fonts */
+/*
+	Fonts
+	Note: rucksak font helper process doesn't yet work with sass 
+	variables the font-url: '../../../themes/default/fonts/fontname/';
+	Uses the rucksak font helper
+*/
 
-// Note: rucksake font helper process doesn't yet work with sass variables
-// the font-url: '../../../themes/default/fonts/fontname/';
-
-// Uses the rucksake font helper
 @font-face {
 	font-family: 'MyCustomFont';
-	font-path: '../../../themes/default/fonts/fontname/NationalWeb-Bold'; // auto generates the file urls needed
+	font-path: '../../../themes/default/fonts/fontname/NationalWeb-Bold'; /* auto generates the file urls needed */
 	font-weight: normal;
 	font-style: normal;
 }
