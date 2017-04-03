@@ -1,19 +1,16 @@
 /*
-#Images
+-------------------------------------------------------------------------
+	Images
+	Template: SGCMSImages
 
-Template: SGCMSImages
-
-Styling for CMS images inserted via tinymce. Options are: <br /><br />
-&bull; Left, text wrapping<br />
-&bull; Right, text wrapping<br />
-&bull; Left alone (no text wrapping)<br />
-&bull; Centered alone (no text wrapping)<br /><br />
-... with optional captions
-
-
-Styleguide 3.4
+	Styling for CMS images inserted via tinymce. Options are: <br /><br />
+	&bull; Left, text wrapping<br />
+	&bull; Right, text wrapping<br />
+	&bull; Left alone (no text wrapping)<br />
+	&bull; Centered alone (no text wrapping)<br /><br />
+	... with optional captions
+------------------------------------------------------------------------- 
 */
-
 
 svg {
 	max-width: 100%;
@@ -63,21 +60,19 @@ img {
 }
 
 /*
-#Media (youtube, etc)
+-------------------------------------------------------------------------
+	Media (youtube, etc)
+	Template: SGCMSMedia
 
-CMS Styling for youtube, vimeo etc media included via oembed. These work much the same as images. Options are: <br /><br />
-&bull; Left, text wrapping<br />
-&bull; Right, text wrapping<br />
-&bull; Left alone (no text wrapping)<br />
-&bull; Centered alone (no text wrapping)
-
-Template: SGCMSMedia
-
-Styleguide 3.4.1
+	CMS Styling for youtube, vimeo etc media included via oembed. 
+	These work much the same as images. Options are: <br /><br />
+	&bull; Left, text wrapping<br />
+	&bull; Right, text wrapping<br />
+	&bull; Left alone (no text wrapping)<br />
+	&bull; Centered alone (no text wrapping)
+------------------------------------------------------------------------- 
 */
 
-
-/* Media insert formatting  (Youtube embed) */
 .media {
 	&.center {
 		margin:0 auto;

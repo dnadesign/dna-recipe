@@ -1,13 +1,12 @@
 /*
-# Hamburger
+-------------------------------------------------------------------------
+	Hamburger
 
-The animated mobile menu icon.
+	Template: Hamburger
+	SectionTemplate: SGSectionDark
 
-Template: Hamburger
-
-SectionTemplate: SGSectionDark
-
-Styleguide 4.3
+	The animated mobile menu icon.
+------------------------------------------------------------------------- 
 */
 
 .hamburger {
@@ -21,7 +20,6 @@ Styleguide 4.3
 	padding: 15px 0 15px;
 	overflow: visible;
 	text-transform: none;
-
 	transition-timing-function: linear;
 	transition-duration: .15s;
 	transition-property: opacity,-webkit-filter;
@@ -40,7 +38,7 @@ Styleguide 4.3
 	}
 
 	@include respond(md) {
-		// Hide from the main menu on desktop
+		/* Hide from the main menu on desktop */
 		.menu & {
 			display: none;
 		}

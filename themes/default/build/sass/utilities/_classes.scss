@@ -1,16 +1,28 @@
-/**
- * Utility classes are short modifiers used across components
- * These should be used sparingly. In most cases a component is a better choice.
- */
+/*
+-------------------------------------------------------------------------
+	Utility classes
+	Short modifiers used across components
+	These should be used sparingly. 
+	In most cases a component is a better choice
+------------------------------------------------------------------------- 
+*/
 
-// Generic style for meta data
+/*
+-------------------------------------------------------------------------
+	Generic style for meta data
+------------------------------------------------------------------------- 
+*/
+
 .metadata {
 	font-size: $base-font-size - 3;
 }
 
-/**
- * Screen reader helper classes
- */
+/*
+-------------------------------------------------------------------------
+	Screen reader helper classes
+------------------------------------------------------------------------- 
+*/
+
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -32,6 +44,12 @@
 	}
 }
 
+/*
+-------------------------------------------------------------------------
+	Print only helper classes
+------------------------------------------------------------------------- 
+*/
+
 .printonly {
 	display: none;
 
@@ -40,13 +58,18 @@
 	}
 }
 
-// Responsive visibility classes
-//
-// Usage example: .hidden-sm (hidden while the screen size is equal to or larger than sm)
-// Usage example: .hidden-xl
-// Usage example: .hidden-md--max (hidden while the screen size is smaller than md)
-//
-html body { // more specifity
+/*
+-------------------------------------------------------------------------
+	Responsive visibility classes
+	Usage example: .hidden-sm (hidden while the screen size is equal to 
+	or larger than sm)
+	Usage example: .hidden-xl
+	Usage example: .hidden-md--max (hidden while the screen size is
+	smaller than md)
+------------------------------------------------------------------------- 
+*/
+
+html body { 
 	@each $breakpoint, $value in $breakpoints {
 		@include respond($breakpoint) {
 			.hidden-#{$breakpoint} {

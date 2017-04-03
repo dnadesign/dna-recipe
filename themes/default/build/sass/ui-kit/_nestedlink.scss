@@ -1,26 +1,26 @@
 /*
-# Nested links
+-------------------------------------------------------------------------
+	Nested links
+	This provides the ability to visually nest links within links, where both the inner and outerlink
+	are selectable. NOTE: the outer-link must have a sr-only description for accessibility
 
-This provides the ability to visually nest links within links, where both the inner and outerlink
-are selectable. NOTE: the outer-link must have a sr-only description for accessibility
-
-Markup:
-<div class="nestedlink">
-	<a href="/" class="nestedlink-outer">
-		<span class="sr-only">Click anywhere in the block to go here</span>
-	</a>
-	<div>
-		<a href="http://google.com" class="nestedlink-inner">Click to go somewhere else</a>
+	Markup:
+	<div class="nestedlink">
+		<a href="/" class="nestedlink-outer">
+			<span class="sr-only">Click anywhere in the block to go here</span>
+		</a>
+		<div>
+			<a href="http://google.com" class="nestedlink-inner">Click to go somewhere else</a>
+		</div>
 	</div>
-</div>
 
-Styleguide 4.5
+------------------------------------------------------------------------- 
 */
 
 .nestedlink {
 	position: relative;
 
-	// Apply .nestedlink-inner to any link you want to embed inside the nestedlink-outer
+	/* Apply .nestedlink-inner to any link you want to embed inside the nestedlink-outer */
 	&-inner {
 		position: relative;
 		top: 0;
@@ -28,10 +28,15 @@ Styleguide 4.5
 		z-index: 11;
 		zoom: 1;
 	}
+	
+	/*
+	-------------------------------------------------------------------------
+		For links that take up the full content space place the outer-link in the
+		html within a relatively positioned block
+		NOTE: the outer-link must have a sr-only description for accessibility
+	------------------------------------------------------------------------- 
+	*/
 
-	// For links that take up the full content space place the outer-link in the
-	// html within a relatively positioned block
-	// NOTE: the outer-link must have a sr-only description for accessibility
 	&-outer {
 		position: absolute;
 		top: 0;
@@ -55,7 +60,7 @@ Styleguide 4.5
 			}
 		}
 
-		// apply innerlink to all sibling links and all children of sibling links
+		/* apply innerlink to all sibling links and all children of sibling links */
 		~ a,
 		~ * a {
 			@extend .nestedlink-inner;

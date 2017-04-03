@@ -1,3 +1,10 @@
+/*
+-------------------------------------------------------------------------
+	Tables
+	Template: SGCMSTables
+------------------------------------------------------------------------- 
+*/
+
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
 	font-family: $font;
@@ -6,13 +13,13 @@ html, button, input, select, textarea,
 }
 
 /*
-#Text elements
+-------------------------------------------------------------------------
+	Text elements
+	Template: SGCMSText
 
-Template: SGCMSText
-
-Generic text elements such as paragraphs, strong, em, sup, sub, hr and links
-
-Styleguide 3.6
+	Generic text elements such as paragraphs, strong, em, sup, sub, 
+	hr and links
+------------------------------------------------------------------------- 
 */
 
 %type--defaults {
