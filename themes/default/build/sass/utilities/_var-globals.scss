@@ -1,14 +1,49 @@
+/*
+Global Variables
+Contents: 
 
-// Import brand variables (colours, fonts, et al)
-@import "var-brand";
+1.  Imports
+2.  Colour variables
+3.  Environment variables
+4.  Theme colours
+5.  Radii and other global css3 style properties
+6.  Link colours
+7.  Tables
+8.  Max page widths applied to container elements
+*/
+
+/* 
+1.  Imports
+*/
+
 @import "var-breakpoints";
 
+/* 
+2.  Colour variables
+Put the colours from the design here. When naming your colours 
+be sure to use  http://chir.ag/projects/name-that-color to get 
+a proper colour name 
+*/
 
-// This file is for the global variables used across your site
+$color-bunker: #131A21;
+$color-carnation: #FC5F5E;
+$color-ebony-clay: #212E3A;
+$color-fountain-blue: #59C3BC;
+$color-gallery: #EFEFEF;
+$color-mercury: #e5e5e5;
+$color-pickled-bluewood: #354A5E;
+$color-red-ribbon: #E9004C;
+$color-revolver: #3D1C42;
+$color-ronchi: #EECA44;
+$color-sushi: #94B541;
+$color-tree-poppy: #FD911E;
 
+/* 
+3.  Environment variables
+Environment variables. Note some projects put all css into assets,
+so the path needs to be able to find the css from there 
+*/
 
-// Environment variables. Note some projects put all css into assets,
-// so the path needs to be able to find the css from there
 $theme-name: 'default';
 $file-path: "../../../themes/"+$theme-name;
 $image-path: $file-path + "/images/";
@@ -25,29 +60,42 @@ $font-heading: times, serif;
 $font-heading--alt: helvetica, arial, sans-serif;
 $font-heading-weight: 700;
 
+/* 
+4.  Theme colours
+Make sure that the colours assigned here are assigned using the 
+colour variables above 
+*/
 
-// Theme colors
-$default-color: $brand-default;
-$primary-color: #E9004C;
-$secondary-color: #354A5E;
-$success-color: #94B541;
-$error-color: #FC5F5E;
-$warning-color: #EECA44;
+$default-color: $color-gallery;
+$primary-color: $color-red-ribbon;
+$secondary-color: $color-pickled-bluewood;
+$success-color: $color-sushi;
+$error-color: $color-carnation;
+$warning-color: $color-ronchi;
 
 $body-bg: $default-color;
-$font-color: $brand-blue-dark;
+$font-color: $color-bunker;
 
 $link-color: darken($secondary-color, 20%);
 $link-hover-color: lighten($link-color, 10%);
 $link-visited-color: darken($link-color, 10%);
 
-// Radius
+/* 
+5.  Radii and other global css3 style properties 	
+*/
+
 $button-radius: 3px;
+
+/* 
+6.  Link colours
+Make sure that the colours assigned here are assigned using the 
+colour variables above 
+*/
 
 // Menu bar
 $menu-color: $primary-color;
-$menu-link-color: #fff;
-$menu-link-hover-color: #fff;
+$menu-link-color: white;
+$menu-link-hover-color: white;
 $menu-link-hover-background-color: darken($primary-color, 15%);
 
 // Footer
@@ -56,41 +104,58 @@ $footer-link-color: $menu-link-color;
 $footer-link-hover-color: $menu-link-hover-color;
 $footer-link-hover-background-color: $menu-link-hover-background-color;
 
+/* 
+7.  Tables 
+*/
 
-// Tables
 $table-header-font-family: $font;
-$table-bgcolor:  #fff;
+$table-bgcolor:  white;
 $table-thead-color:  $font-color;
 $table-thead-bgcolor:  $default-color;
 $table-border-size:  1px;
 $table-border-style:  solid;
-$table-border-color:  #e5e5e5;
+$table-border-color:  $mercury;
 $table-cell-border-size:  1px;
-$table-cell-border-color:  #e5e5e5;
+$table-cell-border-color:  $mercury;
 $table-cell-border-style:  solid;
 
-// Max page width (applied to container elements)
+/*  
+8.  Max page widths applied to container elements 
+*/
+
 $container-width: 1200px;
 $max-device-width:  2880px;
 $gutter: 30px;
 
-
 /*
-# Colours - assigned palette
+# Colours - primary palette
 
 SectionTemplate: SGColorPalette
 
-$default-color - #EFEFEF;
-$primary-color - #E9004C;
-$secondary-color - #354A5E;
-$success-color - #94B541;
-$error-color - #FC5F5E;
-$warning-color - #EECA44;
+$brand-blue - #212E3A;
+$brand-yellow - #EECA44;
+$brand-red - #FC5F5E;
+$brand-teal - #59C3BC;
 
 
-Styleguide 1.1.2
+Styleguide 1.1
 */
 
+/*
+# Colours - secondary palette
+
+SectionTemplate: SGColorPalette
+
+$brand-default - #EFEFEF;
+$brand-purple -  #3D1C42;
+$brand-pink -  #E9004C;
+$brand-orange -  #FD911E;
+$brand-green -  #94B541;
+$brand-blue-dark -  #131A21;
+$brand-blue-light - #354A5E;
+
+Styleguide 1.1.1
+*/
 
 /*
 ## Font Test
