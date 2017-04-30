@@ -1,3 +1,5 @@
+# Dna Recipe
+
 ## Getting started
 _NOTE: assumes you have node setup and gulp installed. If not, you should go do those things first_
 
@@ -37,7 +39,7 @@ When you create a new component, please document it in the scss file, as we have
 It is recommended you work with the default grid where possible, but sometimes the 3, 5 and 24 grid may not be enough. Adding extra breakpoints and altering the grid units can be managed from the [breakpoints file](themes/default/build/sass/utilities/_var-breakpoints.scss). Please be cautious changing these in non-new projects, as some components are likely to have been built with the breakpoints and grid units as they are. 
 
 
-## Frontend coding guidelines
+# Frontend coding guidelines
 
 We've turned to a combination of BEM and atomic design. We believe this will enable developers to work together easily and produce consistent, professional, maintainable results for clients. It also means we are able to quickly communicate to contractors what and how we want things done in order to reduce code review and rework time and also improve efficiencies of working on larger front-end team.
 
