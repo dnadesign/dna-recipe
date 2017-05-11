@@ -238,7 +238,7 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 
 gulp.task('build', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'svgo']);
 
-gulp.task('watch', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'browserSync'], function () {
+gulp.task('watch', ['build', 'browserSync'], function () {
 	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css', browserSync.reload]); //watch sass in project sass folder, run tasks
 	gulp.watch('build/js/**/*.js', ['json', 'make-js', browserSync.reload]);  //watch js in project js folder, run tasks
 });
