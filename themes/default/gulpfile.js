@@ -18,8 +18,14 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	plumber = require('gulp-plumber'),
 	sassJson = require('gulp-sass-json'),
-	template = require('gulp-template');
+	template = require('gulp-template'),
+	svgmin = require('gulp-svgmin'),
+	gulpif = require('gulp-if');
 
+function swallowError (error) {
+	console.log(error.toString());
+	this.emit('end');
+}
 
 /**
  * Live browser previews
@@ -61,6 +67,15 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 	}
 });
 
+/**
+ * Minify all the svg - Make sure you're using the correct folder for your
+ * svg files. You may also want to specify a different destination to the target
+ */
+gulp.task('svgo', function () {
+    return gulp.src('images/svg/**/*.svg')
+        .pipe(svgmin())
+        .pipe(gulp.dest('images/svg'));
+});
 
 /**
  * Create JSON objects from SCSS variables
@@ -103,6 +118,7 @@ gulp.task('make-css', function() {
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
+		.on('error', swallowError)
 		.pipe(sass()) // Using gulp-sass
 		.pipe(cleanCSS({compatibility: 'ie9'}))
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
@@ -144,7 +160,6 @@ gulp.task('cms-css', function() {
  * and save as a script.min file
  */
 gulp.task('make-js-components', function() {
-
 	return gulp.src('build/js/components/**/*.js')
 		.pipe(plumber())
 		.pipe(eslint({
@@ -212,7 +227,7 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/src/'))
-		.pipe(uglify())
+		.pipe(gulpif(process.env.NODE_ENV !== 'dev', uglify()))
 		.pipe(rename({
 			suffix: '.min'
 		}))
@@ -220,6 +235,8 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 		.pipe(plumber.stop())
 		.pipe(gulp.dest('js'))
 });
+
+gulp.task('build', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'svgo']);
 
 gulp.task('watch', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'browserSync'], function () {
 	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css', browserSync.reload]); //watch sass in project sass folder, run tasks
