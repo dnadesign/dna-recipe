@@ -8,12 +8,15 @@ setup:
 	@cd themes/default && npm install
 
 start:
-	@cd themes/default && gulp
+	@NODE_ENV=dev make gulp
+
+gulp:
+	cd themes/default && gulp
 
 release:
-        @cd themes/default && gulp build
-        @git add -f --all themes/default/js themes/default/css
-        @git commit -m "Checking in built assets"
+	@cd themes/default && gulp build
+	@git add -f --all themes/default/js themes/default/css
+	@git commit -m "Checking in built assets"
 
 startsolr:
-        @cd fulltextsearch-localsolr/server/ && java -jar start.jar &
+	@cd fulltextsearch-localsolr/server/ && java -jar start.jar &
