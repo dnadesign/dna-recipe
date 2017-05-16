@@ -3,16 +3,14 @@
 *
 */
 DO.Subscribe('app:ready', function(e, $) {
-
-	"use strict";
+	'use strict';
 
 	function init() {
 		setup($(document));
 	}
 
-
 	function setup(scope) {
-		if(scope.find('[data-slider]').length < 1) {
+		if (scope.find('[data-slider]').length < 1) {
 			return;
 		}
 
@@ -22,14 +20,14 @@ DO.Subscribe('app:ready', function(e, $) {
 	}
 
 	function attachEvents(scope) {
-		if(scope.is(document)) {
+		if (scope.is(document)) {
 			$(document).on('ajaxpages:contentloaded', function(e, data) {
 				setup(data.target);
 			});
 		}
 	}
 
-	//[0, 568, 768, 1024, 1280]
+	// [0, 568, 768, 1024, 1280]
 	function getConfig() {
 		return {
 			mobileFirst: true,
@@ -42,12 +40,12 @@ DO.Subscribe('app:ready', function(e, $) {
 			responsive: [{
 				breakpoint: 1280,
 				settings: {
-					slidesToShow: 4,
+					slidesToShow: 4
 				}
-			},{
+			}, {
 				breakpoint: 1024,
 				settings: {
-					slidesToShow: 3,
+					slidesToShow: 3
 				}
 			}, {
 				breakpoint: 600,
@@ -65,5 +63,4 @@ DO.Subscribe('app:ready', function(e, $) {
 	}
 
 	init();
-
 });

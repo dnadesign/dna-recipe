@@ -16,11 +16,11 @@ var gulp = require('gulp'),
 	eslint = require('gulp-eslint'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	plumber = require('gulp-plumber'),
 	sassJson = require('gulp-sass-json'),
 	template = require('gulp-template'),
 	svgmin = require('gulp-svgmin'),
 	gulpif = require('gulp-if');
+
 
 function swallowError (error) {
 	console.log(error.toString());
@@ -72,9 +72,10 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
  * svg files. You may also want to specify a different destination to the target
  */
 gulp.task('svgo', function () {
-    return gulp.src('images/svg/**/*.svg')
-        .pipe(svgmin())
-        .pipe(gulp.dest('images/svg'));
+	return gulp.src('images/svg/**/*.svg')
+		.pipe(svgmin())
+		.on('error', swallowError)
+		.pipe(gulp.dest('images/svg'));
 });
 
 /**
@@ -83,6 +84,7 @@ gulp.task('svgo', function () {
 gulp.task('json', function() {
 	return gulp.src('build/sass/utilities/_var-breakpoints.scss')
 		.pipe(sassJson())
+		.on('error', swallowError)
 		.pipe(gulp.dest('js/src/'))
 });
 
@@ -94,13 +96,12 @@ gulp.task('pure', ['json'], function() {
 	return gulp.src([
 		'node_modules/purecss/build/pure.css',
 		])
-		.pipe(plumber())
 		.pipe(postcss([ rm_hover() ]))
+		.on('error', swallowError)
 		.pipe(concat('pure.css'))
 		.pipe(rename({
 			suffix: '.src'
 		}))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('css/'))
 });
 
@@ -115,7 +116,6 @@ gulp.task('pure', ['json'], function() {
  */
 gulp.task('make-css', function() {
 	return gulp.src('build/sass/style.scss')
-		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
 		.on('error', swallowError)
@@ -127,7 +127,6 @@ gulp.task('make-css', function() {
 		}))
 		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('css/'))
 });
 
@@ -138,9 +137,9 @@ gulp.task('make-css', function() {
  */
 gulp.task('cms-css', function() {
 	return gulp.src('build/sass/editor.scss')
-		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
+		.on('error', swallowError)
 		.pipe(sass()) // Using gulp-sass
 		.pipe(cleanCSS({compatibility: 'ie9'}))
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
@@ -149,7 +148,6 @@ gulp.task('cms-css', function() {
 		}))
 		.pipe(concat('editor.css'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('css/'))
 });
 
@@ -161,20 +159,20 @@ gulp.task('cms-css', function() {
  */
 gulp.task('make-js-components', function() {
 	return gulp.src('build/js/components/**/*.js')
-		.pipe(plumber())
 		.pipe(eslint({
-			globals: {
-				'jQuery' : true,
-				'console' : true,
-				'document': true
-			},
+			globals: [
+				'jQuery',
+				'console',
+				'document',
+				'DO'
+			],
 			envs: [
 				'browser'
 			]
 		})).pipe(eslint.format())
 		.pipe(sourcemaps.init())
+		.on('error', swallowError)
 		.pipe(concat('components.js'))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('js/src/'))
 		.pipe(sourcemaps.write('.'))
 });
@@ -222,8 +220,8 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 
 			'build/js/start.src.js'
 		])
-		.pipe(plumber())
 		.pipe(template({breakpoints: JSON.stringify(config)}))
+		.on('error', swallowError)
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/src/'))
@@ -232,7 +230,6 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 			suffix: '.min'
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(plumber.stop())
 		.pipe(gulp.dest('js'))
 });
 

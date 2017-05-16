@@ -1,11 +1,10 @@
 /**
- * Toggles and switches extra js (for accessibility). 
+ * Toggles and switches extra js (for accessibility).
  * Uses ../lib/toggles-switches.js from https://github.com/dsurgeons/Toggles-Switches
  */
 
- DO.Subscribe('app:ready', function(e, $) {
-
-	"use strict";
+DO.Subscribe('app:ready', function(e, $) {
+	'use strict';
 
 	var focusable = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]',
 		focusableNative = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed';
@@ -29,7 +28,6 @@
 		attachEvents(scope);
 	}
 
-
 	/**
 	 * If an element has the attribute data-toggle-aria we want to toggle the
 	 * aria-hidden attribute of the data-toggle-aria value and the tabindex of
@@ -37,14 +35,13 @@
 	 * @param scope | DOMObject
 	 */
 	function attachAriaHide(scope) {
-		var targets = scope.find("[data-toggle-aria]"),
-			i;
+		var targets = scope.find('[data-toggle-aria]');
 
 		// Set aria hidden and tabindex -1
 		targets.on('click', function() {
 			var target = $(this).data('toggle-aria'),
-				value = $(target).attr('aria-hidden') == "false" ? "true" : "false",
-				tabindex = value == "false" ? "0" : "-1";
+				value = $(target).attr('aria-hidden') === 'false' ? 'true' : 'false',
+				tabindex = value === 'false' ? '0' : '-1';
 
 			$(target).attr('aria-hidden', value);
 			$(target).find(focusable).attr('tabindex', tabindex);
@@ -62,13 +59,12 @@
 			e.stopPropagation();
 		});
 
-		//make sure we get the order of our events right
-		setTimeout(function(){
+		// make sure we get the order of our events right
+		setTimeout(function() {
 			keyboardFocus(scope);
 		}, 1000);
 
-		if(scope.is(document)) {
-
+		if (scope.is(document)) {
 			$(document).on('ajaxpages:contentloaded', function(e, data) {
 				setup(data.target);
 			});
@@ -80,25 +76,23 @@
 	 * @param scope | DOMObject
 	 */
 	function keyboardFocus(scope) {
-		scope.find(focusable).on('keyup',function(e) {
-			$(e.target).addClass("hasfocus");
+		scope.find(focusable).on('keyup', function(e) {
+			$(e.target).addClass('hasfocus');
 
-			if($(e.target).is(focusableNative)){
+			if ($(e.target).is(focusableNative)) {
 				return;
 			}
 
 			// trigger click if this element doesn't usually support click
-			if(e.keyCode == 13) {
+			if (e.keyCode === 13) {
 				e.preventDefault();
 				e.stopPropagation();
 				$(e.target).trigger('click');
 			}
-
-		}).on('blur focusout',function(e) {
-			$(e.target).removeClass("hasfocus");
+		}).on('blur focusout', function(e) {
+			$(e.target).removeClass('hasfocus');
 		});
 	}
 
 	init();
-
 });

@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="100px" height="100px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<title>Trigger</title>
-	<desc>Open link in modal</desc>
-	<defs></defs>
-	<g transform="translate(0.000000, -1.000000)">
-		<path d="M7.1633,9.8407 L0,9.8407 L0,7.8407 L7.1633,7.8407 L7.1633,0.6719 L9.1633,0.6719 L9.1633,7.8407 L16.328,7.8407 L16.328,9.8407 L9.1633,9.8407 L9.1633,16.9999 L7.1633,16.9999 L7.1633,9.8407 Z"></path>
-	</g>
-</svg>
+<svg width="100" height="100" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>Trigger</title><desc>Open link in modal</desc><path d="M7.163 8.84H0v-2h7.163V-.327h2V6.84h7.165v2H9.163V16h-2V8.84z"/></svg>
