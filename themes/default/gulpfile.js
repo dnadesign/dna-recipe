@@ -22,6 +22,8 @@ var gulp = require('gulp'),
 	gulpif = require('gulp-if');
 
 
+const project = 'dna-recipe'; // your project name
+
 function swallowError (error) {
 	console.log(error.toString());
 	this.emit('end');
@@ -32,13 +34,18 @@ function swallowError (error) {
  * NOTE: This will use a json object outside your project root if you provide one.
  */
 gulp.task('browserSync', ['make-js', 'make-css'], function() {
+	if(browserSync.active){
+		return;
+	}
+
 	var path = "../../../_npm_environment.json",
 		file,
 		defaultConfig = {
 			open: 'external',
-			host: 'dna-recipe.dev', // this can be anything at .dev, or localhost, or...
-			proxy: "dna-recipe.dev", // this needs to be your project (localhost, .dev, vagrant domain et al)
-			watchTask: true
+			host: project + '.dev', // this can be anything at .dev, or localhost, or...
+			proxy: project + '.dev', // this needs to be your project (localhost, .dev, vagrant domain et al)
+			watchTask: true,
+			injectChanges: true
 		},
 		bsConfig,
 		newConfig;
@@ -50,6 +57,8 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 				return console.log(err);
 			}
 			data = JSON.parse(data);
+
+			data = data[project] ? data[project] : data; // check for project specific config options
 
 			if(bsConfig = data.browserSync) {
 				if(bsConfig.disabled === true) {
@@ -118,8 +127,8 @@ gulp.task('make-css', function() {
 	return gulp.src('build/sass/style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
-		.on('error', swallowError)
 		.pipe(sass()) // Using gulp-sass
+		.on('error', swallowError)
 		.pipe(cleanCSS({compatibility: 'ie9'}))
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
 		.pipe(rucksack({
@@ -128,6 +137,7 @@ gulp.task('make-css', function() {
 		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('css/'))
+		.pipe(browserSync.stream())
 });
 
 
@@ -139,8 +149,8 @@ gulp.task('cms-css', function() {
 	return gulp.src('build/sass/editor.scss')
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
-		.on('error', swallowError)
 		.pipe(sass()) // Using gulp-sass
+		.on('error', swallowError)
 		.pipe(cleanCSS({compatibility: 'ie9'}))
 		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
 		.pipe(rucksack({
@@ -231,13 +241,14 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 		}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('js'))
+		.pipe(browserSync.stream())
 });
 
 gulp.task('build', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'svgo']);
 
 gulp.task('watch', ['build', 'browserSync'], function () {
-	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css', browserSync.reload]); //watch sass in project sass folder, run tasks
-	gulp.watch('build/js/**/*.js', ['json', 'make-js', browserSync.reload]);  //watch js in project js folder, run tasks
+	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css']); //watch sass in project sass folder, run tasks
+	gulp.watch('build/js/**/*.js', ['json', 'make-js']);  //watch js in project js folder, run tasks
 });
 
 gulp.task('default', ['watch']);
