@@ -42,3 +42,5 @@ node_modules/
 /hybridsessions/
 /cwp/
 /cwp-core/
+/testsession/
+TESTS_RUNNING.json

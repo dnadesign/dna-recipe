@@ -20,3 +20,6 @@ release:
 
 startsolr:
 	@cd fulltextsearch-localsolr/server/ && java -jar start.jar &
+
+test:
+	@vendor/bin/phpunit
