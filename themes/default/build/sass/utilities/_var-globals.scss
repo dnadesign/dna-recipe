@@ -1,6 +1,6 @@
 /*
 Global Variables
-Contents: 
+Contents:
 
 1.  Imports
 2.  Colour variables
@@ -12,17 +12,17 @@ Contents:
 8.  Max page widths applied to container elements
 */
 
-/* 
+/*
 1.  Imports
 */
 
 @import "var-breakpoints";
 
-/* 
+/*
 2.  Colour variables
-Put the colours from the design here. When naming your colours 
-be sure to use  http://chir.ag/projects/name-that-color to get 
-a proper colour name 
+Put the colours from the design here. When naming your colours
+be sure to use  http://chir.ag/projects/name-that-color to get
+a proper colour name
 */
 
 $color-bunker: #131A21;
@@ -38,16 +38,15 @@ $color-ronchi: #EECA44;
 $color-sushi: #94B541;
 $color-tree-poppy: #FD911E;
 
-/* 
+/*
 3.  Environment variables
 Environment variables. Note some projects put all css into assets,
-so the path needs to be able to find the css from there 
+so the path needs to be able to find the css from there
 */
 
 $theme-name: 'default';
 $file-path: "../../../themes/"+$theme-name;
 $image-path: $file-path + "/images/";
-$svg-path: $file-path + "/images/svg/";
 
 $base-font-size: 16px;
 
@@ -60,10 +59,10 @@ $font-heading: times, serif;
 $font-heading--alt: helvetica, arial, sans-serif;
 $font-heading-weight: 700;
 
-/* 
+/*
 4.  Theme colours
-Make sure that the colours assigned here are assigned using the 
-colour variables above 
+Make sure that the colours assigned here are assigned using the
+colour variables above
 */
 
 $default-color: $color-gallery;
@@ -80,16 +79,16 @@ $link-color: darken($secondary-color, 20%);
 $link-hover-color: lighten($link-color, 10%);
 $link-visited-color: darken($link-color, 10%);
 
-/* 
-5.  Radii and other global css3 style properties 	
+/*
+5.  Radii and other global css3 style properties
 */
 
 $button-radius: 3px;
 
-/* 
+/*
 6.  Link colours
-Make sure that the colours assigned here are assigned using the 
-colour variables above 
+Make sure that the colours assigned here are assigned using the
+colour variables above
 */
 
 // Menu bar
@@ -104,8 +103,8 @@ $footer-link-color: $menu-link-color;
 $footer-link-hover-color: $menu-link-hover-color;
 $footer-link-hover-background-color: $menu-link-hover-background-color;
 
-/* 
-7.  Tables 
+/*
+7.  Tables
 */
 
 $table-header-font-family: $font;
@@ -119,8 +118,8 @@ $table-cell-border-size:  1px;
 $table-cell-border-color:  $color-mercury;
 $table-cell-border-style:  solid;
 
-/*  
-8.  Max page widths applied to container elements 
+/*
+8.  Max page widths applied to container elements
 */
 
 $container-width: 1200px;

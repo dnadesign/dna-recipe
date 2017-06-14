@@ -139,7 +139,7 @@ Styleguide 6.3
 			display: block;
 			width: 20px;
 			height: 30px;
-			background: url("#{$svg-path}chevron_thin.svg") no-repeat;
+			background: svg-load('chevron_thin.svg', fill=#000, stroke=#fff) no-repeat;
 		}
 
 		.no-touchevents & {

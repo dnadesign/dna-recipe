@@ -1,18 +1,17 @@
 var gulp = require('gulp'),
 	del = require('del'),
-	fs = require("fs"),
-	rucksack = require('gulp-rucksack'), //PostCSS CSS super powers library: http://simplaio.github.io/rucksack/docs/
+	fs = require('fs'),
+	rucksack = require('gulp-rucksack'), // PostCSS CSS super powers library: http://simplaio.github.io/rucksack/docs/
 	rename = require('gulp-rename'),
-	sourcemaps   = require('gulp-sourcemaps'),
+	sourcemaps = require('gulp-sourcemaps'),
 	browserSync = require('browser-sync').create(),
-
 	sass = require('gulp-sass'),
 	bulkSass = require('gulp-sass-bulk-import'),
-	postcss      = require('gulp-postcss'),
+	postcss = require('gulp-postcss'),
 	autoprefixer = require('autoprefixer'),
+	inlinesvg = require('postcss-inline-svg'),
 	rm_hover = require('postcss-hover'), // used to remove pure's default hover states
 	cleanCSS = require('gulp-clean-css'),
-
 	eslint = require('gulp-eslint'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -21,10 +20,9 @@ var gulp = require('gulp'),
 	svgmin = require('gulp-svgmin'),
 	gulpif = require('gulp-if');
 
-
 const project = 'dna-recipe'; // your project name
 
-function swallowError (error) {
+function swallowError(error) {
 	console.log(error.toString());
 	this.emit('end');
 }
@@ -34,11 +32,11 @@ function swallowError (error) {
  * NOTE: This will use a json object outside your project root if you provide one.
  */
 gulp.task('browserSync', ['make-js', 'make-css'], function() {
-	if(browserSync.active){
+	if (browserSync.active) {
 		return;
 	}
 
-	var path = "../../../_npm_environment.json",
+	var path = '../../../_npm_environment.json',
 		file,
 		defaultConfig = {
 			open: 'external',
@@ -50,9 +48,8 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 		bsConfig,
 		newConfig;
 
-
 	if (fs.existsSync(path)) {
-		file = fs.readFile(path, 'utf8', function (err,data) {
+		file = fs.readFile(path, 'utf8', function(err, data) {
 			if (err) {
 				return console.log(err);
 			}
@@ -60,8 +57,8 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 
 			data = data[project] ? data[project] : data; // check for project specific config options
 
-			if(bsConfig = data.browserSync) {
-				if(bsConfig.disabled === true) {
+			if ((bsConfig = data.browserSync)) {
+				if (bsConfig.disabled === true) {
 					console.log('browsersync disabled');
 					return;
 				}
@@ -80,8 +77,9 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
  * Minify all the svg - Make sure you're using the correct folder for your
  * svg files. You may also want to specify a different destination to the target
  */
-gulp.task('svgo', function () {
-	return gulp.src('images/svg/**/*.svg')
+gulp.task('svgo', function() {
+	return gulp
+		.src('images/svg/**/*.svg')
 		.pipe(svgmin())
 		.on('error', swallowError)
 		.pipe(gulp.dest('images/svg'));
@@ -91,10 +89,11 @@ gulp.task('svgo', function () {
  * Create JSON objects from SCSS variables
  */
 gulp.task('json', function() {
-	return gulp.src('build/sass/utilities/_var-breakpoints.scss')
+	return gulp
+		.src('build/sass/utilities/_var-breakpoints.scss')
 		.pipe(sassJson())
 		.on('error', swallowError)
-		.pipe(gulp.dest('js/src/'))
+		.pipe(gulp.dest('js/src/'));
 });
 
 /**
@@ -102,20 +101,18 @@ gulp.task('json', function() {
  * We don't want to edit this file, as there's no real need with such a small framework
  */
 gulp.task('pure', ['json'], function() {
-	return gulp.src([
-		'node_modules/purecss/build/pure.css',
-		])
-		.pipe(postcss([ rm_hover() ]))
+	return gulp
+		.src(['node_modules/purecss/build/pure.css'])
+		.pipe(postcss([rm_hover()]))
 		.on('error', swallowError)
 		.pipe(concat('pure.css'))
-		.pipe(rename({
-			suffix: '.src'
-		}))
-		.pipe(gulp.dest('css/'))
+		.pipe(
+			rename({
+				suffix: '.src'
+			})
+		)
+		.pipe(gulp.dest('css/'));
 });
-
-
-
 
 /**
  * Compile sass, allowing for wildcard @imports. Then run autoprefixer on the output
@@ -124,43 +121,61 @@ gulp.task('pure', ['json'], function() {
  * Minify CSS using cleanCSS, and output to an style.css file.
  */
 gulp.task('make-css', function() {
-	return gulp.src('build/sass/style.scss')
+	return gulp
+		.src('build/sass/style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
 		.pipe(sass()) // Using gulp-sass
 		.on('error', swallowError)
-		.pipe(cleanCSS({compatibility: 'ie9'}))
-		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-		.pipe(rucksack({
-			alias: false
-		}))
+		.pipe(cleanCSS({ compatibility: 'ie9' }))
+		.pipe(
+			postcss([
+				autoprefixer({ browsers: ['last 2 versions'] }),
+				inlinesvg({
+					path: 'images/svg/'
+				})
+			])
+		)
+		.pipe(
+			rucksack({
+				alias: false
+			})
+		)
 		.pipe(concat('style.css'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('css/'))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.stream());
 });
-
 
 /**
  * Minify editor.css and move into css root
  * NOTE: we aren't renaming the file, as silverstripe looks for editor.css by default
  */
 gulp.task('cms-css', function() {
-	return gulp.src('build/sass/editor.scss')
+	return gulp
+		.src('build/sass/editor.scss')
 		.pipe(sourcemaps.init())
 		.pipe(bulkSass())
 		.pipe(sass()) // Using gulp-sass
 		.on('error', swallowError)
-		.pipe(cleanCSS({compatibility: 'ie9'}))
-		.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-		.pipe(rucksack({
-			alias: false
-		}))
+		.pipe(cleanCSS({ compatibility: 'ie9' }))
+		.pipe(
+			postcss([
+				autoprefixer({ browsers: ['last 2 versions'] }),
+				inlinesvg({
+					path: 'images/svg/'
+				})
+			])
+		)
+		.pipe(
+			rucksack({
+				alias: false
+			})
+		)
 		.pipe(concat('editor.css'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('css/'))
+		.pipe(gulp.dest('css/'));
 });
-
 
 /**
  * Get all .js files in build/js/components
@@ -168,38 +183,34 @@ gulp.task('cms-css', function() {
  * and save as a script.min file
  */
 gulp.task('make-js-components', function() {
-	return gulp.src('build/js/components/**/*.js')
-		.pipe(eslint({
-			globals: [
-				'jQuery',
-				'console',
-				'document',
-				'DO'
-			],
-			envs: [
-				'browser'
-			]
-		})).pipe(eslint.format())
+	return gulp
+		.src('build/js/components/**/*.js')
+		.pipe(
+			eslint({
+				globals: ['jQuery', 'console', 'document', 'DO'],
+				envs: ['browser']
+			})
+		)
+		.pipe(eslint.format())
 		.pipe(sourcemaps.init())
 		.on('error', swallowError)
 		.pipe(concat('components.js'))
 		.pipe(gulp.dest('js/src/'))
-		.pipe(sourcemaps.write('.'))
+		.pipe(sourcemaps.write('.'));
 });
-
 
 /**
  * Include JS dependencies added with npm
  */
 gulp.task('make-js-npm', function() {
-	return gulp.src([
+	return gulp
+		.src([
 			'node_modules/jquery/dist/jquery.js',
 			'node_modules/slick-carousel/slick/slick.js'
 		])
 		.pipe(concat('npm-libs.src.js'))
-		.pipe(gulp.dest('js/src/'))
+		.pipe(gulp.dest('js/src/'));
 });
-
 
 /**
  * Include js libraries by hand to allow for specific ordering
@@ -207,11 +218,11 @@ gulp.task('make-js-npm', function() {
  * Combine with our other dependeniies, uglify, and write to folder
  */
 gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
-
 	var configJSON = fs.readFileSync('js/src/var-breakpoints.json'),
 		config = JSON.parse(configJSON);
 
-	return gulp.src([
+	return gulp
+		.src([
 			'js/src/npm-libs.src.js',
 			'build/js/lib/html5shiv-printshiv.js',
 			'build/js/lib/modernizr.min.js',
@@ -230,25 +241,27 @@ gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
 
 			'build/js/start.src.js'
 		])
-		.pipe(template({breakpoints: JSON.stringify(config)}))
+		.pipe(template({ breakpoints: JSON.stringify(config) }))
 		.on('error', swallowError)
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest('js/src/'))
 		.pipe(gulpif(process.env.NODE_ENV !== 'dev', uglify()))
-		.pipe(rename({
-			suffix: '.min'
-		}))
+		.pipe(
+			rename({
+				suffix: '.min'
+			})
+		)
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('js'))
-		.pipe(browserSync.stream())
+		.pipe(browserSync.stream());
 });
 
 gulp.task('build', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'svgo']);
 
-gulp.task('watch', ['build', 'browserSync'], function () {
-	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css']); //watch sass in project sass folder, run tasks
-	gulp.watch('build/js/**/*.js', ['json', 'make-js']);  //watch js in project js folder, run tasks
+gulp.task('watch', ['build', 'browserSync'], function() {
+	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css']); // watch sass in project sass folder, run tasks
+	gulp.watch('build/js/**/*.js', ['json', 'make-js']); // watch js in project js folder, run tasks
 });
 
 gulp.task('default', ['watch']);
