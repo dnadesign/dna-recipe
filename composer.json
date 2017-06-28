@@ -3,6 +3,7 @@
   "description": "The SilverStripe Framework Installer",
   "require": {
     "php": ">=5.6.0",
+	"jonom/silverstripe-betternavigator": "dev-master",
     "silverstripe/admin": "1.0.x-dev",
     "silverstripe/asset-admin": "1.0.x-dev",
     "silverstripe/assets": "1.0.x-dev",
@@ -14,8 +15,8 @@
     "silverstripe/reports": "4.0.x-dev",
     "silverstripe/siteconfig": "4.0.x-dev",
     "silverstripe/versioned": "1.0.x-dev",
-	"silverstripe/standardsediting": "dev-master"
-
+	"silverstripe/standardsediting": "dev-master",
+	"unclecheese/betterbuttons": "dev-master"
   },
   "require-dev": {
     "phpunit/PHPUnit": "^5.7"
