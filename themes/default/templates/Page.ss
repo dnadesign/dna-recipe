@@ -14,10 +14,9 @@
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements. It must be included _before_ the body element -->
 	<!--[if lt IE 9]>
-		<script src="$ThemeDir/js/libs/html5shiv-printshiv.js"></script>
+		<% require themedJavascript('build/js/lib/html5shiv-printshiv') %>
 	<![endif]-->
-
-	<link href="{$BaseHref}$ThemeDir/css/style.css" rel='stylesheet' type='text/css'>
+	<% require themedCSS('css/style.css') %>
 
 	<% include MetaIcons %>
 </head>
@@ -53,6 +52,8 @@
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=$SiteConfig.AddThisProfileID"></script>
 	<% end_if %>
 
-	<script type="text/javascript" src="{$BaseHref}{$ThemeDir}/js/script.min.js"></script>
+
+	<% require themedJavascript('js/script.min') %>
+
 </body>
 </html>

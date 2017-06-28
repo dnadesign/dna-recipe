@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Dev\SapphireTest;
+
 class HomePageTest extends SapphireTest
 {
 	public function setUpOnce()

@@ -13,19 +13,38 @@
 	More information:
 	- http://www.phpunit.de/manual/current/en/textui.html
 	- http://doc.silverstripe.org/framework/en/topics/testing/#configuration
+
+	It is safe to remove this file for normal website operation.
 -->
 <phpunit bootstrap="framework/tests/bootstrap.php" colors="true">
-    <testsuite name="Default">
-	<directory>app/tests</directory>
+
+	<testsuite name="Default">
+		<directory>mysite/tests</directory>
+		<directory>cms/tests</directory>
+		<directory>framework/tests</directory>
+	</testsuite>
+
+    <!-- core components -->
+    <testsuite name="core">
+		<directory>framework/tests/php/</directory>
+		<directory>silverstripe-assets/tests/php/</directory>
+        <directory>versioned/tests/php/</directory>
     </testsuite>
 
-    <listeners>
-	<listener class="SS_TestListener" file="framework/dev/TestListener.php" />
-    </listeners>
+    <!-- admin components -->
+    <testsuite name="admin">
+        <directory>cms/tests/</directory>
+        <directory>silverstripe-admin/tests/php/</directory>
+        <directory>campaign-admin/tests/php/</directory>
+        <directory>asset-admin/tests/php/</directory>
+        <directory>graphql/tests/</directory>
+        <directory>siteconfig/tests/</directory>
+        <directory>reports/tests/</directory>
+    </testsuite>
 
-    <groups>
-	<exclude>
-	    <group>sanitychecks</group>
-	</exclude>
-    </groups>
+	<groups>
+		<exclude>
+			<group>sanitychecks</group>
+		</exclude>
+	</groups>
 </phpunit>
