@@ -1,6 +1,6 @@
 Image:
   demo:
-    URL: 'app/images/demo.JPG'
+    URL: 'mysite/images/demo.JPG'
     Title: 'demo'
     ClassName: Image
 
@@ -25,7 +25,7 @@ Site:
     Image: =>Image.demo
 
 Template:
-  Menu:
+  Includes/Menu:
     Menu: =>Site.link1, =>Site.link2, =>Site.link3
-  Slick:
+  Includes/Slick:
     Items: =>Site.link1, =>Site.link2, =>Site.link3

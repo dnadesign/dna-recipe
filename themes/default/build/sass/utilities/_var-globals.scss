@@ -25,18 +25,18 @@ be sure to use  http://chir.ag/projects/name-that-color to get
 a proper colour name
 */
 
-$color-bunker: #131A21;
-$color-carnation: #FC5F5E;
-$color-ebony-clay: #212E3A;
-$color-fountain-blue: #59C3BC;
-$color-gallery: #EFEFEF;
+$color-bunker: #131a21;
+$color-carnation: #fc5f5e;
+$color-ebony-clay: #212e3a;
+$color-fountain-blue: #59c3bc;
+$color-gallery: #efefef;
 $color-mercury: #e5e5e5;
-$color-pickled-bluewood: #354A5E;
-$color-red-ribbon: #E9004C;
-$color-revolver: #3D1C42;
-$color-ronchi: #EECA44;
-$color-sushi: #94B541;
-$color-tree-poppy: #FD911E;
+$color-pickled-bluewood: #354a5e;
+$color-red-ribbon: #e9004c;
+$color-revolver: #3d1c42;
+$color-ronchi: #eeca44;
+$color-sushi: #94b541;
+$color-tree-poppy: #fd911e;
 
 /*
 3.  Environment variables
@@ -108,28 +108,28 @@ $footer-link-hover-background-color: $menu-link-hover-background-color;
 */
 
 $table-header-font-family: $font;
-$table-bgcolor:  white;
-$table-thead-color:  $font-color;
-$table-thead-bgcolor:  $default-color;
-$table-border-size:  1px;
-$table-border-style:  solid;
-$table-border-color:  $color-mercury;
-$table-cell-border-size:  1px;
-$table-cell-border-color:  $color-mercury;
-$table-cell-border-style:  solid;
+$table-bgcolor: white;
+$table-thead-color: $font-color;
+$table-thead-bgcolor: $default-color;
+$table-border-size: 1px;
+$table-border-style: solid;
+$table-border-color: $color-mercury;
+$table-cell-border-size: 1px;
+$table-cell-border-color: $color-mercury;
+$table-cell-border-style: solid;
 
 /*
 8.  Max page widths applied to container elements
 */
 
 $container-width: 1200px;
-$max-device-width:  2880px;
+$max-device-width: 2880px;
 $gutter: 30px;
 
 /*
 # Colours - primary palette
 
-SectionTemplate: SGColorPalette
+SectionTemplate: BenManu/StyleGuide/Includes/SGColorPalette
 
 $brand-blue - #212E3A;
 $brand-yellow - #EECA44;
@@ -143,7 +143,7 @@ Styleguide 1.1
 /*
 # Colours - secondary palette
 
-SectionTemplate: SGColorPalette
+SectionTemplate: BenManu/StyleGuide/Includes/SGColorPalette
 
 $brand-default - #EFEFEF;
 $brand-purple -  #3D1C42;

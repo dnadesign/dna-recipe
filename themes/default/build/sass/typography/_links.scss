@@ -1,7 +1,7 @@
 /*
 #Text elements
 
-Template: SGCMSText
+Template: StyleGuide/SGCMSText
 
 Generic text elements such as paragraphs, strong, em, sup, sub, hr and links
 
@@ -24,14 +24,13 @@ Styleguide 3.2
 		width: 20px;
 		height: 20px;
 		text-align: center;
-		margin-right:3px;
+		margin-right: 3px;
 	}
 }
 
-
 a {
 	color: $link-color;
-	text-decoration:none;
+	text-decoration: none;
 
 	h3 & {
 		color: $font-color;
@@ -41,18 +40,19 @@ a {
 	}
 
 	&:visited {
-		color:$link-visited-color;
+		color: $link-visited-color;
 
 		h3 & {
 			color: $font-color;
 		}
 	}
 
-	&:hover, &:focus {
-		color:$link-hover-color;
+	&:hover,
+	&:focus {
+		color: $link-hover-color;
 
 		h3 & {
-			color:$link-color;
+			color: $link-color;
 		}
 	}
 
@@ -60,7 +60,6 @@ a {
 		@extend %decorated-link;
 
 		&:before {
-
 		}
 	}
 
@@ -74,7 +73,6 @@ a {
 	&[href$=".JPEG"] {
 		@extend %decorated-link;
 		&:before {
-
 		}
 	}
 
@@ -94,7 +92,6 @@ a {
 		@extend %decorated-link;
 
 		&:before {
-
 		}
 	}
 }

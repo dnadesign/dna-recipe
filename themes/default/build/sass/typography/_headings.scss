@@ -1,7 +1,7 @@
 /*
 #Headings
 
-Template: SGCMSHeadings
+Template: StyleGuide/SGCMSHeadings
 
 Headings come in two styles. To use the alternate style, add
 ``class="heading-alt"`` to your heading
@@ -9,7 +9,12 @@ Headings come in two styles. To use the alternate style, add
 Styleguide 3.1
 */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: $font-heading;
 	line-height: 1.3em;
 

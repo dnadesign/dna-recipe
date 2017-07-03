@@ -4,7 +4,7 @@
 
 Note: this will need to be modified if you update your grid units
 
-Template: SGGridResponsiveInfo
+Template: StyleGuide/SGGridResponsiveInfo
 
 Styleguide 2.1.1
 */
@@ -13,7 +13,7 @@ Styleguide 2.1.1
 
 #Responsive Grid Example
 
-Template: SGGridResponsive
+Template: StyleGuide/SGGridResponsive
 
 The responsive grid uses the fractions from the grid units section, but with modifiers
 to specify which break point they should apply to.
@@ -63,14 +63,13 @@ Styleguide 2.1.2
 	position: relative;
 }
 
-
 /*
 
 #Grid Units
 
 Grid styling
 
-Template: SGGrid
+Template: StyleGuide/SGGrid
 
 Styleguide 2.1.3
 */
@@ -97,7 +96,6 @@ Markup:
 Styleguide 2.1.4
 */
 
-
 // Generate our grid and all push/pull classes.
 //
 // Note: some base styles still come to us through pure, but we don't include
@@ -105,10 +103,8 @@ Styleguide 2.1.4
 // $gridUnits and $breakpoints are defined in _var-breakpoints.scss
 @each $breakpoint, $value in $breakpoints {
 	@include respond($breakpoint) {
-
 		@each $unit in $gridUnits {
 			@for $i from 1 through $unit {
-
 				$mediaPrefix: '-' + $breakpoint + '-';
 
 				// remove the prefix for the base size
@@ -130,7 +126,6 @@ Styleguide 2.1.4
 
 				$gcd: gcd($i, $unit); // get the greatest common diviser
 				@if $gcd > 1 {
-
 					$numerator: $i / $gcd;
 					$denominator: $unit / $gcd;
 
@@ -150,7 +145,6 @@ Styleguide 2.1.4
 		}
 	}
 }
-
 
 /*
 

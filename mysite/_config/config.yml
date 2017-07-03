@@ -10,3 +10,15 @@ SilverStripe\View\SSViewer:
     - '$default'
 SilverStripe\i18n\i18n:
   default_locale: 'en_US'
+
+BenManu\StyleGuide\StyleGuideController:
+  paths: 'themes/default/build/sass/'
+  css_files:
+    - 'themes/default/css/style.css'
+  js_files:
+    - 'themes/default/js/script.min.js'
+
+StevieMayhew\SilverStripeSVG\SVGTemplate:
+  base_path: 'themes/default/images/svg/'
+  default_extra_classes:
+    - 'svg'

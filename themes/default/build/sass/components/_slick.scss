@@ -1,7 +1,7 @@
 /**
 # Slick
 
-Template: Slick
+Template: Includes/Slick
 
 Styleguide 6.3
 
@@ -118,8 +118,8 @@ Styleguide 6.3
 		display: none;
 	}
 
-	.slick-prev, .slick-next {
-
+	.slick-prev,
+	.slick-next {
 	}
 
 	&-next,
@@ -139,7 +139,8 @@ Styleguide 6.3
 			display: block;
 			width: 20px;
 			height: 30px;
-			background: svg-load('chevron_thin.svg', fill=#000, stroke=#fff) no-repeat;
+			background: svg-load('chevron_thin.svg', fill=#000, stroke=#fff)
+				no-repeat;
 		}
 
 		.no-touchevents & {

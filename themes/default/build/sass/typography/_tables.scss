@@ -1,8 +1,7 @@
-
 /*
 #Tables
 
-Template: SGCMSTables
+Template: StyleGuide/SGCMSTables
 
 Styleguide 3.5
 */
@@ -23,7 +22,11 @@ table {
 
 	@include respond(lg__max) {
 		display: block;
-		thead, tbody, th, td, tr {
+		thead,
+		tbody,
+		th,
+		td,
+		tr {
 			display: block;
 		}
 	}
@@ -48,7 +51,8 @@ table {
 		}
 	}
 
-	td, th {
+	td,
+	th {
 		vertical-align: top;
 		border-left: 0;
 
@@ -57,7 +61,8 @@ table {
 		}
 
 		@include respond(lg) {
-			border-right: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+			border-right: $table-cell-border-size $table-cell-border-style
+				$table-cell-border-color;
 		}
 
 		&:last-child {
@@ -106,14 +111,15 @@ table {
 		}
 
 		tr {
-
 			th {
-				border-top: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+				border-top: $table-cell-border-size $table-cell-border-style
+					$table-cell-border-color;
 			}
 
 			td {
 				@include respond(lg) {
-					border-top: $table-cell-border-size $table-cell-border-style $table-cell-border-color;
+					border-top: $table-cell-border-size $table-cell-border-style
+						$table-cell-border-color;
 				}
 			}
 

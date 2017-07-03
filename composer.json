@@ -3,7 +3,7 @@
   "description": "The SilverStripe Framework Installer",
   "require": {
     "php": ">=5.6.0",
-	"jonom/silverstripe-betternavigator": "dev-master",
+    "jonom/silverstripe-betternavigator": "dev-master",
     "silverstripe/admin": "1.0.x-dev",
     "silverstripe/asset-admin": "1.0.x-dev",
     "silverstripe/assets": "1.0.x-dev",
@@ -15,9 +15,21 @@
     "silverstripe/reports": "4.0.x-dev",
     "silverstripe/siteconfig": "4.0.x-dev",
     "silverstripe/versioned": "1.0.x-dev",
-	"silverstripe/standardsediting": "dev-master",
-	"unclecheese/betterbuttons": "dev-master"
+    "silverstripe/standardsediting": "dev-master",
+    "unclecheese/betterbuttons": "dev-master",
+    "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
+    "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/adrexia/silverstripe-styleguide.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/adrexia/silverstripe-svg.git"
+    }
+  ],
   "require-dev": {
     "phpunit/PHPUnit": "^5.7"
   },
