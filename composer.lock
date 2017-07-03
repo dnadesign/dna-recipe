@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "544e12aa100c2065605d6107de6e17e0",
+    "content-hash": "03126ee19368d87301808c7c4956915d",
     "packages": [
         {
             "name": "benmanu/silverstripe-styleguide",
@@ -12,17 +12,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-styleguide.git",
-                "reference": "ec820e3fb8dab6c05a19ab6dcec2f1301d0a565f"
+                "reference": "3a9aa07f4b845bc303c199acd639e9e08adb6f30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-styleguide/zipball/ec820e3fb8dab6c05a19ab6dcec2f1301d0a565f",
-                "reference": "ec820e3fb8dab6c05a19ab6dcec2f1301d0a565f",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-styleguide/zipball/3a9aa07f4b845bc303c199acd639e9e08adb6f30",
+                "reference": "3a9aa07f4b845bc303c199acd639e9e08adb6f30",
                 "shasum": ""
             },
             "require": {
                 "erusev/parsedown": "1.6.0",
-                "silverstripe/framework": "~4.0.0-alpha7",
+                "silverstripe/framework": "~4.0.0-beta1",
                 "symfony/finder": "~2.8"
             },
             "require-dev": {
@@ -49,7 +49,7 @@
                 "issues": "https://github.com/benmanu/silverstripe-styleguide/issues",
                 "source": "https://github.com/adrexia/silverstripe-styleguide/tree/feature/silverstripe4"
             },
-            "time": "2017-07-03 05:02:09"
+            "time": "2017-07-03 06:05:34"
         },
         {
             "name": "composer/ca-bundle",
@@ -1715,16 +1715,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrexia/silverstripe-svg.git",
-                "reference": "a55f4d0bc861297e92579d49418a7577b0748dba"
+                "reference": "824892f3755c27c8e355cc436a237a6b5816226e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-svg/zipball/a55f4d0bc861297e92579d49418a7577b0748dba",
-                "reference": "a55f4d0bc861297e92579d49418a7577b0748dba",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-svg/zipball/824892f3755c27c8e355cc436a237a6b5816226e",
+                "reference": "824892f3755c27c8e355cc436a237a6b5816226e",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/framework": "~4.0.0-alpha7"
+                "silverstripe/framework": "~4.0.0-beta1"
             },
             "type": "silverstripe-module",
             "license": [
@@ -1745,7 +1745,7 @@
             "support": {
                 "source": "https://github.com/adrexia/silverstripe-svg/tree/feature/silverstripe4"
             },
-            "time": "2017-06-29 02:07:42"
+            "time": "2017-07-03 06:08:21"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1800,6 +1800,65 @@
                 "mailer"
             ],
             "time": "2017-05-01T15:54:03+00:00"
+        },
+        {
+            "name": "symbiote/silverstripe-gridfieldextensions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symbiote/silverstripe-gridfieldextensions.git",
+                "reference": "87cd8ffc6d250bb6d1a4dcfb72028b2f1e2500d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-gridfieldextensions/zipball/87cd8ffc6d250bb6d1a4dcfb72028b2f1e2500d6",
+                "reference": "87cd8ffc6d250bb6d1a4dcfb72028b2f1e2500d6",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0"
+            },
+            "replace": {
+                "ajshort/silverstripe-gridfieldextensions": "self.version",
+                "silverstripe-australia/gridfieldextensions": "self.version"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "gridfieldextensions",
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                },
+                "screenshots": [
+                    "docs/en/_images/editable-rows.png",
+                    "docs/en/_images/add-existing-search.png"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symbiote\\GridFieldExtensions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Short",
+                    "email": "andrewjshort@gmail.com"
+                },
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@symbiote.com.au"
+                }
+            ],
+            "description": "A collection of useful grid field components",
+            "homepage": "http://github.com/symbiote/silverstripe-gridfieldextensions",
+            "keywords": [
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2017-07-03 00:28:57"
         },
         {
             "name": "symfony/cache",
@@ -3625,6 +3684,7 @@
         "silverstripe/siteconfig": 20,
         "silverstripe/versioned": 20,
         "silverstripe/standardsediting": 20,
+        "symbiote/silverstripe-gridfieldextensions": 20,
         "unclecheese/betterbuttons": 20,
         "stevie-mayhew/silverstripe-svg": 20,
         "benmanu/silverstripe-styleguide": 20

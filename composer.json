@@ -16,6 +16,7 @@
     "silverstripe/siteconfig": "4.0.x-dev",
     "silverstripe/versioned": "1.0.x-dev",
     "silverstripe/standardsediting": "dev-master",
+    "symbiote/silverstripe-gridfieldextensions": "dev-master",
     "unclecheese/betterbuttons": "dev-master",
     "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
     "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4"
