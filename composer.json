@@ -1,5 +1,5 @@
 {
-	"name": "dna/basic-recipe",
+	"name": "dnadesign/basic-recipe",
 	"description": "DNA Basic Recipe metapackage",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "dna"],
