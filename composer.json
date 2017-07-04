@@ -1,5 +1,5 @@
 {
-  "name": "silverstripe/installer",
+  "name": "dnadesign/dna-recipe",
   "description": "The SilverStripe Framework Installer",
   "require": {
     "php": ">=5.6.0",
