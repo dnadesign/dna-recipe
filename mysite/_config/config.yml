@@ -22,3 +22,6 @@ StevieMayhew\SilverStripeSVG\SVGTemplate:
   base_path: 'themes/default/images/svg/'
   default_extra_classes:
     - 'svg'
+
+DNA\DNARaygun\RaygunHandler:
+  app_name: 'DEFAULT_RECIPE'

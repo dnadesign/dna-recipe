@@ -3,6 +3,9 @@
   "description": "The SilverStripe Framework Installer",
   "require": {
     "php": ">=5.6.0",
+    "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4",
+    "dnadesign/silverstripe-dna": "dev-feature/silverstripe4",
+    "dnadesign/shipistrano": "dev-master",
     "jonom/silverstripe-betternavigator": "dev-master",
     "silverstripe/admin": "1.0.x-dev",
     "silverstripe/asset-admin": "1.0.x-dev",
@@ -16,12 +19,19 @@
     "silverstripe/siteconfig": "4.0.x-dev",
     "silverstripe/versioned": "1.0.x-dev",
     "silverstripe/standardsediting": "dev-master",
-    "symbiote/silverstripe-gridfieldextensions": "dev-master",
-    "unclecheese/betterbuttons": "dev-master",
     "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
-    "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4"
+    "symbiote/silverstripe-gridfieldextensions": "dev-master",
+    "unclecheese/betterbuttons": "dev-master"
   },
   "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:dnadesign/silverstripe-dna.git"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/dnadesign/shipistrano.git"
+    },
     {
       "type": "vcs",
       "url": "https://github.com/adrexia/silverstripe-styleguide.git"
