@@ -63,3 +63,4 @@
 /versionedfiles/
 node_modules/
 TESTS_RUNNING.json
+silverstripe-errorpage/

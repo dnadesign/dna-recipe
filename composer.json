@@ -1,8 +1,8 @@
 {
-	"name": "dnadesign/basic-recipe",
-	"description": "DNA Basic Recipe metapackage",
-	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "dna"],
+  "name": "dnadesign/basic-recipe",
+  "description": "DNA Basic Recipe metapackage",
+  "type": "silverstripe-module",
+  "keywords": ["silverstripe", "dna"],
   "require": {
     "php": ">=5.6.0",
     "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4",
@@ -15,6 +15,7 @@
     "silverstripe/campaign-admin": "1.0.x-dev",
     "silverstripe/cms": "4.0.x-dev",
     "silverstripe/config": "1.0.x-dev",
+    "silverstripe/errorpage": "1.0.x-dev",
     "silverstripe/framework": "4.0.x-dev",
     "silverstripe/graphql": "0.2.x-dev",
     "silverstripe/reports": "4.0.x-dev",
@@ -23,7 +24,8 @@
     "silverstripe/standardsediting": "dev-master",
     "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
     "symbiote/silverstripe-gridfieldextensions": "dev-master",
-    "unclecheese/betterbuttons": "dev-master"
+    "unclecheese/betterbuttons": "dev-master",
+    "silverstripe/raygun": "dev-patch-1 as dev-master"
   },
   "repositories": [
     {
@@ -31,8 +33,12 @@
       "url": "git@github.com:dnadesign/silverstripe-dna.git"
     },
     {
-        "type": "vcs",
-        "url": "https://github.com/dnadesign/shipistrano.git"
+      "type": "vcs",
+      "url": "https://github.com/dnadesign/shipistrano.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/adrexia/silverstripe-raygun.git"
     },
     {
       "type": "vcs",
@@ -45,15 +51,15 @@
   ],
   "require-dev": {
     "phpunit/PHPUnit": "^5.7",
-    "silverstripe/testsession": "~0.2.1"
+    "silverstripe/testsession": "dev-master"
   },
   "extra": {
     "branch-alias": {
       "dev-master": "4.0.x-dev"
     },
     "installer-paths": {
-			"cap": ["dnadesign/shipistrano"]
-		}
+      "cap": ["dnadesign/shipistrano"]
+    }
   },
   "config": {
     "process-timeout": 600
