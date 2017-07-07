@@ -1,29 +1,27 @@
 ---
 Name: mysite
-After:
-  - 'framework/*'
-  - 'cms/*'
 ---
 # YAML configuration for SilverStripe
 # See http://doc.silverstripe.org/framework/en/topics/configuration
 # Caution: Indentation through two spaces, not tabs
-SSViewer:
-  theme: 'default'
-  
-ErrorPage:
-  icon: "app/images/icons/error.png"
-UserDefinedForm:
-  icon: "app/images/icons/form.png"
-KickAssets:
-  menu_icon: "app/images/icons/photo.png"
-  menu_title: "Files"
-StyleGuideController:
+SilverStripe\View\SSViewer:
+  themes:
+    - 'default'
+    - '$default'
+SilverStripe\i18n\i18n:
+  default_locale: 'en_US'
+
+BenManu\StyleGuide\StyleGuideController:
   paths: 'themes/default/build/sass/'
   css_files:
     - 'themes/default/css/style.css'
   js_files:
-    - 'themes/default/js/script.js'
-SVGTemplate:
+    - 'themes/default/js/script.min.js'
+
+StevieMayhew\SilverStripeSVG\SVGTemplate:
   base_path: 'themes/default/images/svg/'
   default_extra_classes:
     - 'svg'
+
+DNA\DNARaygun\RaygunHandler:
+  app_name: 'DEFAULT_RECIPE'

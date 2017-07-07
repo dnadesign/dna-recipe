@@ -3,26 +3,23 @@
 
 Make menu
 
-Template: Menu
+Template: Includes/Menu
 
 Styleguide 6.2
 
 */
-
 
 .menu {
 	padding-top: 33px;
 	height: 77px;
 
 	&-brand {
-
 	}
 
-	&-nav  {
+	&-nav {
 		text-align: right;
 	}
 
 	&-link {
-
 	}
 }

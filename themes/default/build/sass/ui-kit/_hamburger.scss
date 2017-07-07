@@ -3,9 +3,9 @@
 
 The animated mobile menu icon.
 
-Template: Hamburger
+Template: Includes/Hamburger
 
-SectionTemplate: SGSectionDark
+SectionTemplate: BenManu/StyleGuide/Layout/SGSectionDark
 
 Styleguide 4.3
 */
@@ -24,9 +24,9 @@ Styleguide 4.3
 
 	transition-timing-function: linear;
 	transition-duration: .15s;
-	transition-property: opacity,-webkit-filter;
-	transition-property: opacity,filter;
-	transition-property: opacity,filter,-webkit-filter;
+	transition-property: opacity, -webkit-filter;
+	transition-property: opacity, filter;
+	transition-property: opacity, filter, -webkit-filter;
 
 	&.pure-button {
 		&:hover,
@@ -61,8 +61,8 @@ Styleguide 4.3
 		position: absolute;
 		top: 50%;
 		transition-duration: .1s;
-		transition-property: transform,-webkit-transform;
-		transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+		transition-property: transform, -webkit-transform;
+		transition-timing-function: cubic-bezier(.55, .055, .675, .19);
 		width: 20px;
 
 		&:before,
@@ -73,7 +73,7 @@ Styleguide 4.3
 			position: absolute;
 			transition-duration: .15s;
 			transition-property: -webkit-transform;
-			transition-property: transform,-webkit-transform;
+			transition-property: transform, -webkit-transform;
 			transition-property: transform;
 			transition-timing-function: ease;
 			width: 20px;
@@ -82,35 +82,41 @@ Styleguide 4.3
 
 		&:before {
 			top: -6px;
-			transition: top .1s .14s ease,opacity .1s ease;
+			transition: top .1s .14s ease, opacity .1s ease;
 		}
 
 		&:after {
 			bottom: -6px;
-			transition: bottom .1s .14s ease,-webkit-transform .1s cubic-bezier(.55,.055,.675,.19);
-			transition: bottom .1s .14s ease,transform .1s cubic-bezier(.55,.055,.675,.19);
-			transition: bottom .1s .14s ease,transform .1s cubic-bezier(.55,.055,.675,.19), -webkit-transform .1s cubic-bezier(.55,.055,.675,.19);
+			transition: bottom .1s .14s ease,
+				-webkit-transform .1s cubic-bezier(.55, .055, .675, .19);
+			transition: bottom .1s .14s ease,
+				transform .1s cubic-bezier(.55, .055, .675, .19);
+			transition: bottom .1s .14s ease,
+				transform .1s cubic-bezier(.55, .055, .675, .19),
+				-webkit-transform .1s cubic-bezier(.55, .055, .675, .19);
 		}
-
 
 		.hamburger-active & {
 			transition-delay: .14s;
-			transition-timing-function: cubic-bezier(.215,.61,.355,1);
+			transition-timing-function: cubic-bezier(.215, .61, .355, 1);
 			-webkit-transform: rotate(45deg);
 			transform: rotate(45deg);
 
-
 			&:before {
 				top: 0;
-				transition: top .1s ease,opacity .1s .14s ease;
+				transition: top .1s ease, opacity .1s .14s ease;
 				opacity: 0;
 			}
 
 			&:after {
 				bottom: 0;
-				transition: bottom .1s ease,-webkit-transform .1s .14s cubic-bezier(.215,.61,.355,1);
-				transition: bottom .1s ease,transform .1s .14s cubic-bezier(.215,.61,.355,1);
-				transition: bottom .1s ease,transform .1s .14s cubic-bezier(.215,.61,.355,1),-webkit-transform .1s .14s cubic-bezier(.215,.61,.355,1);
+				transition: bottom .1s ease,
+					-webkit-transform .1s .14s cubic-bezier(.215, .61, .355, 1);
+				transition: bottom .1s ease,
+					transform .1s .14s cubic-bezier(.215, .61, .355, 1);
+				transition: bottom .1s ease,
+					transform .1s .14s cubic-bezier(.215, .61, .355, 1),
+					-webkit-transform .1s .14s cubic-bezier(.215, .61, .355, 1);
 				-webkit-transform: rotate(-90deg);
 				transform: rotate(-90deg);
 			}

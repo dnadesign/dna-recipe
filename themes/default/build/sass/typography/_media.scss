@@ -1,7 +1,7 @@
 /*
 #Images
 
-Template: SGCMSImages
+Template: StyleGuide/SGCMSImages
 
 Styling for CMS images inserted via tinymce. Options are: <br /><br />
 &bull; Left, text wrapping<br />
@@ -13,7 +13,6 @@ Styling for CMS images inserted via tinymce. Options are: <br /><br />
 
 Styleguide 3.4
 */
-
 
 svg {
 	max-width: 100%;
@@ -40,13 +39,13 @@ img {
 	display: block;
 
 	&.right {
-		float:right;
-		clear:right;
+		float: right;
+		clear: right;
 		margin: 30px 0 30px 50px;
 	}
 	&.left {
-		float:left;
-		clear:left;
+		float: left;
+		clear: left;
 		margin: 30px 50px 30px 0px;
 	}
 	&.leftAlone {
@@ -56,7 +55,7 @@ img {
 		clear: both;
 	}
 	&.center {
-		display:block;
+		display: block;
 		margin: 30px auto 30px auto;
 		clear: both;
 	}
@@ -71,21 +70,20 @@ CMS Styling for youtube, vimeo etc media included via oembed. These work much th
 &bull; Left alone (no text wrapping)<br />
 &bull; Centered alone (no text wrapping)
 
-Template: SGCMSMedia
+Template: StyleGuide/SGCMSMedia
 
 Styleguide 3.4.1
 */
 
-
 /* Media insert formatting  (Youtube embed) */
 .media {
 	&.center {
-		margin:0 auto;
-		text-align:center;
+		margin: 0 auto;
+		text-align: center;
 	}
 	&.left {
-		float:left;
-		clear:left;
+		float: left;
+		clear: left;
 		margin: 0 50px 30px 0px;
 	}
 	&.leftAlone {
@@ -95,20 +93,20 @@ Styleguide 3.4.1
 		clear: both;
 	}
 	&.right {
-		float:right;
-		clear:right;
+		float: right;
+		clear: right;
 		margin: 0 0 30px 50px;
 	}
 }
 
 figure.featured-image {
-
 	img {
-		margin-bottom:0;
+		margin-bottom: 0;
 	}
 }
 
-.captionImage, figure.featured-image {
+.captionImage,
+figure.featured-image {
 	max-width: 100%;
 
 	&.left {
@@ -116,11 +114,11 @@ figure.featured-image {
 		margin: 5px 50px 30px 20px;
 	}
 	&.right {
-		float:right;
+		float: right;
 		margin: 5px 0 30px 50px;
 	}
 	&.leftAlone {
-		float:none;
+		float: none;
 		margin: 5px 50px 30px 0px;
 	}
 
@@ -133,8 +131,8 @@ figure.featured-image {
 	&.leftAlone,
 	&.center {
 		@include respond(sm) {
-			margin-bottom:30px;
-			margin-top:10px;
+			margin-bottom: 30px;
+			margin-top: 10px;
 			p {
 				text-align: center;
 				margin: 0px 0 0 20px;
@@ -155,7 +153,6 @@ figure.featured-image {
 			font-size: 0.8em;
 			line-height: 1.5em;
 		}
-
 	}
 
 	img {

@@ -3,56 +3,61 @@
 	"description": "DNA Basic Recipe metapackage",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "dna"],
-	"require": {
-		"php": ">=5.3.2",
-		"benmanu/silverstripe-styleguide": "dev-master",
-		"dnadesign/silverstripe-dna": "dev-master",
-		"dnadesign/shipistrano": "dev-master",
-		"jonom/silverstripe-betternavigator": "*",
-		"sheadawson/silverstripe-linkable": "*",
-		"silverstripe/cms": "3.6.*",
-		"silverstripe/framework": "3.6.*",
-		"silverstripe/siteconfig": "3.6.*",
-		"silverstripe/reports": "3.6.*",
-		"silverstripe/contentreview": "3.0.*",
-		"silverstripe-australia/gridfieldextensions": "1.4.*",
-		"silverstripe/html5": "*",
-		"silverstripe/iframe": "*",
-		"silverstripe/mimevalidator": "*",
-		"silverstripe/multivaluefield": "*",
-		"silverstripe/raygun": "1.1.0",
-		"silverstripe/restfulserver": "*",
-		"silverstripe/secureassets": "*",
-		"silverstripe/securityreport": "*",
-		"silverstripe/selectupload": "*",
-		"silverstripe/sharedraftcontent": "*",
-		"silverstripe/sitewidecontent-report": "*",
-		"silverstripe/standardsediting": "dev-master",
-		"silverstripe/taxonomy": "*",
-		"silverstripe/userforms": "4.3.*",
-		"silverstripe/versionedfiles": "*",
-		"stevie-mayhew/silverstripe-svg": "*",
-		"unclecheese/betterbuttons": "*",
-		"unclecheese/silverstripe-kickassets": "*"
-	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "git@github.com:dnadesign/silverstripe-dna.git"
-		}, {
-			"type": "vcs",
-			"url": "https://github.com/dnadesign/shipistrano.git"
-		}
-	],
-
-	"extra": {
-		"installer-paths": {
+  "require": {
+    "php": ">=5.6.0",
+    "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4",
+    "dnadesign/silverstripe-dna": "dev-feature/silverstripe4",
+    "dnadesign/shipistrano": "dev-master",
+    "jonom/silverstripe-betternavigator": "dev-master",
+    "silverstripe/admin": "1.0.x-dev",
+    "silverstripe/asset-admin": "1.0.x-dev",
+    "silverstripe/assets": "1.0.x-dev",
+    "silverstripe/campaign-admin": "1.0.x-dev",
+    "silverstripe/cms": "4.0.x-dev",
+    "silverstripe/config": "1.0.x-dev",
+    "silverstripe/framework": "4.0.x-dev",
+    "silverstripe/graphql": "0.2.x-dev",
+    "silverstripe/reports": "4.0.x-dev",
+    "silverstripe/siteconfig": "4.0.x-dev",
+    "silverstripe/versioned": "1.0.x-dev",
+    "silverstripe/standardsediting": "dev-master",
+    "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
+    "symbiote/silverstripe-gridfieldextensions": "dev-master",
+    "unclecheese/betterbuttons": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:dnadesign/silverstripe-dna.git"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/dnadesign/shipistrano.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/adrexia/silverstripe-styleguide.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/adrexia/silverstripe-svg.git"
+    }
+  ],
+  "require-dev": {
+    "phpunit/PHPUnit": "^5.7",
+    "silverstripe/testsession": "~0.2.1"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "4.0.x-dev"
+    },
+    "installer-paths": {
 			"cap": ["dnadesign/shipistrano"]
 		}
-	},
-	"minimum-stability": "dev",
-	"require-dev": {
-		"phpunit/phpunit": "^5.7",
-		"silverstripe/testsession": "~0.2.1"
-	}
+  },
+  "config": {
+    "process-timeout": 600
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev"
 }

@@ -12,16 +12,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	$MetaTags(false)
-	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="app/css/styleguide.css" />
+	<link rel="stylesheet" type="text/css" href="mysite/css/styleguide.css" />
 
 </head>
 <body>
-	<% include SGNavigation %>
+	<% include BenManu/StyleGuide/SGNavigation %>
 	<div class="sg-container-fluid">
 		$Layout
 	</div>
-	
-	<script type="text/javascript" src="{$BaseHref}{$ThemeDir}/js/script.min.js"></script>
+
+	<% require themedJavascript('js/script.min') %>
 </body>
 </html>

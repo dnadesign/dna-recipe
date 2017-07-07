@@ -3,12 +3,11 @@
 
 Footer stub
 
-Template: Footer
+Template: Includes/Footer
 
 Styleguide 6.1
 
 */
-
 
 .footer {
 	clear: both;
@@ -16,7 +15,8 @@ Styleguide 6.1
 	padding-top: 30px;
 	background-color: $footer-color;
 
-	a, p {
+	a,
+	p {
 		color: $menu-link-color;
 	}
 
