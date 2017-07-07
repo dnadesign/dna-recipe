@@ -1,5 +1,8 @@
 # Dna Recipe
 
+## Requirements
+Silverstripe 4. See 3.0 branch for silverstripe 3 support.
+
 ## Getting started
 _NOTE: assumes you have node setup and gulp installed. If not, you should go do those things first_
 
