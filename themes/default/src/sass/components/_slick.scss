@@ -12,7 +12,7 @@ Styleguide 6.3
 		margin: 0 25px 35px;
 
 		@include respond(md) {
-			margin: 10px auto 35px;
+			margin: 10px auto 350px;
 			max-width: 711px;
 		}
 		@include respond(lg) {
