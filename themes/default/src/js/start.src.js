@@ -11,6 +11,5 @@ jQuery(document).ready(function(e) {
 		cache: false
 	});
 
-
 	DO.Fire('app:ready', [], true);
 });
