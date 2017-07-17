@@ -1,0 +1,11 @@
+{
+	"breakpoints": {
+		"base": "0em",
+		"xs": "20em",
+		"sm": "35.5em",
+		"md": "48em",
+		"lg": "64em",
+		"xl": "80em"
+	},
+	"gridUnits": "3, 5, 24"
+}

@@ -1,26 +1,31 @@
-var gulp = require('gulp'),
-	del = require('del'),
+const gulp = require('gulp'),
 	fs = require('fs'),
-	rucksack = require('gulp-rucksack'), // PostCSS CSS super powers library: http://simplaio.github.io/rucksack/docs/
-	rename = require('gulp-rename'),
-	sourcemaps = require('gulp-sourcemaps'),
-	browserSync = require('browser-sync').create(),
-	sass = require('gulp-sass'),
-	bulkSass = require('gulp-sass-bulk-import'),
-	postcss = require('gulp-postcss'),
+	del = require('del'),
 	autoprefixer = require('autoprefixer'),
-	inlinesvg = require('postcss-inline-svg'),
-	rm_hover = require('postcss-hover'), // used to remove pure's default hover states
-	cleanCSS = require('gulp-clean-css'),
-	eslint = require('gulp-eslint'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	sassJson = require('gulp-sass-json'),
-	template = require('gulp-template'),
-	svgmin = require('gulp-svgmin'),
-	gulpif = require('gulp-if');
+	browserSync = require('browser-sync').create(),
+	runSequence = require('run-sequence'),
+	rmHover = require('postcss-hover'),
+	inlinesvg = require('postcss-inline-svg');
 
-const project = 'dna-recipe'; // your project name
+// Load gulp plugins from our package.json and attach them to the `load` object.
+// Use the plugins just like you would if you'd manually required them,
+// but refer to them as load.name(), rather than just name().
+// More information: https://www.npmjs.com/package/gulp-load-plugins
+const load = require('gulp-load-plugins')();
+
+// Your project name
+const project = 'dna-recipe';
+
+const PATHS = {
+	// The path of the source directory
+	srcDir: './src',
+	// The path of the dist directory
+	// Note: we are currently saving built files at the root level.
+
+	// TODO: Once supplying a custom `editor.css` file is a stable
+	// feature in SilverStripe, re-implement the `dist` directory.
+	distDir: './'
+};
 
 function swallowError(error) {
 	console.log(error.toString());
@@ -31,31 +36,31 @@ function swallowError(error) {
  * Live browser previews
  * NOTE: This will use a json object outside your project root if you provide one.
  */
-gulp.task('browserSync', ['make-js', 'make-css'], function() {
+gulp.task('browserSync', () => {
 	if (browserSync.active) {
 		return;
 	}
 
-	var path = '../../../_npm_environment.json',
-		file,
+	const path = '../../../_npm_environment.json',
 		defaultConfig = {
 			open: 'external',
 			host: project + '.dev', // this can be anything at .dev, or localhost, or...
 			proxy: project + '.dev', // this needs to be your project (localhost, .dev, vagrant domain et al)
 			watchTask: true,
 			injectChanges: true
-		},
-		bsConfig,
-		newConfig;
+		};
+
+	let bsConfig;
 
 	if (fs.existsSync(path)) {
-		file = fs.readFile(path, 'utf8', function(err, data) {
+		fs.readFile(path, 'utf8', function(err, data) {
 			if (err) {
 				return console.log(err);
 			}
 			data = JSON.parse(data);
 
-			data = data[project] ? data[project] : data; // check for project specific config options
+			// check for project specific config options
+			data = data[project] || data;
 
 			if ((bsConfig = data.browserSync)) {
 				if (bsConfig.disabled === true) {
@@ -63,9 +68,7 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 					return;
 				}
 
-				newConfig = Object.assign({}, defaultConfig, bsConfig);
-
-				browserSync.init(newConfig);
+				browserSync.init(Object.assign({}, defaultConfig, bsConfig));
 			}
 		});
 	} else {
@@ -73,45 +76,49 @@ gulp.task('browserSync', ['make-js', 'make-css'], function() {
 	}
 });
 
+gulp.task('clean', () => {
+	return del(['./css', './images', './js']);
+});
+
 /**
  * Minify all the svg - Make sure you're using the correct folder for your
  * svg files. You may also want to specify a different destination to the target
  */
-gulp.task('svgo', function() {
+gulp.task('svgo', () => {
 	return gulp
-		.src('images/svg/**/*.svg')
-		.pipe(svgmin())
+		.src(PATHS.srcDir + '/images/svg/**/*.svg')
+		.pipe(load.svgmin())
 		.on('error', swallowError)
-		.pipe(gulp.dest('images/svg'));
+		.pipe(gulp.dest(PATHS.distDir + '/images/svg'));
 });
 
 /**
  * Create JSON objects from SCSS variables
  */
-gulp.task('json', function() {
+gulp.task('json', () => {
 	return gulp
-		.src('build/sass/utilities/_var-breakpoints.scss')
-		.pipe(sassJson())
+		.src(PATHS.srcDir + '/sass/utilities/_var-breakpoints.scss')
+		.pipe(load.sassJson())
 		.on('error', swallowError)
-		.pipe(gulp.dest('js/src/'));
+		.pipe(gulp.dest(PATHS.distDir + '/js/src/'));
 });
 
 /**
  * Move pure from node_modules into our distribution folder
  * We don't want to edit this file, as there's no real need with such a small framework
  */
-gulp.task('pure', ['json'], function() {
+gulp.task('pure', ['json'], () => {
 	return gulp
 		.src(['node_modules/purecss/build/pure.css'])
-		.pipe(postcss([rm_hover()]))
+		.pipe(load.postcss([rmHover()]))
 		.on('error', swallowError)
-		.pipe(concat('pure.css'))
+		.pipe(load.concat('pure.css'))
 		.pipe(
-			rename({
+			load.rename({
 				suffix: '.src'
 			})
 		)
-		.pipe(gulp.dest('css/'));
+		.pipe(gulp.dest(PATHS.distDir + '/css/'));
 });
 
 /**
@@ -120,30 +127,30 @@ gulp.task('pure', ['json'], function() {
  * Use sourcemaps so that we know where things have come from when using these files
  * Minify CSS using cleanCSS, and output to an style.css file.
  */
-gulp.task('make-css', function() {
+gulp.task('make-css', ['pure', 'svgo'], () => {
 	return gulp
-		.src('build/sass/style.scss')
-		.pipe(sourcemaps.init())
-		.pipe(bulkSass())
-		.pipe(sass()) // Using gulp-sass
+		.src(PATHS.srcDir + '/sass/style.scss')
+		.pipe(load.sourcemaps.init())
+		.pipe(load.sassBulkImport())
+		.pipe(load.sass()) // Using gulp-sass
 		.on('error', swallowError)
-		.pipe(cleanCSS({ compatibility: 'ie9' }))
+		.pipe(load.cleanCss({ compatibility: 'ie9' }))
 		.pipe(
-			postcss([
+			load.postcss([
 				autoprefixer({ browsers: ['last 2 versions'] }),
 				inlinesvg({
-					path: 'images/svg/'
+					path: PATHS.distDir + '/images/svg/'
 				})
 			])
 		)
 		.pipe(
-			rucksack({
+			load.rucksack({
 				alias: false
 			})
 		)
-		.pipe(concat('style.css'))
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('css/'))
+		.pipe(load.concat('style.css'))
+		.pipe(load.sourcemaps.write('.'))
+		.pipe(gulp.dest(PATHS.distDir + '/css/'))
 		.pipe(browserSync.stream());
 });
 
@@ -151,30 +158,30 @@ gulp.task('make-css', function() {
  * Minify editor.css and move into css root
  * NOTE: we aren't renaming the file, as silverstripe looks for editor.css by default
  */
-gulp.task('cms-css', function() {
+gulp.task('cms-css', () => {
 	return gulp
-		.src('build/sass/editor.scss')
-		.pipe(sourcemaps.init())
-		.pipe(bulkSass())
-		.pipe(sass()) // Using gulp-sass
+		.src(PATHS.srcDir + '/sass/editor.scss')
+		.pipe(load.sourcemaps.init())
+		.pipe(load.sassBulkImport())
+		.pipe(load.sass()) // Using gulp-sass
 		.on('error', swallowError)
-		.pipe(cleanCSS({ compatibility: 'ie9' }))
+		.pipe(load.cleanCss({ compatibility: 'ie9' }))
 		.pipe(
-			postcss([
+			load.postcss([
 				autoprefixer({ browsers: ['last 2 versions'] }),
 				inlinesvg({
-					path: 'images/svg/'
+					path: PATHS.distDir + '/images/svg/'
 				})
 			])
 		)
 		.pipe(
-			rucksack({
+			load.rucksack({
 				alias: false
 			})
 		)
-		.pipe(concat('editor.css'))
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('css/'));
+		.pipe(load.concat('editor.css'))
+		.pipe(load.sourcemaps.write('.'))
+		.pipe(gulp.dest(PATHS.distDir + '/css/'));
 });
 
 /**
@@ -182,34 +189,34 @@ gulp.task('cms-css', function() {
  * Run them through jslinting, concat into a single file, uglify,
  * and save as a script.min file
  */
-gulp.task('make-js-components', function() {
+gulp.task('make-js-components', () => {
 	return gulp
-		.src('build/js/components/**/*.js')
+		.src(PATHS.srcDir + '/js/components/**/*.js')
 		.pipe(
-			eslint({
+			load.eslint({
 				globals: ['jQuery', 'console', 'document', 'DO'],
 				envs: ['browser']
 			})
 		)
-		.pipe(eslint.format())
-		.pipe(sourcemaps.init())
+		.pipe(load.eslint.format())
+		.pipe(load.sourcemaps.init())
 		.on('error', swallowError)
-		.pipe(concat('components.js'))
-		.pipe(gulp.dest('js/src/'))
-		.pipe(sourcemaps.write('.'));
+		.pipe(load.concat('components.js'))
+		.pipe(gulp.dest(PATHS.distDir + '/js/src/'))
+		.pipe(load.sourcemaps.write('.'));
 });
 
 /**
  * Include JS dependencies added with npm
  */
-gulp.task('make-js-npm', function() {
+gulp.task('make-js-npm', () => {
 	return gulp
 		.src([
 			'node_modules/jquery/dist/jquery.js',
 			'node_modules/slick-carousel/slick/slick.js'
 		])
-		.pipe(concat('npm-libs.src.js'))
-		.pipe(gulp.dest('js/src/'));
+		.pipe(load.concat('npm-libs.src.js'))
+		.pipe(gulp.dest(PATHS.distDir + '/js/src/'));
 });
 
 /**
@@ -217,51 +224,51 @@ gulp.task('make-js-npm', function() {
  * Skip linting, as these are likely not our own files,
  * Combine with our other dependeniies, uglify, and write to folder
  */
-gulp.task('make-js', ['make-js-components', 'make-js-npm'], function() {
-	var configJSON = fs.readFileSync('js/src/var-breakpoints.json'),
+gulp.task('make-js', ['json', 'make-js-components', 'make-js-npm'], () => {
+	const configJSON = fs.readFileSync(PATHS.distDir + '/js/src/var-breakpoints.json'),
 		config = JSON.parse(configJSON);
 
 	return gulp
 		.src([
-			'js/src/npm-libs.src.js',
-			'build/js/lib/html5shiv-printshiv.js',
-			'build/js/lib/modernizr.min.js',
-			'build/js/lib/classList.js',
-			'build/js/lib/mutation-observers.js',
-			'build/js/lib/pointereventspolyfill.js',
-			'build/js/lib/jquery.placeholder.js',
-			'build/js/lib/toggles-switches.js',
-			'build/js/lib/jquery.whim.src.js',
-			'build/js/lib/response.src.js',
-			'build/js/do.src.js',
-			'build/js/browser_detection.src.js',
-			'build/js/responseTrigger.src.js',
-
-			'js/src/components.js',
-
-			'build/js/start.src.js'
+			PATHS.distDir + '/js/src/npm-libs.src.js',
+			PATHS.srcDir + '/js/lib/html5shiv-printshiv.js',
+			PATHS.srcDir + '/js/lib/modernizr.min.js',
+			PATHS.srcDir + '/js/lib/classList.js',
+			PATHS.srcDir + '/js/lib/mutation-observers.js',
+			PATHS.srcDir + '/js/lib/pointereventspolyfill.js',
+			PATHS.srcDir + '/js/lib/jquery.placeholder.js',
+			PATHS.srcDir + '/js/lib/toggles-switches.js',
+			PATHS.srcDir + '/js/lib/jquery.whim.src.js',
+			PATHS.srcDir + '/js/lib/response.src.js',
+			PATHS.srcDir + '/js/do.src.js',
+			PATHS.srcDir + '/js/browser_detection.src.js',
+			PATHS.srcDir + '/js/responseTrigger.src.js',
+			PATHS.distDir + '/js/src/components.js',
+			PATHS.srcDir + '/js/start.src.js'
 		])
-		.pipe(template({ breakpoints: JSON.stringify(config) }))
+		.pipe(load.template({ breakpoints: JSON.stringify(config) }))
 		.on('error', swallowError)
-		.pipe(sourcemaps.init())
-		.pipe(concat('script.js'))
-		.pipe(gulp.dest('js/src/'))
-		.pipe(gulpif(process.env.NODE_ENV !== 'dev', uglify()))
+		.pipe(load.sourcemaps.init())
+		.pipe(load.concat('script.js'))
+		.pipe(gulp.dest(PATHS.distDir + '/js/src/'))
+		.pipe(load.if(process.env.NODE_ENV !== 'dev', load.uglify()))
 		.pipe(
-			rename({
+			load.rename({
 				suffix: '.min'
 			})
 		)
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('js'))
+		.pipe(load.sourcemaps.write('.'))
+		.pipe(gulp.dest(PATHS.distDir + '/js'))
 		.pipe(browserSync.stream());
 });
 
-gulp.task('build', ['json', 'pure', 'make-css', 'cms-css', 'make-js', 'svgo']);
+gulp.task('build', cb => {
+	runSequence(['clean'], ['make-css', 'cms-css', 'make-js'], cb);
+});
 
-gulp.task('watch', ['build', 'browserSync'], function() {
-	gulp.watch('build/sass/**/*.scss', ['json', 'make-css', 'cms-css']); // watch sass in project sass folder, run tasks
-	gulp.watch('build/js/**/*.js', ['json', 'make-js']); // watch js in project js folder, run tasks
+gulp.task('watch', ['make-css', 'cms-css', 'make-js', 'browserSync'], () => {
+	gulp.watch(PATHS.srcDir + '/sass/**/*.scss', ['make-css', 'cms-css']); // watch sass in project sass folder, run tasks
+	gulp.watch(PATHS.srcDir + '/js/**/*.js', ['make-js']); // watch js in project js folder, run tasks
 });
 
 gulp.task('default', ['watch']);
