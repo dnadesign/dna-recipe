@@ -1,18 +1,29 @@
 const gulp = require('gulp'),
 	fs = require('fs'),
 	del = require('del'),
-	gulpLoadPlugins = require('gulp-load-plugins'),
 	autoprefixer = require('autoprefixer'),
 	browserSync = require('browser-sync').create(),
 	runSequence = require('run-sequence'),
 	rmHover = require('postcss-hover'),
-	inlinesvg = require('postcss-inline-svg'),
-	$ = gulpLoadPlugins();
+	inlinesvg = require('postcss-inline-svg');
 
-const project = 'dna-recipe'; // your project name
+// Load gulp plugins from our package.json and attach them to the `load` object.
+// Use the plugins just like you would if you'd manually required them,
+// but refer to them as load.name(), rather than just name().
+// More information: https://www.npmjs.com/package/gulp-load-plugins
+const load = require('gulp-load-plugins')();
+
+// Your project name
+const project = 'dna-recipe';
 
 const PATHS = {
+	// The path of the source directory
 	srcDir: './src',
+	// The path of the dist directory
+	// Note: we are currently saving built files at the root level.
+
+	// TODO: Once supplying a custom `editor.css` file is a stable
+	// feature in SilverStripe, re-implement the `dist` directory.
 	distDir: './'
 };
 
@@ -76,7 +87,7 @@ gulp.task('clean', () => {
 gulp.task('svgo', () => {
 	return gulp
 		.src(PATHS.srcDir + '/images/svg/**/*.svg')
-		.pipe($.svgmin())
+		.pipe(load.svgmin())
 		.on('error', swallowError)
 		.pipe(gulp.dest(PATHS.distDir + '/images/svg'));
 });
@@ -87,7 +98,7 @@ gulp.task('svgo', () => {
 gulp.task('json', () => {
 	return gulp
 		.src(PATHS.srcDir + '/sass/utilities/_var-breakpoints.scss')
-		.pipe($.sassJson())
+		.pipe(load.sassJson())
 		.on('error', swallowError)
 		.pipe(gulp.dest(PATHS.distDir + '/js/src/'));
 });
@@ -99,11 +110,11 @@ gulp.task('json', () => {
 gulp.task('pure', ['json'], () => {
 	return gulp
 		.src(['node_modules/purecss/build/pure.css'])
-		.pipe($.postcss([rmHover()]))
+		.pipe(load.postcss([rmHover()]))
 		.on('error', swallowError)
-		.pipe($.concat('pure.css'))
+		.pipe(load.concat('pure.css'))
 		.pipe(
-			$.rename({
+			load.rename({
 				suffix: '.src'
 			})
 		)
@@ -119,13 +130,13 @@ gulp.task('pure', ['json'], () => {
 gulp.task('make-css', ['pure', 'svgo'], () => {
 	return gulp
 		.src(PATHS.srcDir + '/sass/style.scss')
-		.pipe($.sourcemaps.init())
-		.pipe($.sassBulkImport())
-		.pipe($.sass()) // Using gulp-sass
+		.pipe(load.sourcemaps.init())
+		.pipe(load.sassBulkImport())
+		.pipe(load.sass()) // Using gulp-sass
 		.on('error', swallowError)
-		.pipe($.cleanCss({ compatibility: 'ie9' }))
+		.pipe(load.cleanCss({ compatibility: 'ie9' }))
 		.pipe(
-			$.postcss([
+			load.postcss([
 				autoprefixer({ browsers: ['last 2 versions'] }),
 				inlinesvg({
 					path: PATHS.distDir + '/images/svg/'
@@ -133,12 +144,12 @@ gulp.task('make-css', ['pure', 'svgo'], () => {
 			])
 		)
 		.pipe(
-			$.rucksack({
+			load.rucksack({
 				alias: false
 			})
 		)
-		.pipe($.concat('style.css'))
-		.pipe($.sourcemaps.write('.'))
+		.pipe(load.concat('style.css'))
+		.pipe(load.sourcemaps.write('.'))
 		.pipe(gulp.dest(PATHS.distDir + '/css/'))
 		.pipe(browserSync.stream());
 });
@@ -150,13 +161,13 @@ gulp.task('make-css', ['pure', 'svgo'], () => {
 gulp.task('cms-css', () => {
 	return gulp
 		.src(PATHS.srcDir + '/sass/editor.scss')
-		.pipe($.sourcemaps.init())
-		.pipe($.sassBulkImport())
-		.pipe($.sass()) // Using gulp-sass
+		.pipe(load.sourcemaps.init())
+		.pipe(load.sassBulkImport())
+		.pipe(load.sass()) // Using gulp-sass
 		.on('error', swallowError)
-		.pipe($.cleanCss({ compatibility: 'ie9' }))
+		.pipe(load.cleanCss({ compatibility: 'ie9' }))
 		.pipe(
-			$.postcss([
+			load.postcss([
 				autoprefixer({ browsers: ['last 2 versions'] }),
 				inlinesvg({
 					path: PATHS.distDir + '/images/svg/'
@@ -164,12 +175,12 @@ gulp.task('cms-css', () => {
 			])
 		)
 		.pipe(
-			$.rucksack({
+			load.rucksack({
 				alias: false
 			})
 		)
-		.pipe($.concat('editor.css'))
-		.pipe($.sourcemaps.write('.'))
+		.pipe(load.concat('editor.css'))
+		.pipe(load.sourcemaps.write('.'))
 		.pipe(gulp.dest(PATHS.distDir + '/css/'));
 });
 
@@ -182,17 +193,17 @@ gulp.task('make-js-components', () => {
 	return gulp
 		.src(PATHS.srcDir + '/js/components/**/*.js')
 		.pipe(
-			$.eslint({
+			load.eslint({
 				globals: ['jQuery', 'console', 'document', 'DO'],
 				envs: ['browser']
 			})
 		)
-		.pipe($.eslint.format())
-		.pipe($.sourcemaps.init())
+		.pipe(load.eslint.format())
+		.pipe(load.sourcemaps.init())
 		.on('error', swallowError)
-		.pipe($.concat('components.js'))
+		.pipe(load.concat('components.js'))
 		.pipe(gulp.dest(PATHS.distDir + '/js/src/'))
-		.pipe($.sourcemaps.write('.'));
+		.pipe(load.sourcemaps.write('.'));
 });
 
 /**
@@ -204,7 +215,7 @@ gulp.task('make-js-npm', () => {
 			'node_modules/jquery/dist/jquery.js',
 			'node_modules/slick-carousel/slick/slick.js'
 		])
-		.pipe($.concat('npm-libs.src.js'))
+		.pipe(load.concat('npm-libs.src.js'))
 		.pipe(gulp.dest(PATHS.distDir + '/js/src/'));
 });
 
@@ -235,18 +246,18 @@ gulp.task('make-js', ['json', 'make-js-components', 'make-js-npm'], () => {
 			PATHS.distDir + '/js/src/components.js',
 			PATHS.srcDir + '/js/start.src.js'
 		])
-		.pipe($.template({ breakpoints: JSON.stringify(config) }))
+		.pipe(load.template({ breakpoints: JSON.stringify(config) }))
 		.on('error', swallowError)
-		.pipe($.sourcemaps.init())
-		.pipe($.concat('script.js'))
+		.pipe(load.sourcemaps.init())
+		.pipe(load.concat('script.js'))
 		.pipe(gulp.dest(PATHS.distDir + '/js/src/'))
-		.pipe($.if(process.env.NODE_ENV !== 'dev', $.uglify()))
+		.pipe(load.if(process.env.NODE_ENV !== 'dev', load.uglify()))
 		.pipe(
-			$.rename({
+			load.rename({
 				suffix: '.min'
 			})
 		)
-		.pipe($.sourcemaps.write('.'))
+		.pipe(load.sourcemaps.write('.'))
 		.pipe(gulp.dest(PATHS.distDir + '/js'))
 		.pipe(browserSync.stream());
 });
