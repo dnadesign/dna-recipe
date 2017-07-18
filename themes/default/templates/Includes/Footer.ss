@@ -47,7 +47,7 @@
 					<% end_if %>
 				</div>
 				<div class="footer-copyright">
-					<p><small>$SiteConfig.Title &copy; $CurrentDatetime.Format(Y)</small></p>
+					<p><small>$SiteConfig.Title &copy; $Now.Year</small></p>
 				</div>
 			</div>
 		</div>
