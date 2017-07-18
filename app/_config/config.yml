@@ -18,7 +18,7 @@ KickAssets:
   menu_icon: "app/images/icons/photo.png"
   menu_title: "Files"
 StyleGuideController:
-  paths: 'themes/default/build/sass/'
+  paths: 'themes/default/src/sass/'
   css_files:
     - 'themes/default/css/style.css'
   js_files:
