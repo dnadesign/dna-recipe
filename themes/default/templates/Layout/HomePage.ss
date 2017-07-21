@@ -1,4 +1,4 @@
-<% include Slider %>
+<% include Slick %>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <main role="main" id="main">
