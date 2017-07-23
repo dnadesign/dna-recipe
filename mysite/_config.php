@@ -4,7 +4,9 @@ global $project;
 $project = 'mysite';
 
 global $database;
-$database = 'dna_recipetest';
-
-// Use _ss_environment.php file for configuration
-require_once("conf/ConfigureFromEnv.php");
+# Don't override the environment variable if it is set
+if( ! defined('SS_DATABASE_NAME')) {
+	$database = 'dna_recipetest';
+} else {
+	$database = SS_DATABASE_NAME;
+}
