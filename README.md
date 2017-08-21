@@ -10,11 +10,11 @@ Clone this repo
 
 Using terminal:
 
-	cd your-project
-	composer update
-	cd themes/default
-	npm install
-	gulp
+    cd your-project
+    composer update
+    cd themes/default
+    npm install
+    gulp
 
 Composer dependencies are intentionally not tied to versions, but you should update these to use specific releases before the site you are working on goes live
 
@@ -31,7 +31,7 @@ Basic templates are provided, based on CWP templates using pure as a framework. 
 ## Styleguide
 
 Once you have your silverstripe project setup, the styleguide should be available at:
-	http://yourprojectdomain/sg/
+    http://yourprojectdomain/sg/
 
 Docs for the styleguide are available here: https://github.com/benmanu/silverstripe-styleguide
 
@@ -51,4 +51,4 @@ Both of these allow for a limited amount of attribute changes in context (fill, 
 We use gulp-svgmin to optimize all svgs stored in the images/svg directory
 
 ## Frontend coding guidelines
-Our guidelines are available in the [theme directory](themes/default/README.md)
+[Our coding guidelines are available here](guidelines.md)
