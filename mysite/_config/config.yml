@@ -6,20 +6,20 @@ Name: mysite
 # Caution: Indentation through two spaces, not tabs
 SilverStripe\View\SSViewer:
   themes:
-    - 'default'
+    - '/app-theme/dist'
     - '$default'
 SilverStripe\i18n\i18n:
   default_locale: 'en_US'
 
 BenManu\StyleGuide\StyleGuideController:
-  paths: 'themes/default/build/sass/'
+  paths: 'app-theme/src/sass/'
   css_files:
-    - 'themes/default/css/style.css'
+    - 'app-theme/dist/css/style.css'
   js_files:
-    - 'themes/default/js/script.min.js'
+    - 'app-theme/dist/js/script.min.js'
 
 StevieMayhew\SilverStripeSVG\SVGTemplate:
-  base_path: 'themes/default/images/svg/'
+  base_path: 'app-theme/dist/svg/'
   default_extra_classes:
     - 'svg'
 
