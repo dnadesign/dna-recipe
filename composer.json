@@ -25,7 +25,7 @@
     "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
     "symbiote/silverstripe-gridfieldextensions": "dev-master",
     "unclecheese/betterbuttons": "dev-master",
-    "silverstripe/raygun": "dev-patch-1 as dev-master"
+    "silverstripe/raygun": "dev-master"
   },
   "repositories": [
     {
@@ -35,10 +35,6 @@
     {
       "type": "vcs",
       "url": "https://github.com/dnadesign/shipistrano.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/adrexia/silverstripe-raygun.git"
     },
     {
       "type": "vcs",
