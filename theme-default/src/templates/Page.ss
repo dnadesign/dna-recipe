@@ -12,7 +12,7 @@
     $MetaTags(false)
     <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
 
-    <% require themedCSS('dist/css/style.css') %>
+    <% require themedCSS('css/style') %>
 
     <% include MetaIcons %>
 </head>
@@ -49,7 +49,7 @@
     <% end_if %>
 
 
-    <% require themedJavascript('dist/js/script.min') %>
+    <% require themedJavascript('js/script.min') %>
 
 </body>
 </html>
