@@ -1,5 +1,7 @@
 ---
 Name: mysite
+Before:
+  - coreconfig
 ---
 # YAML configuration for SilverStripe
 # See http://doc.silverstripe.org/framework/en/topics/configuration
@@ -10,6 +12,13 @@ SilverStripe\View\SSViewer:
     - '$default'
 SilverStripe\i18n\i18n:
   default_locale: 'en_US'
+  
+SilverStripe\Assets\File:
+  allowed_extensions:
+    - svg
+SilverStripe\Assets\Image:
+  allowed_extensions:
+    - svg
 
 BenManu\StyleGuide\StyleGuideController:
   paths: 'theme-default/src/sass/'
