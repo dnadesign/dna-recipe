@@ -22,7 +22,7 @@
     "silverstripe/siteconfig": "4.0.x-dev",
     "silverstripe/versioned": "1.0.x-dev",
     "silverstripe/standardsediting": "dev-master",
-    "stevie-mayhew/silverstripe-svg": "dev-feature/silverstripe4",
+    "stevie-mayhew/silverstripe-svg": "^2.0",
     "symbiote/silverstripe-gridfieldextensions": "dev-master",
     "unclecheese/betterbuttons": "dev-master",
     "silverstripe/raygun": "dev-master"
@@ -39,10 +39,6 @@
     {
       "type": "vcs",
       "url": "https://github.com/adrexia/silverstripe-styleguide.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/adrexia/silverstripe-svg.git"
     }
   ],
   "require-dev": {
