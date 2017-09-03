@@ -6,7 +6,7 @@
 		<% if Children %>
 			<% if $LinkingMode = current || $LinkingMode = section %>
 				<ul class="nav nav-list">
-					<% include MenuTwo First=$First, Last=$Last %>
+					<% include SecondaryMenuChildren First=$First, Last=$Last %>
 				</ul>
 			<% end_if %>
 		<% end_if %>

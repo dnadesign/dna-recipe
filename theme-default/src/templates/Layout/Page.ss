@@ -1,7 +1,7 @@
-<% include Breadcrumbs %>
+<% include Components/Breadcrumbs %>
 <div class="pure-g">
 	<% if Menu(2) %>
-		<% include SecondaryMenu %>
+		<% include Components/SecondaryMenu  %>
 	<% end_if %>
 	<div class="pure-u-1 <% if Menu(2) %>pure-u-md-3-4<% end_if %>">
 		<main class="main typography" role="main" id="main">

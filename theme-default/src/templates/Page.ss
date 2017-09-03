@@ -21,15 +21,15 @@
     $BetterNavigator
     <% include SkipLinks %>
     <div class="container">
-        <% include Header %>
-        <% include Menu %>
+        <% include Components/Header %>
+        <% include Components/Menu %>
     </div>
 
     <div class="layout container">
         $Layout
     </div>
 
-    <% include Footer %>
+    <% include Components/Footer %>
 
     <% if SiteConfig.GACode %>
         <script type="text/javascript">

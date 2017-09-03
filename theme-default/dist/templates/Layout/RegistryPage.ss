@@ -1,4 +1,4 @@
-<% include Breadcrumbs %>
+<% include Components/Breadcrumbs %>
 <div class="pure-g pure-g-padding">
 	<div class="pure-u-1 pure-u-md-1-4">
 		<div class="sidebar-form filter">
@@ -39,7 +39,7 @@
 					</table>
 
 					<% with RegistryEntries %>
-						<% include Pagination %>
+						<%  include Components/Pagination %>
 					<% end_with %>
 				<% else %>
 					<p class="no-results">No results to show.</p>

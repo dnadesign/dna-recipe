@@ -14,6 +14,6 @@
 		<% if $ClassName != HomePage %>
 			<% include PrintShare %>
 		<% end_if %>
-		<% include LastEdited %>
+		<% include UIKit/LastEdited %>
 	</div>
 </footer>

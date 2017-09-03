@@ -1,4 +1,4 @@
-<% include Breadcrumbs %>
+<% include Components/Breadcrumbs %>
 <div class="pure-g pure-g-padding">
 	<div class="pure-u-1 pure-u-md-1-4">
 		<% include Filter %>
@@ -28,7 +28,7 @@
 				<% end_loop %>
 
 				<% with FilteredUpdates %>
-					<% include Pagination %>
+					<%  include Components/Pagination %>
 				<% end_with %>
 			<% else %>
 				<article class="results-item--odd results-item--first clearfix">
@@ -42,7 +42,7 @@
 
 			<footer class="contentfooter columns twelve">
 				<% include PrintShare %>
-				<% include LastEdited %>
+				<% include UIKit/LastEdited %>
 			</footer>
 		</main>
 	</div>

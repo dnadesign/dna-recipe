@@ -1,5 +1,5 @@
 
-<% include Breadcrumbs %>
+<% include Components/Breadcrumbs %>
 <div class="pure-g pure-g-padding">
 	<div class="pure-u-1 pure-u-md-1-4">
 		<div class="update-information filter">
