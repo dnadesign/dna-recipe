@@ -22,7 +22,7 @@
 			</ol>
 
 			<% with Results %>
-				<% include Pagination %>
+				<%  include Components/Pagination %>
 			<% end_with %>
 
 		<% else %>

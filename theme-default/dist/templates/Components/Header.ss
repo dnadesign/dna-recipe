@@ -2,7 +2,7 @@
 	<% if $AvailableTranslations %>
 	<div class="pure-g">
 		<div class="pure-u-1">
-			<% include Translations %>
+			<% include Components/Translations %>
 		</div>
 	</div>
 	<% end_if %>

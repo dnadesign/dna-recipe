@@ -32,5 +32,14 @@ StevieMayhew\SilverStripeSVG\SVGTemplate:
   default_extra_classes:
     - 'svg'
 
+SilverStripe\ErrorPage\ErrorPage:
+  icon: "mysite/images/icons/error.svg"
+SilverStripe\CMS\Model\RedirectorPage:
+  icon: "mysite/images/icons/redirects.svg"
+SilverStripe\CMS\Model\VirtualPage:
+  icon: "mysite/images/icons/virtual.svg"
+
 DNA\DNARaygun\RaygunHandler:
   app_name: 'DNA'
+
+

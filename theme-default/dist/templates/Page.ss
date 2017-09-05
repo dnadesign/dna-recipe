@@ -12,7 +12,7 @@
     $MetaTags(false)
     <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
 
-    <% require themedCSS('css/style.css') %>
+    <% require themedCSS('css/style') %>
 
     <% include MetaIcons %>
 </head>
@@ -21,15 +21,15 @@
     $BetterNavigator
     <% include SkipLinks %>
     <div class="container">
-        <% include Header %>
-        <% include Menu %>
+        <% include Components/Header %>
+        <% include Components/Menu %>
     </div>
 
     <div class="layout container">
         $Layout
     </div>
 
-    <% include Footer %>
+    <% include Components/Footer %>
 
     <% if SiteConfig.GACode %>
         <script type="text/javascript">

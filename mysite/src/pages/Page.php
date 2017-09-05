@@ -1,11 +1,12 @@
 <?php
 
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Forms\TextField;
 
 
 class Page extends SiteTree
 {
+    private static $icon = 'mysite/images/icons/page.svg';
+
     private static $db = array(
 
     );
@@ -14,10 +15,12 @@ class Page extends SiteTree
 
     );
 
+
+
     public function getCMSFields() {
         $fields = parent::getCMSFields();
 
-        // $fields->addFieldToTab('Root.Main', TextField::create());
+
 
         return $fields;
     }
