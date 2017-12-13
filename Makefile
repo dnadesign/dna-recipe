@@ -1,3 +1,5 @@
+gulpbin := ./node_modules/gulp/bin/gulp.js
+
 list:
 	@echo "Available commands:"
 	@grep "^[^#[:space:]].*:$$" Makefile | sort
@@ -5,17 +7,17 @@ list:
 setup:
 	@composer install
 	@./framework/sake dev/build "flush=1"
-	@cd themes/default && npm install
+	@cd theme-default && npm install
 
 start:
 	@NODE_ENV=dev make gulp
 
 gulp:
-	cd themes/default && gulp
+	cd theme-default && $(gulpbin)
 
 release:
-	@cd themes/default && gulp build
-	@git add -f --all themes/default/js themes/default/css
+	@NODE_ENV=prod cd theme-default && $(gulpbin) build
+	@git add -f --all theme-default/dist/js theme-default/dist/css
 	@git commit -m "Checking in built assets"
 
 startsolr:
