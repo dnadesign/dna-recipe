@@ -5,25 +5,25 @@
   "keywords": ["silverstripe", "dna"],
   "require": {
     "php": ">=5.6.0",
-    "benmanu/silverstripe-styleguide": "dev-feature/silverstripe4",
-    "dnadesign/silverstripe-dna": "dev-feature/silverstripe4",
-    "dnadesign/shipistrano": "dev-master",
-    "jonom/silverstripe-betternavigator": "dev-master",
-    "silverstripe/admin": "1.0.x-dev",
-    "silverstripe/asset-admin": "1.0.x-dev",
-    "silverstripe/assets": "1.0.x-dev",
-    "silverstripe/campaign-admin": "1.0.x-dev",
-    "silverstripe/cms": "4.0.x-dev",
-    "silverstripe/config": "1.0.x-dev",
-    "silverstripe/errorpage": "1.0.x-dev",
-    "silverstripe/framework": "4.0.x-dev",
-    "silverstripe/graphql": "0.2.x-dev",
-    "silverstripe/reports": "4.0.x-dev",
-    "silverstripe/siteconfig": "4.0.x-dev",
-    "silverstripe/versioned": "1.0.x-dev",
-    "silverstripe/standardsediting": "dev-master",
-    "stevie-mayhew/silverstripe-svg": "^2.0",
-    "symbiote/silverstripe-gridfieldextensions": "dev-master",
+    "benmanu/silverstripe-styleguide": "^0.1",
+    "dnadesign/silverstripe-dna": "^2.0",
+    "jonom/silverstripe-betternavigator": "^4.0",
+    "silverstripe/admin": "^1.0",
+    "silverstripe/asset-admin": "^1.0",
+    "silverstripe/assets": "^1.0",
+    "silverstripe/campaign-admin": "^1.0",
+    "silverstripe/cms": "^4.0",
+    "silverstripe/config": "^1.0",
+    "silverstripe/errorpage": "^1.0",
+    "silverstripe/framework": "^4.0",
+    "silverstripe/graphql": "^1.0",
+    "silverstripe/reports": "^4.0",
+    "silverstripe/siteconfig": "^4.0",
+    "silverstripe/userforms": "^5.0",
+    "silverstripe/versioned": "^1.0",
+    "adrexia/standardsediting": "^2.0",
+    "stevie-mayhew/silverstripe-svg": "^2.1",
+    "symbiote/silverstripe-gridfieldextensions": "^3.1",
     "unclecheese/betterbuttons": "dev-master",
     "silverstripe/raygun": "dev-master"
   },
@@ -31,19 +31,11 @@
     {
       "type": "vcs",
       "url": "git@github.com:dnadesign/silverstripe-dna.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dnadesign/shipistrano.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/adrexia/silverstripe-styleguide.git"
     }
   ],
   "require-dev": {
     "phpunit/PHPUnit": "^5.7",
-    "silverstripe/testsession": "dev-master"
+    "silverstripe/testsession": "^2.0"
   },
   "extra": {
     "branch-alias": {
