@@ -1,3 +1,0 @@
-{
-  "commands": ["**/*.php : upgrade-code upgrade {relFullPath} --write"]
-}
