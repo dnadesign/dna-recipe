@@ -8,7 +8,7 @@ Silverstripe 4. See 3.0 branch for silverstripe 3 support.
 ## Getting started
 _NOTE: assumes you have node setup and gulp installed. If not, you should go do those things first_
 
-###Install
+### Install
 To start a project with this recipe run:
 
 `composer create-project dnadesign/basic-recipe ./your-project dev-master`
@@ -36,3 +36,5 @@ More information about recipes and how to work with them is available here: http
     gulp
     
 See the themes README file for more specific documentation
+
+See also: https://github.com/dnadesign/dna-recipe-theme-default
