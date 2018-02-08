@@ -4,15 +4,9 @@ Before:
   - coreconfig
 ---
 # YAML configuration for SilverStripe
-# See http://doc.silverstripe.org/framework/en/topics/configuration
-# Caution: Indentation through two spaces, not tabs
-SilverStripe\View\SSViewer:
-  themes:
-    - '/theme-default/dist'
-    - '$default'
 SilverStripe\i18n\i18n:
   default_locale: 'en_US'
-  
+
 SilverStripe\Assets\File:
   allowed_extensions:
     - svg
@@ -20,24 +14,16 @@ SilverStripe\Assets\Image:
   allowed_extensions:
     - svg
 
-BenManu\StyleGuide\StyleGuideController:
-  paths: 'theme-default/src/sass/'
-  css_files:
-    - 'theme-default/dist/css/style.css'
-  js_files:
-    - 'theme-default/dist/js/script.min.js'
-
-StevieMayhew\SilverStripeSVG\SVGTemplate:
-  base_path: 'theme-default/dist/svg/'
-  default_extra_classes:
-    - 'svg'
-
 SilverStripe\ErrorPage\ErrorPage:
   icon: "mysite/images/icons/error.svg"
 SilverStripe\CMS\Model\RedirectorPage:
   icon: "mysite/images/icons/redirects.svg"
 SilverStripe\CMS\Model\VirtualPage:
   icon: "mysite/images/icons/virtual.svg"
+Page:
+  icon: "mysite/images/icons/page.svg"
+HomePage:
+  icon: "mysite/images/icons/home.svg"
 
 DNA\DNARaygun\RaygunHandler:
   app_name: 'DNA'

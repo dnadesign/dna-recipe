@@ -1,28 +1,15 @@
 {
   "name": "dnadesign/basic-recipe",
   "description": "DNA Basic Recipe metapackage",
-  "type": "silverstripe-module",
-  "keywords": ["silverstripe", "dna"],
+  "type": "silverstripe-recipe",
+  "keywords": ["silverstripe", "dna", "recipe"],
   "require": {
     "php": ">=5.6.0",
-    "benmanu/silverstripe-styleguide": "^0.1",
+    "silverstripe/recipe-plugin": "^1",
+    "adrexia/dna-recipe-theme-default": "dev-master",
     "dnadesign/silverstripe-dna": "^2.0",
     "jonom/silverstripe-betternavigator": "^4.0",
-    "silverstripe/admin": "^1.0",
-    "silverstripe/asset-admin": "^1.0",
-    "silverstripe/assets": "^1.0",
-    "silverstripe/campaign-admin": "^1.0",
-    "silverstripe/cms": "^4.0",
-    "silverstripe/config": "^1.0",
-    "silverstripe/errorpage": "^1.0",
-    "silverstripe/framework": "^4.0",
-    "silverstripe/graphql": "^1.0",
-    "silverstripe/reports": "^4.0",
-    "silverstripe/siteconfig": "^4.0",
-    "silverstripe/userforms": "^5.0",
-    "silverstripe/versioned": "^1.0",
     "adrexia/standardsediting": "^2.0",
-    "stevie-mayhew/silverstripe-svg": "^2.1",
     "symbiote/silverstripe-gridfieldextensions": "^3.1",
     "unclecheese/betterbuttons": "dev-master",
     "silverstripe/raygun": "dev-master"
@@ -38,12 +25,18 @@
     "silverstripe/testsession": "^2.0"
   },
   "extra": {
-    "branch-alias": {
-      "dev-master": "4.0.x-dev"
-    },
-    "installer-paths": {
-      "cap": ["dnadesign/shipistrano"]
-    }
+    "project-files": [
+      "mysite/_config/*",
+      "mysite/images/*",
+      "mysite/tests/*",
+      "./.editorconfig",
+      "./.env.example",
+      "./.gitignore",
+      "./.gitlab-ci.yml",
+      "./.htaccess",
+      "./Makefile",
+      "phpunit.xml.dist"
+    ]
   },
   "config": {
     "process-timeout": 600
