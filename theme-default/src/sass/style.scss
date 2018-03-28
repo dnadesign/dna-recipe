@@ -1,0 +1,65 @@
+@import '../../dist/css/pure.src'; // import pure as sass for extending
+
+/*
+# Brand Overview
+
+Define the colours and fonts used throughout the web app
+
+Styleguide 1.0
+*/
+@import "utilities/functions";
+@import "utilities/var-globals";
+@import "utilities/respond";
+@import "utilities/classes";
+
+/*
+# Layout
+
+Grid and layout related styling. We are using pure's grid system. More in depth documentation can be found at:
+http://purecss.io/grids/
+
+Styleguide 2.0
+*/
+@import "layout/*";
+
+/*
+# Typography
+
+Styles for typographical and related elements editable in Silverstripe's HTML Text editor.
+This includes headings, paragraphs, quotes, links, lists, images, media, and tables.
+
+Styleguide 3.0
+*/
+@import "typography/*";
+
+/*
+# UI Kit
+
+A place for the small elements, such as buttons, that make up larger components
+
+Styleguide 4.0
+*/
+@import "ui-kit/*";
+
+/*
+# Forms
+
+Form, and form element styles
+
+Styleguide 5.0
+*/
+
+@import "forms/*";
+
+/*
+# Components
+
+Reusable and customizable front-end UI elements
+
+Styleguide 6.0
+
+*/
+@import "components/**/*";
+
+// Include shame file
+@import "shame";

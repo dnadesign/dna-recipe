@@ -1,0 +1,14 @@
+// Styles for translation links
+.translations {
+	float: right;
+
+	&-item {
+		margin-top:5px;
+		font-size: 13px;
+	}
+
+	&-link {
+		color: $font-color;
+		font-weight: bold;
+	}
+}

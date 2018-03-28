@@ -1,53 +1,74 @@
 {
-  "name": "dnadesign/basic-recipe",
-  "description": "DNA Basic Recipe metapackage",
-  "type": "silverstripe-recipe",
-  "keywords": ["silverstripe", "dna", "recipe"],
-  "require": {
-    "php": ">=5.6.0",
-    "silverstripe/recipe-plugin": "^1",
-    "dnadesign/dna-recipe-theme-default": "dev-master",
-    "dnadesign/silverstripe-dna": "^2.0",
-    "jonom/silverstripe-betternavigator": "^4.0",
-    "adrexia/standardsediting": "^2.0",
-    "symbiote/silverstripe-gridfieldextensions": "^3.1",
-    "silverstripe/raygun": "dev-patch-2 as dev-master"
-  },
-  "repositories": [
-    {
-        "type": "vcs",
-        "url": "git@github.com:dnadesign/silverstripe-dna.git"
+    "name": "dnadesign/basic-recipe",
+    "description": "DNA Basic Recipe metapackage",
+    "type": "silverstripe-recipe",
+    "keywords": ["silverstripe", "dna", "recipe"],
+    "require": {
+        "php": ">=5.6.0",
+        "silverstripe/recipe-plugin": "^1",
+        "silverstripe/recipe-cms": "^1",
+        "stevie-mayhew/silverstripe-svg": "^2.1",
+        "benmanu/silverstripe-styleguide": "dev-feature/vendor",
+        "dnadesign/silverstripe-dna": "^2.0",
+        "jonom/silverstripe-betternavigator": "^4.0",
+        "adrexia/standardsediting": "^2.0",
+        "symbiote/silverstripe-gridfieldextensions": "^3.1",
+        "silverstripe/raygun": "dev-patch-2 as dev-master"
     },
-    {
-        "type": "vcs",
-        "url": "git@github.com:adrexia/silverstripe-styleguide.git"
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:dnadesign/silverstripe-dna.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:adrexia/silverstripe-styleguide.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:adrexia/silverstripe-raygun.git"
+        }
+    ],
+    "require-dev": {
+        "phpunit/PHPUnit": "^5.7",
+        "silverstripe/testsession": "^2.0"
     },
-    {
-        "type": "vcs",
-        "url": "git@github.com:adrexia/silverstripe-raygun.git"
-    }
-  ],
-  "require-dev": {
-    "phpunit/PHPUnit": "^5.7",
-    "silverstripe/testsession": "^2.0"
-  },
-  "extra": {
-    "project-files": [
-      "mysite/_config/*",
-      "mysite/images/*",
-      "mysite/tests/*",
-      "./.editorconfig",
-      "./.env.example",
-      "./.gitignore",
-      "./.gitlab-ci.yml",
-      "./.htaccess",
-      "./Makefile",
-      "phpunit.xml.dist"
-    ]
-  },
-  "config": {
-    "process-timeout": 600
-  },
-  "prefer-stable": true,
-  "minimum-stability": "dev"
+    "extra": {
+        "project-files": [
+            "mysite/_config/*",
+            "mysite/css/*",
+            "mysite/images/*",
+            "mysite/tests/*",
+            "mysite/styleguide/*",
+            "public/*",
+            "./.editorconfig",
+            "./.env.example",
+            "./.gitignore",
+            "./.gitlab-ci.yml",
+            "./.htaccess",
+            "./Makefile",
+            "phpunit.xml.dist",
+            "theme-default/*"
+        ],
+        "public-files": [
+            "assets/*",
+            "theme-default/dist/css/*",
+            "theme-default/dist/fonts/*",
+            "theme-default/dist/images/*",
+            "theme-default/dist/js/*",
+            "theme-default/dist/svg/*"
+        ],
+        "expose": [
+            "theme-default/dist/css",
+            "theme-default/dist/fonts",
+            "theme-default/dist/images",
+            "theme-default/dist/js",
+            "theme-default/dist/svg"
+        ]
+    },
+    "config": {
+        "process-timeout": 600
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

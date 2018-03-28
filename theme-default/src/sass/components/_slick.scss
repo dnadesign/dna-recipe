@@ -1,0 +1,172 @@
+/**
+# Slick
+
+Template: Components/Slick
+
+Styleguide 6.3
+
+*/
+.slick {
+	&-wrapper {
+		clear: fix;
+		margin: 0 25px 35px;
+
+		@include respond(md) {
+			margin: 10px auto 35px;
+			max-width: 711px;
+		}
+		@include respond(lg) {
+			max-width: 903px;
+			margin: 10px auto 35px;
+		}
+		@include respond(xl) {
+			max-width: none;
+			margin: 10px -2px 35px;
+		}
+	}
+	&-slider {
+		position: relative;
+		display: block;
+		box-sizing: border-box;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		-ms-touch-action: pan-y;
+		touch-action: pan-y;
+		-webkit-tap-highlight-color: transparent;
+	}
+	&-list {
+		position: relative;
+		overflow: hidden;
+		display: block;
+		margin: 0;
+		padding: 0;
+
+		&:focus {
+			outline: none;
+		}
+
+		&.dragging {
+			cursor: pointer;
+			cursor: hand;
+		}
+	}
+	&-slider .slick-track,
+	&-slider .slick-list {
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	&-track {
+		position: relative;
+		left: 0;
+		top: 0;
+		display: block;
+
+		&:before,
+		&:after {
+			content: "";
+			display: table;
+		}
+
+		&:after {
+			clear: both;
+		}
+
+		.slick-loading & {
+			visibility: hidden;
+		}
+	}
+	&-slide {
+		float: left;
+		height: 100%;
+		display: none;
+
+		[dir="rtl"] & {
+			float: right;
+		}
+		img {
+			display: block;
+		}
+		&.slick-loading img {
+			display: none;
+		}
+
+		&.dragging img {
+			pointer-events: none;
+		}
+
+		.slick-initialized & {
+			display: block;
+		}
+
+		.slick-loading & {
+			visibility: hidden;
+		}
+
+		.slick-vertical & {
+			display: block;
+			height: auto;
+			border: 1px solid transparent;
+		}
+	}
+	&-arrow.slick-hidden {
+		display: none;
+	}
+
+	.slick-prev,
+	.slick-next {
+	}
+
+	&-next,
+	&-prev {
+		font-size: 0;
+		line-height: 0;
+		position: absolute;
+		top: 50%;
+		width: 20px;
+		height: 30px;
+		margin-top: -10px;
+		cursor: pointer;
+
+		&:after {
+			opacity: 0.5;
+			content: '';
+			display: block;
+			width: 20px;
+			height: 30px;
+			background: svg-load('chevron_thin.svg', fill=#000, stroke=#fff)
+				no-repeat;
+		}
+
+		.no-touchevents & {
+			&:hover,
+			&:focus {
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+
+		&.slick-disabled {
+			&:after {
+				opacity: 0;
+				cursor: default;
+			}
+		}
+	}
+
+	&-prev {
+		left: -47px;
+	}
+	&-next {
+		right: -47px;
+		&:after {
+			transform: rotate(180deg);
+		}
+	}
+}

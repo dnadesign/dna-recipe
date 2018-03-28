@@ -1,0 +1,17 @@
+/**
+* Make sure Betternavigatior won't overlap the top menu.
+* Unfortunately this module is styled using ids, so we have to use ids too (for now). 
+*/
+
+div#BetterNavigator {
+	top: 50%;
+	margin-top: -80px;
+
+	&.open {
+		margin: 0;
+		top: 0;
+	}
+	@include respond(print) {
+		display: none;
+	}
+}

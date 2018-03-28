@@ -1,0 +1,12 @@
+.linkset {
+	ul, ol {
+		margin: 0;
+		margin-top: -5px; //match padding on a tag
+		padding: 0 10px;
+
+		a {
+			display: block;
+			padding: 5px 0;
+		}
+	}
+}

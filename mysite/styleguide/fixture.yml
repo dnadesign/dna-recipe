@@ -1,0 +1,31 @@
+Image:
+  demo:
+    URL: 'mysite/images/demo.JPG'
+    Title: 'demo'
+    ClassName: Image
+
+Site:
+  link1:
+    Link: '#link1'
+    MenuTitle: Home
+    Title: Home
+    ClassName: HomePage
+    Image: =>Image.demo
+  link2:
+    Link: '#link2'
+    MenuTitle: About
+    Title: About
+    ClassName: Page
+    Image: =>Image.demo
+  link3:
+    Link: '#link3'
+    MenuTitle: Contact
+    Title: About
+    ClassName: Page
+    Image: =>Image.demo
+
+Template:
+  Includes/Menu:
+    Menu: =>Site.link1, =>Site.link2, =>Site.link3
+  Includes/Slick:
+    Items: =>Site.link1, =>Site.link2, =>Site.link3

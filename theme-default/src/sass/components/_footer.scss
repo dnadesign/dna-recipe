@@ -1,0 +1,45 @@
+/*
+#Footer
+
+Footer stub
+
+Template: Components/Footer
+
+Styleguide 6.1
+
+*/
+
+.footer {
+	clear: both;
+	border-top: 1px solid $default-color;
+	padding-top: 30px;
+	background-color: $footer-color;
+
+	a,
+	p {
+		color: $menu-link-color;
+	}
+
+	a {
+		&:visited {
+			color: $footer-link-color;
+		}
+		&:hover {
+			border-radius: 3px;
+			color: $footer-link-hover-color;
+			background: $footer-link-hover-background-color;
+		}
+	}
+
+	&-logo {
+		margin-top: 20px;
+
+		img {
+			margin-bottom: 0;
+		}
+	}
+
+	&-copyright {
+		padding-left: 10px;
+	}
+}
