@@ -26,9 +26,7 @@ and then run update-recipe as above if you wish to inline it.
 More information about recipes and how to work with them is available here: https://github.com/silverstripe/recipe-plugin
 
 ### Post install
-1. Using terminal run:
-
-    make setup
+Using terminal run: `make setup`
     
 This will: 
 * Copy a draft .env file in for you (you'll need to update this)
