@@ -26,19 +26,17 @@ and then run update-recipe as above if you wish to inline it.
 More information about recipes and how to work with them is available here: https://github.com/silverstripe/recipe-plugin
 
 ### Post install
-1. Copy in a .env file, or rename the .env.example file. 
-2. Update gulp with your project name details
-
-3. Using terminal either:
+1. Using terminal run:
 
     make setup
-
-or
-
-    cd your-project/theme-default
-    npm install
-    gulp
     
+This will: 
+* Copy a draft .env file in for you (you'll need to update this)
+* Install the frontend dependencies & create the built theme in `theme-default/dist`
+* Run composer install (because this task doubles as a quick setup for future devs on your project)
+* Run vendor expose to symlink assets into public
+* Run a dev/build ?flush
+
 See the themes README file for more specific documentation
 
 See also: https://github.com/dnadesign/dna-recipe-theme-default
