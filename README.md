@@ -15,11 +15,11 @@ To start a project with this recipe run:
 
 to move the cms recipe dep to your own composer file in order to modify them use:
 
-`composer update-recipe silverstripe/recipe-cms`
+(optional) `composer update-recipe silverstripe/recipe-cms`
 
 To add this recipe to an existing project:
 
-`composer require dnadesign/basic-recipe ./your-project dev-master`
+(optional) `composer require dnadesign/basic-recipe ./your-project dev-master`
 
 and then run update-recipe as above if you wish to inline it.
 
@@ -29,7 +29,11 @@ More information about recipes and how to work with them is available here: http
 1. Copy in a .env file, or rename the .env.example file. 
 2. Update gulp with your project name details
 
-3. Using terminal:
+3. Using terminal either:
+
+    make setup
+
+or
 
     cd your-project/theme-default
     npm install

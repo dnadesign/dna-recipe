@@ -1,4 +1,5 @@
 gulpbin := ./node_modules/gulp/bin/gulp.js
+sake := /vendor/silverstripe/framework/sake
 
 list:
 	@echo "Available commands:"
@@ -6,8 +7,8 @@ list:
 
 setup:
 	@composer install
-	@./framework/sake dev/build "flush=1"
-	@cd theme-default && npm install
+	@sake dev/build "flush=1"
+	@cd theme-default && npm install && $(gulpbin)
 
 start:
 	@NODE_ENV=dev make gulp
