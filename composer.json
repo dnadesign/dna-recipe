@@ -20,6 +20,10 @@
     },
     {
         "type": "vcs",
+        "url": "git@github.com:adrexia/silverstripe-styleguide.git"
+    },
+    {
+        "type": "vcs",
         "url": "git@github.com:adrexia/silverstripe-raygun.git"
     }
   ],
