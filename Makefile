@@ -5,18 +5,13 @@ list:
 	@echo "Available commands:"
 	@grep "^[^#[:space:]].*:$$" Makefile | sort
 
-# build is used in initial project builds, after composer create. 
-# it can be removed in established projects
-build:
-	@sake dev/build "flush=1"
-	@cd theme-default && npm install && $(gulpbin) build
-	@composer vendor-expose
-	
 setup:
-	@composer install
+	@cp "./.env.example" "./.env"
+	@cd theme-default && npm install && $(gulpbin) build
+	@cd ../
+	@composer install && composer vendor-expose
 	@sake dev/build "flush=1"
-	@cd theme-default && npm install && $(gulpbin)
-	@composer vendor-expose
+	@echo "---\n\n\n \033[1;35m 💥   Project built! Don't forget to update the .env file \033[0m \n\n"
 
 start:
 	@NODE_ENV=dev make gulp
