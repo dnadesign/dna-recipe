@@ -10,7 +10,7 @@
         "stevie-mayhew/silverstripe-svg": "^2.1",
         "benmanu/silverstripe-styleguide": "dev-feature/vendor",
         "dnadesign/silverstripe-dna": "^2.0",
-        "jonom/silverstripe-betternavigator": "^4.0",
+        "jonom/silverstripe-betternavigator": "dev-master",
         "adrexia/standardsediting": "^2.0",
         "symbiote/silverstripe-gridfieldextensions": "^3.1",
         "silverstripe/raygun": "dev-patch-2 as dev-master"

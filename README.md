@@ -1,6 +1,6 @@
 # Dna Recipe
 
-Includes a collection of useful modules, a [starter theme](https://github.com/dnadesign/dna-recipe-theme-default), and the silverstripe [recipe-cms](https://github.com/silverstripe/recipe-cms)
+Includes a collection of useful modules, a starter theme, and the silverstripe [recipe-cms](https://github.com/silverstripe/recipe-cms)
 
 ## Requirements
 Silverstripe 4. See 3.0 branch for silverstripe 3 support.
@@ -38,5 +38,3 @@ More information about recipes and how to work with them is available here: http
 
 ## More
 See the themes README file for more specific documentation
-
-See also: https://github.com/dnadesign/dna-recipe-theme-default
