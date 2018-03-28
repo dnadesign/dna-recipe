@@ -9,12 +9,10 @@ Silverstripe 4. See 3.0 branch for silverstripe 3 support.
 _NOTE: assumes you have node setup and gulp installed. If not, you should go do those things first_
 
 ### Install
-1. To start a project with this recipe run:
+To start a project with this recipe use a terminal to run (replace `your-project` with your project's name):
 
 `composer create-project dnadesign/basic-recipe ./your-project dev-master`
-
-2. Using terminal navigate to your new project (eg `cd your-project` and run:  
-
+`cd your-project` 
 `make setup`
     
 This will: 
