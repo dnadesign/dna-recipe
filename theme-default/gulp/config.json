@@ -1,0 +1,19 @@
+{
+    "project":{
+        "name" : "dna-recipe",
+        "PATHS": {
+            "src": "./src/",
+		    "dist": "./dist/"
+        },
+        "browserSync":{
+            "path": "",
+            "defaultConfig": {
+                "open": "external",
+                "host": "dna-recipe.dev",
+                "proxy": "dna-recipe.dev",
+                "watchTask": true,
+                "injectChanges": true
+            }
+        }
+    }
+}
