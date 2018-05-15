@@ -11,8 +11,9 @@ const gulp = require('gulp'),
      * Plugins can be loaded with: load.name(), rather than just name().
      * More information: https://w+ww.npmjs.com/package/gulp-load-plugins
      */
-	load = require('gulp-load-plugins')(),
-	project = 'dna-recipe', // Your project name
+	load = require('gulp-load-plugins')();
+
+const project = 'dna-recipe', // Your project name
 	PATHS = {
 		src: './src/',
 		dist: './dist/' // The path of the dist directory, currently the theme root
@@ -65,7 +66,6 @@ gulp.task('browserSync', (done) => {
 	} else {
 		browserSync.init(defaultConfig);
 	}
-
 	done();
 });
 
@@ -112,7 +112,6 @@ gulp.task('pure', () => {
 		load.rename({
 			suffix: '.src'
 		}),
-
 		gulp.dest(PATHS.dist + 'css/')
 	]);
 });
@@ -185,7 +184,6 @@ gulp.task('makejs:components', () => {
 		gulp.src(PATHS.src + 'js/components/**/*.js'),
 =======
 		gulp.src([
-			'node_modules/babel-polyfill/dist/polyfill.min.js', // includes polyfill for browser compatibility
 			PATHS.src + 'js/components/**/*.js'
 		]),
 >>>>>>> included babel compiler for js components
@@ -195,8 +193,6 @@ gulp.task('makejs:components', () => {
 		}),
 		load.eslint.format(),
 		load.sourcemaps.init()
-            .on('error', swallowError),
-		load.babel()
             .on('error', swallowError),
 		load.concat('components.js'),
 		gulp.dest(PATHS.dist + 'js/src/'),
