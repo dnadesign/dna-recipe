@@ -80,8 +80,7 @@ gulp.task('clean', () => {
 gulp.task('svgo', () => {
 	return pump([
 		gulp.src(PATHS.src + 'svg/**/*.svg'),
-		load.svgmin()
-            .on('error', swallowError),
+		load.svgmin().on('error', swallowError),
 		gulp.dest(PATHS.dist + 'svg')
 	]);
 });
@@ -92,8 +91,7 @@ gulp.task('svgo', () => {
 gulp.task('json', () => {
 	return pump([
 		gulp.src(PATHS.src + 'sass/utilities/_var-breakpoints.scss'),
-		load.sassJson()
-            .on('error', swallowError),
+		load.sassJson().on('error', swallowError),
 		gulp.dest(PATHS.dist + 'js/src/')
 	]);
 });
@@ -105,10 +103,8 @@ gulp.task('json', () => {
 gulp.task('pure', () => {
 	return pump([
 		gulp.src(['node_modules/purecss/build/pure.css']),
-		load.postcss([rmHover()])
-            .on('error', swallowError),
+		load.postcss([rmHover()]).on('error', swallowError),
 		load.concat('pure.css'),
-
 		load.rename({
 			suffix: '.src'
 		}),
@@ -127,8 +123,7 @@ gulp.task('make-css', () => {
 		gulp.src(PATHS.src + 'sass/style.scss'),
 		load.sourcemaps.init(),
 		load.sassBulkImport(),
-		load.sass() // Using gulp-sass
-            .on('error', swallowError),
+		load.sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
 			autoprefixer({ browsers: ['last 2 versions'] }),
@@ -155,8 +150,7 @@ gulp.task('cms-css', () => {
 		gulp.src(PATHS.src + 'sass/editor.scss'),
 		load.sourcemaps.init(),
 		load.sassBulkImport(),
-		load.sass() // Using gulp-sass
-            .on('error', swallowError),
+		load.sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
 			autoprefixer({ browsers: ['last 2 versions'] }),
@@ -186,8 +180,7 @@ gulp.task('makejs:components', () => {
 			envs: ['browser']
 		}),
 		load.eslint.format(),
-		load.sourcemaps.init()
-            .on('error', swallowError),
+		load.sourcemaps.init().on('error', swallowError),
 		load.concat('components.js'),
 		gulp.dest(PATHS.dist + 'js/src/'),
 		load.sourcemaps.write('.')
@@ -238,11 +231,9 @@ gulp.task('makejs:main', () => {
 			PATHS.dist + 'js/src/components.js',
 			PATHS.src + 'js/start.src.js'
 		]),
-		load.template({ breakpoints: JSON.stringify(config) })
-            .on('error', swallowError),
+		load.template({ breakpoints: JSON.stringify(config) }).on('error', swallowError),
 		load.sourcemaps.init(),
-		load.babel()
-            .on('error', swallowError),
+		load.babel().on('error', swallowError),
 		load.concat('script.js'),
 		gulp.dest(PATHS.dist + 'js/src/'),
 		load.if(process.env.NODE_ENV !== 'dev', load.uglify()),
@@ -261,8 +252,7 @@ gulp.task('makejs',
 
 gulp.task('html', () => {
 	return pump([
-		gulp.src([PATHS.src + 'templates/**/*.ss'])
-            .on('error', swallowError),
+		gulp.src([PATHS.src + 'templates/**/*.ss']).on('error', swallowError),
 		gulp.dest(PATHS.dist + 'templates'),
 		browserSync.stream()
 	]);
@@ -270,16 +260,14 @@ gulp.task('html', () => {
 
 gulp.task('images', () => {
 	return pump([
-		gulp.src([PATHS.src + 'images/**/*'])
-            .on('error', swallowError),
+		gulp.src([PATHS.src + 'images/**/*']).on('error', swallowError),
 		gulp.dest(PATHS.dist + 'images')
 	]);
 });
 
 gulp.task('fonts', () => {
 	return pump([
-		gulp.src([PATHS.src + 'fonts/**/*'])
-            .on('error', swallowError),
+		gulp.src([PATHS.src + 'fonts/**/*']).on('error', swallowError),
 		gulp.dest(PATHS.dist + 'fonts')
 	]);
 });
