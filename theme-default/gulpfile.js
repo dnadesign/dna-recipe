@@ -130,7 +130,7 @@ gulp.task('make-css', () => {
 		.pipe(load.cleanCss({ compatibility: 'ie9' }))
 		.pipe(
 			load.postcss([
-				autoprefixer({ browsers: ['last 2 versions'] }),
+				autoprefixer(),
 				inlinesvg({
 					path: PATHS.dist + 'svg/'
 				})

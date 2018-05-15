@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.0",
     "browser-sync": "^2.18.11",
+    "browserslist": "^3.2.7",
     "del": "^2.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
