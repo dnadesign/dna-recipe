@@ -180,13 +180,7 @@ gulp.task('cms-css', () => {
  */
 gulp.task('makejs:components', () => {
 	return pump([
-<<<<<<< HEAD
 		gulp.src(PATHS.src + 'js/components/**/*.js'),
-=======
-		gulp.src([
-			PATHS.src + 'js/components/**/*.js'
-		]),
->>>>>>> included babel compiler for js components
 		load.eslint({
 			globals: ['jQuery', 'console', 'document', 'DO'],
 			envs: ['browser']
