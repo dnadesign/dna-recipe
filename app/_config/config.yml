@@ -1,5 +1,5 @@
 ---
-Name: mysite
+Name: appconfig
 Before:
   - coreconfig
 ---
@@ -15,15 +15,15 @@ SilverStripe\Assets\Image:
     - svg
 
 SilverStripe\ErrorPage\ErrorPage:
-  icon: "mysite/images/icons/error.svg"
+  icon: "app/images/icons/error.svg"
 SilverStripe\CMS\Model\RedirectorPage:
-  icon: "mysite/images/icons/redirects.svg"
+  icon: "app/images/icons/redirects.svg"
 SilverStripe\CMS\Model\VirtualPage:
-  icon: "mysite/images/icons/virtual.svg"
+  icon: "app/images/icons/virtual.svg"
 Page:
-  icon: "mysite/images/icons/page.svg"
+  icon: "app/images/icons/page.svg"
 HomePage:
-  icon: "mysite/images/icons/home.svg"
+  icon: "app/images/icons/home.svg"
 
 DNA\DNARaygun\RaygunHandler:
   app_name: 'DNA'

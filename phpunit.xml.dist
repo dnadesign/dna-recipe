@@ -19,7 +19,7 @@
 <phpunit bootstrap="framework/tests/bootstrap.php" colors="true">
 
 	<testsuite name="Default">
-		<directory>mysite/tests</directory>
+		<directory>app/tests</directory>
 		<directory>cms/tests</directory>
 		<directory>framework/tests</directory>
 	</testsuite>

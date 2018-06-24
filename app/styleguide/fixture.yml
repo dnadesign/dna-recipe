@@ -1,6 +1,6 @@
 Image:
   demo:
-    URL: 'mysite/images/demo.JPG'
+    URL: 'app/images/demo.JPG'
     Title: 'demo'
     ClassName: Image
 
