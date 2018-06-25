@@ -35,11 +35,11 @@
     },
     "extra": {
         "project-files": [
-            "mysite/_config/*",
-            "mysite/css/*",
-            "mysite/images/*",
-            "mysite/tests/*",
-            "mysite/styleguide/*",
+            "app/_config/*",
+            "app/css/*",
+            "app/images/*",
+            "app/tests/*",
+            "app/styleguide/*",
             "public/*",
             "./.editorconfig",
             "./.env.example",

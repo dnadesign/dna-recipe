@@ -29,3 +29,6 @@ startsolr:
 
 test:
 	@vendor/bin/phpunit
+
+devbuild:
+    @sake dev/build "flush=1"
