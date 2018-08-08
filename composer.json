@@ -38,7 +38,7 @@
             "app/styleguide/*",
             "public/*",
             "./.editorconfig",
-            "./.env.example",
+            "./.example.env",
             "./.gitignore",
             "./.gitlab-ci.yml",
             "./.htaccess",
