@@ -6,7 +6,7 @@ list:
 	@grep "^[^#[:space:]].*:$$" Makefile | sort
 
 setup:
-	@test -f .env || cp .env.example .env
+	@test -f .env || cp .example.env .env
 	@cd theme-default && npm install && $(gulpbin) build
 	@cd ../
 	@composer install && composer vendor-expose
