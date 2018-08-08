@@ -8,7 +8,7 @@
         "silverstripe/recipe-plugin": "^1",
         "silverstripe/recipe-cms": "^1",
         "stevie-mayhew/silverstripe-svg": "^2.1",
-        "benmanu/silverstripe-styleguide": "dev-feature/vendor",
+        "benmanu/silverstripe-styleguide": "0.1.1",
         "dnadesign/silverstripe-dna": "^2.0",
         "jonom/silverstripe-betternavigator": "^4.1",
         "adrexia/standardsediting": "^2.0",
@@ -19,10 +19,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:dnadesign/silverstripe-dna.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:adrexia/silverstripe-styleguide.git"
         },
         {
             "type": "vcs",
