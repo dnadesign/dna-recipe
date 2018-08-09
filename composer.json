@@ -28,6 +28,7 @@
         "project-files": [
             "app/_config/*",
             "app/css/*",
+            "app/src/*",
             "app/images/*",
             "app/tests/*",
             "app/styleguide/*",
