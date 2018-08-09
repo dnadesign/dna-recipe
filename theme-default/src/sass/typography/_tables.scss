@@ -7,7 +7,6 @@ Styleguide 3.5
 */
 
 table {
-	@extend .pure-table !optional;
 	background: $table-bgcolor;
 	border: $table-border-size $table-border-style $table-border-color;
 	border-top: 5px solid $primary-color;
