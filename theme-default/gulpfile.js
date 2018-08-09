@@ -120,7 +120,10 @@ gulp.task('pure', () => {
  */
 gulp.task('make-css', () => {
 	return pump([
-		gulp.src(PATHS.src + 'sass/style.scss'),
+		gulp.src([
+            PATHS.dist + 'css/pure.src.css',
+			PATHS.src + 'sass/style.scss'
+		]),
 		load.sourcemaps.init(),
 		load.sassBulkImport(),
 		load.sass().on('error', swallowError),
@@ -147,7 +150,10 @@ gulp.task('make-css', () => {
  */
 gulp.task('cms-css', () => {
 	return pump([
-		gulp.src(PATHS.src + 'sass/editor.scss'),
+		gulp.src([
+            PATHS.dist + 'css/pure.src.css',
+			PATHS.src + 'sass/editor.scss'
+		]),
 		load.sourcemaps.init(),
 		load.sassBulkImport(),
 		load.sass().on('error', swallowError),
