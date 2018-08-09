@@ -31,4 +31,4 @@ test:
 	@vendor/bin/phpunit
 
 devbuild:
-    @sake dev/build "flush=1"
+	@sake dev/build "flush=1"
