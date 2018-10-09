@@ -199,6 +199,7 @@ gulp.task('makejs:components', () => {
 gulp.task('makejs:npm', () => {
 	return pump([
 		gulp.src([
+            'node_modules/babel-polyfill/dist/polyfill.min.js', // includes polyfill for browser compatibility
 			'node_modules/jquery/dist/jquery.js',
 			'node_modules/slick-carousel/slick/slick.js'
 		]),
@@ -220,7 +221,6 @@ gulp.task('makejs:main', () => {
 
 	return pump([
 		gulp.src([
-			'node_modules/babel-polyfill/dist/polyfill.min.js', // includes polyfill for browser compatibility
 			PATHS.dist + 'js/src/npm-libs.src.js',
 			PATHS.src + 'js/lib/html5shiv-printshiv.js',
 			PATHS.src + 'js/lib/modernizr.min.js',
