@@ -36,8 +36,8 @@ gulp.task('browserSync', (done) => {
 	const path = '../../_npm_environment.json',
 		defaultConfig = {
 			open: 'external',
-			host: project + '.dev', // this can be anything at .dev, or localhost, or...
-			proxy: project + '.dev', // this needs to be your project (localhost, .dev, vagrant domain et al)
+			host: project + '.test', // this can be anything at .dev, or localhost, or...
+			proxy: project + '.test', // this needs to be your project (localhost, .dev, vagrant domain et al)
 			watchTask: true,
 			injectChanges: true
 		};
