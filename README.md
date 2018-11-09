@@ -75,15 +75,14 @@ Note: you can still use Codeship and not deploy to platform.
 ##### Configure Test Pipelines
 1. Create a test pipeline
 2. Call the `make test` command to run all your project's tests
-3. Save your changes
 
 #### Codeship: setup for deployments
 
 ##### Configuration
 Configure your Codeship environment variables under `Project settings > Environment`. You will need:   
-  `AWS_DEFAULT_REGION` - from your bitbucket account. e.g. ap-southeast-2  
-  `AWS_ACCESS_KEY_ID`  - from your bitbucket account.  
-  `AWS_SECRET_ACCESS_KEY`  - from your bitbucket account.  
+  `AWS_DEFAULT_REGION` - from your s3 bucket account. e.g. ap-southeast-2  
+  `AWS_ACCESS_KEY_ID`  - from your s3 bucket account.  
+  `AWS_SECRET_ACCESS_KEY`  - from your s3 bucket account.  
   `DASHBOARD_TOKEN` - You can find this in your profile on the Silverstripe Dashboard  
   `DASHBOARD_USER` - this is the email address you use on the dashboard, and not your username  
 
