@@ -1,3 +1,5 @@
+[ ![Codeship Status for dnadesign/dna-recipe](https://app.codeship.com/projects/abf14460-c604-0136-1ad5-227471ba4a25/status)](https://app.codeship.com/projects/314469)
+
 # Dna Recipe
 
 Includes a collection of useful modules, a starter theme, and the silverstripe [recipe-cms](https://github.com/silverstripe/recipe-cms)
