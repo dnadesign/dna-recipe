@@ -54,13 +54,6 @@
             "theme-default/dist/images",
             "theme-default/dist/js",
             "theme-default/dist/svg"
-        ],
-        "project-files-installed": [
-            "app/_config/mysite.yml",
-            "app/src/Page.php",
-            "app/src/PageController.php"
-        ],
-        "public-files-installed": [
         ]
     },
     "config": {

@@ -25,7 +25,4 @@ Page:
 HomePage:
   icon: "app/images/icons/home.svg"
 
-DNA\DNARaygun\RaygunHandler:
-  app_name: 'DNA'
-
 

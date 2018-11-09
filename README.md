@@ -65,9 +65,10 @@ Note: you can still use Codeship and not deploy to platform.
 `Codeship > Your project > Project settings > Test`
 
 #####  Setup commands
-1. Update the php version to support your project. eg: `phpenv local 7.2`
-2. Adjust any other settings you might need (e.g. you can set memory limits with: `echo "memory_limit = 512M" >> $HOME/.phpenv/versions/7.2/etc/php.ini` )
-3. Call `make pipeline_setuptest` to set up an instance of your project for tests to run inside
+1. Select your technology > select php
+2. Update the php version to support your project. eg: `phpenv local 7.2`
+3. Adjust any other settings you might need (e.g. you can set memory limits with: `echo "memory_limit = 512M" >> $HOME/.phpenv/versions/7.2/etc/php.ini` )
+4. Call `make pipeline_setuptest` to set up an instance of your project for tests to run inside
 
 ##### Configure Test Pipelines
 1. Create a test pipeline
