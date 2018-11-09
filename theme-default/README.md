@@ -1,15 +1,6 @@
 # DNA Recipe default theme  
 
-## Getting started
-_NOTE: assumes you have node setup and gulp installed. If not, you should go do those things first_
-
-Post install:
-
-    cd your-project
-    composer update
-    cd themes-default
-    npm install
-    gulp
+This is a very small theme, intended as a base for highly custom sites. It intentionally does not provide much design out of the box. If your project requires a more fully featured framework, just remove the references to pure.
 
 ## Theme
 The default theme uses:

@@ -1,0 +1,6 @@
+{
+  "name": "DNA Recipe",
+  "engines": {
+    "node": "10.10.0"
+  }
+}

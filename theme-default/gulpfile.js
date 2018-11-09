@@ -6,6 +6,7 @@ const gulp = require('gulp'),
 	rmHover = require('postcss-hover'),
 	inlinesvg = require('postcss-inline-svg'),
 	pump = require('pump'),
+    bulkSass = require('organizze-gulp-sass-bulk-import'),
 	/**
      * Load gulp prefixed plugins from our package.json
      * Plugins can be loaded with: load.name(), rather than just name().
@@ -70,7 +71,7 @@ gulp.task('browserSync', (done) => {
 });
 
 gulp.task('clean', () => {
-	return del([PATHS.dist + 'css/', 'js/']);
+	return del([PATHS.dist]);
 });
 
 /**
@@ -125,7 +126,7 @@ gulp.task('make-css', () => {
 			PATHS.src + 'sass/style.scss'
 		]),
 		load.sourcemaps.init(),
-		load.sassBulkImport(),
+		bulkSass(),
 		load.sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
@@ -155,7 +156,7 @@ gulp.task('cms-css', () => {
 			PATHS.src + 'sass/editor.scss'
 		]),
 		load.sourcemaps.init(),
-		load.sassBulkImport(),
+		bulkSass(),
 		load.sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
