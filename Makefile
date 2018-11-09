@@ -14,7 +14,7 @@ setup: ## Run when first setting up this project
 	@make gulpbuild && cd ../
 	@composer install && composer vendor-expose
 	@sake dev/build "flush=1"
-	@echo "---\n\n\n \033[1;35m 💥   Project built! Don't forget to update your .env file \033[0m \n\n See Makefile for more commands"
+	@echo "---\n\n\n \033[1;35m 💥   Project built! Don't forget to update your .env file. See Makefile for more commands \033[0m \n\n"
 
 startsolr: ## For projects using the fulltextsearch-localsolr module, this will start up the solr server.
 	@cd fulltextsearch-localsolr/server/ && java -jar start.jar &
