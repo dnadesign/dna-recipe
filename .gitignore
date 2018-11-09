@@ -12,14 +12,7 @@
 
 # ignore default modules from composer
 .DS_Store
-/assets/
-/betterbuttons/
-/betternavigator/
-/dna/
-/raygun/
-/signature/
-/standardsediting/
-/styleguide/
-/testsession/
-/resources/
+/public/assets/
+/public/resources/
 node_modules/
+/theme-default/dist
