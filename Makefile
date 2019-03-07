@@ -59,6 +59,7 @@ pipeline_deploy:  ## Pipelines: Preps test build for deploy, & sends a tar file 
 	@rm .env && rm -rf .git && rm -rf ./**/node_modules && rm -rf log/
 	$(eval SRC_DIR := `pwd -P`)
 	$(eval deployTitle = ${CI_COMMIT_MESSAGE})
+	$(eval deployID = ${CI_COMMIT_ID})
 	@cd ../
 	@curl -sS -f https://public.stojg.se/tape/tape_linux_1.4.0 -o $(tape) && chmod +x $(tape)
-	$(tape) --title "$(deployTitle)" $(SRC_DIR) s3://dna-deployments/$(pipeline_project_name)-uat.tgz https://platform.silverstripe.com/naut/project/$(pipeline_project_name)/environment/uat
+	$(tape) --title "$(deployTitle) ($(deployID))" $(SRC_DIR) s3://dna-deployments/$(pipeline_project_name)-$(deployID).tgz https://platform.silverstripe.com/naut/project/$(pipeline_project_name)/environment/uat
