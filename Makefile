@@ -11,7 +11,7 @@ help: ## Get a list of available commands
 
 setup: ## Run when first setting up this project
 	@test -f .env || cp .example.env .env
-    @cd theme-default && npm install
+	@cd theme-default && npm install
 	@make gulpbuild && cd ../
 	@composer install && composer vendor-expose
 	@make devbuild

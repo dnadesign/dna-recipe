@@ -130,7 +130,7 @@ gulp.task('make-css', () => {
 		load.sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
-			autoprefixer({ browsers: ['last 2 versions'] }),
+			autoprefixer(),
 			inlinesvg({
 				path: PATHS.dist + 'svg/'
 			})
@@ -160,7 +160,7 @@ gulp.task('cms-css', () => {
 		load.sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
-			autoprefixer({ browsers: ['last 2 versions'] }),
+			autoprefixer(),
 			inlinesvg({
 				path: PATHS.dist + 'svg/'
 			})
