@@ -17,9 +17,6 @@ setup: ## Run when first setting up this project
 	@make devbuild
 	@echo "---\n\n\n \033[1;35m 💥   Project built! Don't forget to update your .env file. See Makefile for more commands \033[0m \n\n"
 
-startsolr: ## For projects using the fulltextsearch-localsolr module, this will start up the solr server.
-	@cd fulltextsearch-localsolr/server/ && java -jar start.jar &
-
 gulp: ## Start gulp watch on the theme-default folder
 	@cd theme-default && $(gulpbin)
 
@@ -34,6 +31,24 @@ flush: ## Flushes the Silverstripe cache
 
 test: ## Runs all the unit tests for this project
 	@vendor/bin/phpunit
+    
+iconref: ## displays silverstripe's icon library
+	@open vendor/silverstripe/admin/client/src/font/icons-reference.html
+
+
+# Solr helpers
+solr_start: ## For projects using the fulltextsearch-localsolr module, this will start up the solr server.
+	@cd fulltextsearch-localsolr/server/ && java -jar start.jar &
+
+solr_conf: ## Configure the solr indexes after schema changes
+	$(sake) dev/tasks/Solr_Configure verbose=1
+
+solr_reindex: ## Refresh the solr index
+	$(sake) dev/tasks/Solr_Reindex
+
+solr_kill: ## shows command to kill solr
+	@echo "\n\nTo kill solr run: \033[1;35m lsof -i tcp:8983 | awk -F ' ' '{print \$$2}' | grep -v PID | xargs kill \033[0m \n\n"
+
 
 # Testing & Deployment
 # The following commands are used for Codeship -> Dashboard deploys (CWP & Silverstripe Platform)
