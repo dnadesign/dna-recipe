@@ -6,7 +6,7 @@ const gulp = require('gulp'),
 	rmHover = require('postcss-hover'),
 	inlinesvg = require('postcss-inline-svg'),
 	pump = require('pump'),
-    bulkSass = require('organizze-gulp-sass-bulk-import'),
+    bulkSass = require('gulp-sass-glob'),
 	/**
      * Load gulp prefixed plugins from our package.json
      * Plugins can be loaded with: load.name(), rather than just name().
