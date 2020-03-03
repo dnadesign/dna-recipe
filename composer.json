@@ -2,6 +2,7 @@
     "name": "dnadesign/basic-recipe",
     "description": "DNA Basic Recipe metapackage",
     "type": "silverstripe-recipe",
+    "license": "BSD-3-Clause",
     "keywords": [
         "silverstripe",
         "dna",
