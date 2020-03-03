@@ -132,7 +132,9 @@ gulp.task('make-css', () => {
 		load.postcss([
 			autoprefixer(),
 			inlinesvg({
-				path: PATHS.dist + 'svg/'
+				paths: [
+					PATHS.dist + 'svg/'
+				]
 			})
 		]),
 		load.rucksack({
@@ -162,7 +164,9 @@ gulp.task('cms-css', () => {
 		load.postcss([
 			autoprefixer(),
 			inlinesvg({
-				path: PATHS.dist + 'svg/'
+				paths: [
+					PATHS.dist + 'svg/'
+				]
 			})
 		]),
 		load.rucksack({
