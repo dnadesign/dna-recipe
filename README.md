@@ -28,7 +28,7 @@ This will:
 
 To add this recipe to an existing project:
 
-(optional) `composer require dnadesign/basic-recipe ./your-project dev-master`
+(optional) `composer require dnadesign/basic-recipe ./your-project` 
 
 To move the cms recipe dependencies to your own composer file in order to modify them:
 
