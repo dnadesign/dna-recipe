@@ -13,7 +13,7 @@ _NOTE: assumes you have node setup and gulp installed globally. If not, you shou
 ### Install
 To start a project with this recipe use a terminal to run (replace `your-project` with your project's name):
 
-`composer create-project dnadesign/basic-recipe ./your-project dev-master`  
+`composer create-project dnadesign/basic-recipe ./your-project`  
 `cd your-project`   
 `make setup`  
     
