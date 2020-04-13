@@ -62,7 +62,9 @@ gulp.task('browserSync', (done) => {
 				}
 
 				browserSync.init(Object.assign({}, defaultConfig, bsConfig));
-			}
+			} else {
+                browserSync.init(defaultConfig);
+            }
 		});
 	} else {
 		browserSync.init(defaultConfig);
