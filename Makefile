@@ -2,6 +2,7 @@ gulpbin := ./node_modules/gulp/bin/gulp.js
 sake := @vendor/silverstripe/framework/sake
 tape := ../tape
 pipeline_project_name := defaultProject  # swap this out for the name of your project on the SilverStripe Dashboard
+SRC_DIR := `pwd -P`
 
 list: help ## Get a list of available commands
 
@@ -31,10 +32,9 @@ flush: ## Flushes the Silverstripe cache
 
 test: ## Runs all the unit tests for this project
 	@vendor/bin/phpunit
-    
+
 iconref: ## displays silverstripe's icon library
 	@open vendor/silverstripe/admin/client/src/font/icons-reference.html
-
 
 # Solr helpers
 solr_start: ## For projects using the fulltextsearch-localsolr module, this will start up the solr server.
@@ -62,6 +62,14 @@ pipeline_checkenv: ## Pipelines: Check if this project is inside a CodeShip envi
 		exit 1; \
 	fi
 
+pipeline_test: ## Pipelines: Run tests. Tests can be bypassed if the most recent commit contains SKIP_CI
+	$(eval skip := $(findstring SKIP_CI,$(shell echo `git log -1 --pretty='format:%C(auto) %s %b'`)))
+	if test $(skip) = SKIP_CI; then \
+		echo "Skipping tests"; \
+	else \
+		make test; \
+	fi
+
 pipeline_setuptest: ## Pipelines: Set up an environment for tests to run inside
 	@test -f .env || cp .test.env .env
 	@composer install --no-interaction --optimize-autoloader
@@ -69,13 +77,12 @@ pipeline_setuptest: ## Pipelines: Set up an environment for tests to run inside
 	@composer vendor-expose
 	@make devbuild
 
-pipeline_deploy:  ## Pipelines: Preps test build for deploy, & sends a tar file to a silverstripe dashboard (uat by default)
+pipeline_deploy: ## Pipelines: Preps test build for deploy, & sends a tar file to a silverstripe dashboard (uat by default)
 	@make pipeline_checkenv
 	@composer install --no-interaction --no-dev --optimize-autoloader
 	@rm .env && rm -rf .git && rm -rf ./**/node_modules && rm -rf log/
-	$(eval SRC_DIR := `pwd -P`)
-	$(eval deployTitle = ${CI_COMMIT_MESSAGE})
+	$(eval deployTitle := $(shell echo `git log -1 --pretty='format:%C(auto) %s'`))
 	$(eval deployID = ${CI_COMMIT_ID})
 	@cd ../
-	@curl -sS -f https://public.stojg.se/tape/tape_linux_1.4.0 -o $(tape) && chmod +x $(tape)
-	$(tape) --title "$(deployTitle) ($(deployID))" $(SRC_DIR) s3://dna-deployments/$(pipeline_project_name)-$(deployID).tgz https://platform.silverstripe.com/naut/project/$(pipeline_project_name)/environment/uat
+	@curl -sS -L -f https://github.com/stojg/tape/releases/download/1.4.0/tape_linux_1.4.0 -o $(tape) && chmod +x $(tape)
+	$(tape) --title "$(deployTitle) ($(deployID))" $(SRC_DIR) s3://dna-deployments/$(pipeline_project_name)-$(deployID).tgz https://dash.cwp.govt.nz/naut/project/$(pipeline_project_name)/environment/uat

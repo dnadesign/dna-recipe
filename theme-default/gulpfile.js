@@ -1,4 +1,5 @@
 const gulp = require('gulp'),
+    sass = require('gulp-sass')(require('sass')),
 	fs = require('fs'),
 	del = require('del'),
 	autoprefixer = require('autoprefixer'),
@@ -129,7 +130,7 @@ gulp.task('make-css', () => {
 		]),
 		load.sourcemaps.init(),
 		bulkSass(),
-		load.sass().on('error', swallowError),
+		sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
 			autoprefixer(),
@@ -161,7 +162,7 @@ gulp.task('cms-css', () => {
 		]),
 		load.sourcemaps.init(),
 		bulkSass(),
-		load.sass().on('error', swallowError),
+		sass().on('error', swallowError),
 		load.cleanCss({ compatibility: 'ie9' }),
 		load.postcss([
 			autoprefixer(),

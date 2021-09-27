@@ -113,32 +113,32 @@ Styleguide 2.1.4
 				}
 
 				.pure-u#{$mediaPrefix}#{$i}-#{$unit} {
-					width: (100% / $unit) * $i;
+					width: math.div(100%, $unit) * $i;
 				}
 
 				.pure-push#{$mediaPrefix}#{$i}-#{$unit} {
-					left: (100% / $unit) * $i;
+					left: math.div(100%, $unit) * $i;
 				}
 
 				.pure-pull#{$mediaPrefix}#{$i}-#{$unit} {
-					right: (100% / $unit) * $i;
+					right: math.div(100%, $unit) * $i;
 				}
 
 				$gcd: gcd($i, $unit); // get the greatest common diviser
 				@if $gcd > 1 {
-					$numerator: $i / $gcd;
-					$denominator: $unit / $gcd;
+					$numerator: math.div($i, $gcd);
+					$denominator: math.div($unit, $gcd);
 
 					.pure-u#{$mediaPrefix}#{$numerator}-#{$denominator} {
-						width: (100% / $unit) * $i;
+						width: math.div(100%, $unit) * $i;
 					}
 
 					.pure-push#{$mediaPrefix}#{$numerator}-#{$denominator} {
-						left: (100% / $unit) * $i;
+						left: math.div(100%, $unit) * $i;
 					}
 
 					.pure-pull#{$mediaPrefix}#{$numerator}-#{$denominator} {
-						right: (100% / $unit) * $i;
+						right: math.div(100%, $unit) * $i;
 					}
 				}
 			}

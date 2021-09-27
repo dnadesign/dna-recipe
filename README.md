@@ -13,7 +13,7 @@ _NOTE: assumes you have node setup and gulp installed globally. If not, you shou
 ### Install
 To start a project with this recipe use a terminal to run (replace `your-project` with your project's name):
 
-`composer create-project dnadesign/basic-recipe ./your-project`  
+`composer create-project dnadesign/basic-recipe ./your-project`
 `cd your-project`   
 `make setup`  
     
@@ -28,7 +28,7 @@ This will:
 
 To add this recipe to an existing project:
 
-(optional) `composer require dnadesign/basic-recipe ./your-project` 
+(optional) `composer require dnadesign/basic-recipe ./your-project`
 
 To move the cms recipe dependencies to your own composer file in order to modify them:
 
@@ -74,11 +74,16 @@ Note: you can still use Codeship and not deploy to platform.
 
 ##### Configure Test Pipelines
 1. Create a test pipeline
-2. Call the `make test` command to run all your project's tests
+2. Call the `make pipeline_test` command to run all your project's tests
+
+Note: Tests can be bypassed if the most recent commit message contains SKIP_CI. eg:
+``
+    FIX: response.js bug by updating [SKIP_CI]
+```
 
 #### Codeship: setup for deployments
 
-##### Configuration
+##### Configuration`
 Configure your Codeship environment variables under `Project settings > Environment`. You will need:   
   `AWS_DEFAULT_REGION` - from your s3 bucket account. e.g. ap-southeast-2  
   `AWS_ACCESS_KEY_ID`  - from your s3 bucket account.  

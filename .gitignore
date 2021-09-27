@@ -16,3 +16,5 @@
 /public/resources/
 node_modules/
 /theme-default/dist
+.idea/
+
