@@ -83,7 +83,7 @@ Note: Tests can be bypassed if the most recent commit message contains SKIP_CI. 
 
 #### Codeship: setup for deployments
 
-##### Configuration`
+##### Configuration
 Configure your Codeship environment variables under `Project settings > Environment`. You will need:   
   `AWS_DEFAULT_REGION` - from your s3 bucket account. e.g. ap-southeast-2  
   `AWS_ACCESS_KEY_ID`  - from your s3 bucket account.  
