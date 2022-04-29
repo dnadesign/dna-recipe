@@ -77,9 +77,8 @@ Note: you can still use Codeship and not deploy to platform.
 2. Call the `make pipeline_test` command to run all your project's tests
 
 Note: Tests can be bypassed if the most recent commit message contains SKIP_CI. eg:
-``
-    FIX: response.js bug by updating [SKIP_CI]
-```
+     `FIX: response.js bug by updating [SKIP_CI]`
+
 
 #### Codeship: setup for deployments
 
